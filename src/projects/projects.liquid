@@ -1,0 +1,56 @@
+---
+layout: base.liquid
+tags: navbar
+order: 1
+pagination:
+  data: categories
+  size: 1
+  alias: category
+permalink: "projects/{{ category.name | slugify  }}"
+title: Projects
+---
+
+<h1 class="mb-3 text-4xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white">Projects - {{ category.name  }}:</h1>
+<p class="text-gray-500 sm:text-xl dark:text-gray-400 mb-8">An imcomplete list of everything I've done</p>
+
+<section>
+  {% for date in category.dates %}
+    <div class="max-w-screen-md flex my-2 items-center gap-3">
+      <h3 class="text-sm tracking-tight uppercase text-gray-700 dark:text-gray-300 shrink-0">{{ date.date }}</h3>
+      <hr class="h-px bg-gray-300 border-0 dark:bg-gray-600 grow w-full">
+    </div>
+    <div class="flex flex-wrap gap-3 items-start">
+      {% for item in date.projects %}
+        <div class="max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="mb-5">
+            <span class="opacity-75 bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+              <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
+              {{ item.cat  }}
+            </span>
+          </div>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ item.name }}</h5>
+          <p class="font-normal text-gray-700 dark:text-gray-400 mb-5">{{ item.description }}</p>
+          <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Languages used:</p>
+          <div class="flex flex-wrap gap-1 mb-3">
+            {% for lang in item.langs %}
+              <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{{ langs[lang] }}</span>
+            {% endfor %}
+          </div>
+          <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Tools/frameworks utilized:</p>
+          <div class="flex flex-wrap gap-1 mb-3">
+            {% for tool in item.tools %}
+              <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ tool }}</span>
+            {% endfor %}
+          </div>
+          <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Skills acquired:</p>
+          <div class="flex flex-wrap gap-1">
+            {% for skill in item.skills %}
+              <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">{{ skill }}</span>
+            {% endfor %}
+          </div>
+        </div>  
+      {% endfor %}
+      
+    </div>
+  {% endfor %}
+</section>

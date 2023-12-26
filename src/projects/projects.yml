@@ -1,0 +1,529 @@
+---
+networking:
+- name: pfSense setup
+  date: 2023-07
+  tools:
+  - pfSense
+  skills:
+  - VLANs
+  - Networking
+  - Firewalls
+  - Dual boot
+- name: VPNs
+  date: 2023-07
+  skills:
+  - OpenVPN
+  - Wireguard
+  - security
+- name: Travel Router
+  date: 2020-05
+  description: GL AR750
+  skills:
+  - MAC filters
+  - WIFI repeaters
+- name: Cloudflare
+  date: 2023-08
+  skills:
+  - DNS
+  - Transferring domains
+# system administration:
+# - name: Installing windows
+#   date: 2020-11
+#   description: helped a friend
+# - name: pfSense Triple Boot
+#   date: 2023-07
+#   description: "\"difficult\", did it anyway"
+#   skills:
+#   - EFI
+#   - Grub
+#   - Arch Linux
+#   - Partitions
+#   - Boot order
+# - name: Linux
+#   date: 2021-11
+#   description: Installed ubuntu and did stuff
+#   skills:
+#   - Nginx
+#   - systemd
+#   - gitolite
+#   - system administration and hosting
+#   - apt
+#   - bash
+#   - scripts
+# - name: Gitolite
+#   date: 2023-07
+#   skills:
+#   - ssh
+#   - git hosting
+#   - access control
+electronics:
+- name: Piper kit
+  date: 2018-12
+  langs:
+  - python
+  tools:
+  - Raspberry Pi
+  - Linux
+  description: This was my first introduction to electronics and the Raspberry Pi. It was also my first time using a Linux based operating system.
+  skills:
+  - Electronics
+  - GPIO communication
+- name: 37 Sensor kit
+  date: 2020-11
+  description: TODO
+  langs:
+  - c
+  - python
+  tools:
+  - Raspberry Pi
+  - Arduino
+  skills:
+  - electronics
+- name: Arduino
+  date: 2021-11
+  description: TODO
+  langs:
+  - c
+  tools:
+  - Arduino IDE
+  skills:
+  - Electronics
+- name: IR Lights
+  date: 2021-12
+  description: >-
+    A big issue with infrared devices is that if the remote stops
+    working, the entire device essentially becomes useless.
+    Using my Arduino and an IR receiver, I decoded the IR codes for 
+    the overhead lights in my office and set up a replacement for the remote.
+  tools:
+  - Arduino
+  skills:
+  - IR - NEC
+  - IoT
+- name: ESP32
+  date: 2023-11
+  description: I got an esp32c3
+  langs:
+  - c
+  tools:
+  - ESP-IDF
+  skills:
+  - Soldering (various components)
+- name: RFID Smart Tags
+  description: >-
+    I attempted to decode the content of my school "SMART" bus tag
+    using my Arduino and and RFID reader.
+  date: 2022-06
+  langs:
+  - c
+  tools:
+  - Arduino
+  skills:
+  - Soldering
+  - RFID (Mifare Ultralight)
+# presentations:
+# - name: Double S Magic Show
+#   skills:
+#   - powerpoint
+#   - word
+#   - forms
+#   - ev3
+# - name: Unicorns Crash Course
+software:
+- name: Mi Band
+  date: 2023-04
+  description: >-
+    I was concerned about the privacy issues surrounding using the official app
+    for my smartwatch, the Mi Smart Band 4. (The "S" in IOT stands for "secure") I reverse engineered the Bluetooth
+    low energy protocol the watch used, using my phone's BLE log and Wireshark.
+    I created this web application as an open source and secure alternative to
+    the app.
+  langs:
+  - html
+  - css
+  - js
+  tools:
+  - Wireshark
+  - Vue
+  - Tailwind CSS
+  skills:
+  - Bluetooth snooping
+  - Hex data analysis
+  - Bluetooth Low Energy (GATT)
+  - Web Bluetooth API
+- name: Send to Computer
+  cat: web
+  date: 2022-06
+  description: A simple utility which allowed my family and I to instantaneously transfer data between our computers.
+  langs:
+  - html
+  - css
+  - js
+  - node
+  - sql
+  tools:
+  - Nginx
+  - SQLite
+  skills:
+  - websockets
+  - databases
+  - hosting
+# - name: Uniwebsite
+#   date: 2020-10
+#   description: HTML website
+#   skills:
+#   - html
+#   - static sites
+- name: Homework Tracker
+  date: 2022-03
+  cat: web
+  description: >-
+    A web application to organize and track homework. Because this was one of my
+    first "published" applications, I learnt how to package and version applications to be shared with other people.
+  langs:
+  - html
+  - css
+  - js
+  skills:
+  - Progressive Web Apps
+  - Offline support
+- name: Simple Text Editor
+  date: 2022-12
+  cat: web
+  description: >-
+    Chromebooks, which I used at school, didn't have a text editor built in. I created this web application
+    as a replacement, which allowed me to edit files on my Chromebook's filesystem - think Notepad with syntax highlighting.
+  langs:
+  - html
+  - css
+  - js
+  tools:
+  - Codemirror
+  - Parcel
+  - Bulma (UI Framework)
+  skills:
+  - Progressive Web Apps
+  - File System Access API
+  - Indexed DB
+- name: Vocabustudy
+  description: >-
+    I created Vocabustudy as a fast, free, and ad-free alternative to Quizlet, an
+    educational studying platform. It quickly took off as many of my friends
+    (and their friends) started to use it. As this was bigger than any project
+    I had done before, I decided to track the code with Git. I learnt how to use
+    Firebase for storing data, authentication, and hosting.
+  date: 2022-08
+  cat: web
+  langs:
+  - html
+  - css
+  - js
+  - node
+  tools:
+  - Git
+  - Github
+  - Parcel
+  - Material Components Web
+  - Firestore
+  - Firebase Authentication
+  - Google OAuth
+  - Firebase Hosting
+  skills:
+  - Hosting
+  - Google Cloud
+  - Code collaboration (Githun)
+  - Publishing web applications
+- name: Vocabustudy Domain
+  date: 2022-11
+  cat: web
+  description: This was my first domain
+  tools:
+  - Google Domains
+  skills:
+  - DNS
+- name: Vocabustudy (2nd iteration)
+  date: 2023-04
+  cat: web
+  description: I decided to rewrite Vocabustudy in TypeScript due to JavaScript's inherent lack of type safety. Now, almost every JavaScript project I do uses TypeScript.
+  langs:
+  - ts
+- name: Vocabustudy (3rd iteration)
+  date: 2023-12
+  cat: web
+  description: I rewrote Vocabustudy again to be faster, more lightweight, and more user friendly
+  langs:
+  - html
+  - css
+  - ts
+  - node
+  tools:
+  - Vue
+  - Tailwind CSS
+  - Cloudflare Pages
+  - Firebase
+  skills:
+  - Progressive Web Applications
+  - Offline support
+# - name: Open source
+#   date: 2022-11
+#   description: "parcel, definitely typed"
+#   skills:
+#   - github
+#   - pull requests
+# - name: parcel
+#   description: ISA thing
+- name: The Double S Printshop
+  date: 2020-12 
+  cat: web
+  description: This project, like many of the ones I created when I was this young, had no "real" purpose and simply helped me learn how to use Django.
+  langs:
+  - python
+  - sql
+  - html
+  tools:
+  - Django
+  - SQLite
+  skills:
+  - Full stack development
+  - Database management
+- name: Trip Planning
+  date: 2021-05
+  cat: web
+  description: I created this web application to help my family and I track data such as points of interest, gas stations, restaurants, and hotels for our vacations.
+  langs:
+  - python
+  - sql
+  - html
+  - css
+  - js
+  tools:
+  - Flask
+  - SQLite
+  - Nginx
+  skills:
+  - Full stack development
+  - Structuring large websites
+  - Managing geospatial data
+- name: G. Monster
+  date: 2021-11
+  cat: web
+  description: I created this website to help my sister organize and display her "G. Monster" comic strip.
+  langs:
+  - python
+  - sql
+  - html
+  tools:
+  - Django
+  - SQLite
+- name: Jotter
+  date: 2020-12
+  cat: desktop
+  description: This was my first desktop application. It was a simple text editor, like Notepad.
+  langs:
+  - csharp
+  - xml
+  tools:
+  - .NET
+  - winforms
+  - ClickOnce
+  - Visual Studio
+  skills:
+  - Desktop applications
+  - Windows GUIs
+- name: Take a Break
+  date: 2021-06
+  cat: desktop
+  description: I created this application to notify me every 15 minutes to take a break from using the computer.
+  langs:
+  - csharp
+  - xml
+  tools:
+  - .NET
+  - winforms
+  - ClickOnce
+  - Visual Studio
+  skills:
+  - Desktop applications
+  - Windows notifications
+- name: Jotter Notes (v1)
+  date: 2021-06
+  cat: mobile
+  description: This was a simple note-taking application. It was my first mobile app.
+  langs:
+  - csharp
+  - xaml
+  - sql
+  tools:
+  - Xamarin
+  - SQLite
+  - Visual Studio
+  skills:
+  - Android apps
+  - MVVM architecture
+- name: Flood Status (v1)
+  date: 2021-06
+  cat: mobile
+  description: >-
+    This application displayed the status of several low water crossings in my area.
+    The website (https://atxfloods.com) was very slow, so I made this app as a faster
+    and more convenient way of getting exactly the information the user cared about.
+  langs:
+  - csharp
+  - xaml
+  tools:
+  - Xamarin
+  - Visual Studio
+  skills:
+  - HTTP Requests
+  - XML Parsing
+- name: Jotter Notes (v2)
+  cat: mobile
+  date: 2023-11
+  description: I rewrote Jotter Notes using Jetpack Compose.
+  langs:
+  - kotlin
+  - sql
+  tools:
+  - Android Studio
+  - Jetpack Compose
+  - Room (Android DB library)
+  skills:
+  - Android app architecture
+- name: Flood Status (v2)
+  cat: mobile
+  description: >-
+    After making the initial version of Flood Status, I quickly realized that non native solutions
+    like Xamarin were very slow. I rewrote the app using Kotlin and the native Android SDK.
+  date: 2021-07
+  langs:
+  - kotlin
+  - xml
+  tools:
+  - Android Studio
+  skills:
+  - Android app development
+- name: Trip Planning (mobile app)
+  date: 2022-03
+  cat: mobile
+  description: >-
+    I created this app as an extension to my Trip Planning platform in order to allow us to quickly view data from Trip Planning
+    and launch Google Maps with directions to various destinations. I created an Android Auto interface to allow opening directions
+    from within the car itself. During this process, I ended up creating a Google Play Store account due to requirements in Android AUto.
+  langs:
+  - kotlin
+  - xml
+  tools:
+  - Android Studio
+  - Android Auto
+  - Google Play Store
+  skills:
+  - Google Maps integrations
+  - Geospatial data
+- name: Ble File Share
+  date: 2023-11
+  cat: mobile
+  langs:
+  - kotlin
+  tools:
+  - Android Studio
+  - Jetpack Compose
+  skills:
+  - Jetpack Compose development
+  - Kotlin Flows (asynchrony)
+  - Bluetooth Low Energy (GATT)
+- name: Location Share
+  cat: mobile
+  description: >-
+    My family and I needed a way to quickly communicate our geographic locations to each other,
+    even in areas with limited connectivity (cell service). This app provided a way to send the
+    user's current location in a text message in a few taps, and view a location received in a
+    text message in Google Maps.
+  langs:
+  - kotlin
+  tools:
+  - Android Studio
+  - Jetpack Compose
+  skills:
+  - Android sharesheet
+  - Android share intents
+  - Android location APIs
+  date: 2023-11
+extensions:
+- name: Link Sweeper
+  date: 2021-01
+  description: First chrome extension
+  skills:
+  - chrome extension
+  - security
+  - link parsing
+  - html
+- name: Schoology Assignment Checklist
+  date: 2021-03
+  description: "For school, added checklist to schoology"
+  skills:
+  - chrome extension
+  - dealing with bad code
+  - "first \"published\" extension"
+- name: Trip Planning
+  date: 2022-05
+  description: Got gas data from GasBuddy
+  skills:
+  - chrome extension
+  - interop
+  - http
+- name: Quizlet Extension
+  date: 2023-04
+- name: Costco Receipts
+  date: 2022-07
+- name: HEB Coupons
+  date: 2022-08
+- name: Custom Video Speed
+  date: 2022-03
+- name: "Edficiency+"
+  date: 2023-12
+- name: Zipseek
+  date: 2021-05
+# mindstorms:
+# - name: Lego Mindstorms EV3
+#   date: 2017-07
+#   description: First introductions to programming
+# - name: FFL
+#   description: menu system
+#   date: 2018-08
+# - name: Double S Magic shgow
+#   description: gate
+#   date: 2022-07
+c:
+- name: HEB Coupon Sync
+  skills:
+  - win32
+  - c++
+  - parsing json
+  - net requests
+  - cmake
+  date: 2023-07
+- name: Arduino ESP
+- name: Monopoly
+  description: School AP CSP project
+  date: 2023-08
+  skills:
+  - make
+  - visual c++
+  - c++
+  - ncurses
+  - terminal output
+  - git
+  - changing environment
+office addins:
+- name: HSDES Linker
+- name: Link Opener
+  date: 2021-03
+  skills:
+  - user form
+  - visual basic
+  - excel addin
+  - custom ui
+- name: Character Manager
+  date: 2021-03
+  skills:
+  - word addin
