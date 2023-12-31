@@ -6,22 +6,90 @@ pagination:
   data: categories
   size: 1
   alias: category
+  addAllPagesToCollections: true
 permalink: "projects/{{ category.name | slugify  }}"
-title: Projects
+eleventyComputed:
+  title: "{{ category.name  }}"
 ---
 
+<style>
+  #btn-filter-language {
+    anchor-name: --btn-filter-language;
+  }
+
+  #dropdown-filter-language {
+    anchor-default: --btn-filter-language;
+    top: anchor(bottom);
+    left: calc(anchor(center) - 7.5rem);
+  }
+  /* Hide empty project containers */
+  .project-container:not(:has(> :not([hidden]))), .project-date-header:not(:has(+ .project-container > :not([hidden]))) {
+    display: none;
+  }
+</style>
+
 <h1 class="mb-3 text-4xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white">Projects - {{ category.name  }}:</h1>
-<p class="text-gray-500 sm:text-xl dark:text-gray-400 mb-8">An imcomplete list of everything I've done</p>
+<p class="text-gray-500 sm:text-xl dark:text-gray-400 mb-4">An imcomplete list of everything I've done</p>
+<section class="relative max-w-screen-xl w-full bg-white shadow-md dark:bg-gray-800 sm:rounded-lg mb-8">
+
+  <div class="flex flex-col items-center justify-between p-4 gap-3 md:flex-row">
+
+    <form class="w-full md:w-1/2 flex items-center">
+      <label for="search-projects" class="sr-only">Search projects</label>
+      <div class="relative w-full">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd" />
+          </svg>
+        </div>
+        <input type="text" id="search-projects"
+          class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+          placeholder="Search projects...">
+      </div>
+    </form>
+
+    <div
+      class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
+      <div class="flex items-center w-full space-x-3 md:w-auto">
+        <button id="btn-filter-language" type="button" popovertarget="dropdown-filter-language"
+          class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-auto focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+          </svg>
+          <span id="btn-filter-language-text">Language</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="-mr-1 ml-1.5 w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+        <div popover="auto" id="dropdown-filter-language" class="z-10 absolute bg-white rounded-lg shadow w-60 dark:bg-gray-700 m-0 mt-3">
+          <ul class="h-48 py-2 overflow-y-auto text-gray-700 dark:text-gray-200" aria-labelledby="btn-filter-language">
+            {% for lang in category.langs %}
+              <li class="dropdown-filter-language-item flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer" data-lang="{{ lang.lang }}">
+                <img class="w-6 h-6 me-2 rounded-full" src="/docs/images/people/profile-picture-1.jpg">
+                <div>
+                  {{ langs[lang.lang] }}
+                  <p class="text-xs font-normal text-gray-500 dark:text-gray-300">{{ lang.count }} project(s)</p>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section>
   {% for date in category.dates %}
-    <div class="max-w-screen-md flex my-2 items-center gap-3">
-      <h3 class="text-sm tracking-tight uppercase text-gray-700 dark:text-gray-300 shrink-0">{{ date.date }}</h3>
+    <div class="project-date-header max-w-screen-md flex my-2 items-center gap-3">
+      <h2 class="text-sm tracking-tight uppercase text-gray-700 dark:text-gray-300 shrink-0">{{ date.date }}</h2>
       <hr class="h-px bg-gray-300 border-0 dark:bg-gray-600 grow w-full">
     </div>
-    <div class="flex flex-wrap gap-3 items-start">
+    <div class="project-container flex flex-wrap gap-3 items-start">
       {% for item in date.projects %}
-        <div class="max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="project max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <div class="mb-5">
             <span class="opacity-75 bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
               <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
@@ -33,13 +101,13 @@ title: Projects
           <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Languages used:</p>
           <div class="flex flex-wrap gap-1 mb-3">
             {% for lang in item.langs %}
-              <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{{ langs[lang] }}</span>
+              <span class="lang-tag bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 cursor-pointer hover:bg-blue-200 dark:hover:bg-blue-800" data-lang="{{ lang }}">{{ langs[lang] }}</span>
             {% endfor %}
           </div>
           <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Tools/frameworks utilized:</p>
           <div class="flex flex-wrap gap-1 mb-3">
             {% for tool in item.tools %}
-              <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{{ tool }}</span>
+              <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300" data-tool="{{ tool }}">{{ tool }}</span>
             {% endfor %}
           </div>
           <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Skills acquired:</p>
@@ -54,3 +122,29 @@ title: Projects
     </div>
   {% endfor %}
 </section>
+
+<script>
+const dropdownText = document.getElementById("btn-filter-language-text");
+const dropdown = document.getElementById("dropdown-filter-language");
+const langs = {{ langs | json }};
+
+function filterByLanguage(language) {
+  document.querySelectorAll(".project").forEach(el => el.hidden = true);
+  document.querySelectorAll(`.project:has(.lang-tag[data-lang="${language}"])`).forEach(el => el.hidden = false);
+  dropdownText.innerText = langs[language];
+  url.searchParams.set("lang", language);
+  window.history.replaceState(null, "", url.href);
+  dropdown.hidePopover();
+}
+
+const url = new URL(location.href);
+if (url.searchParams.has("lang")) filterByLanguage(url.searchParams.get("lang"));
+
+document.querySelectorAll(".dropdown-filter-language-item").forEach(el => el.addEventListener("click", () => {
+  filterByLanguage(el.dataset.lang);
+}));
+
+document.querySelectorAll(".lang-tag").forEach(el => el.addEventListener("click", () => {
+  filterByLanguage(el.dataset.lang);
+}));
+</script>

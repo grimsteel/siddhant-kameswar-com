@@ -18,7 +18,7 @@ function parseDate(date) {
 }
 
 /**
- * Group the projects by date and sort by date ascending
+ * Group the projects by date and sort by date descending
  * @param {Project[]} projects 
  * @returns {{ month: string, projects: Project[] }[]}
  */
@@ -30,8 +30,8 @@ function groupProjects(projects) {
       acc[cur.date] = [cur];
     }
     return acc;
-  }, /** @type {Record<string, Project[]>}) */ ({}));
-  return Object.entries(grouped).sort((a, b) => a[0].localeCompare(b[0])).map(([date, projects]) => {
+  }, /** @type {Record<string, Project[]>} */ ({}));
+  return Object.entries(grouped).sort((a, b) => b[0].localeCompare(a[0])).map(([date, projects]) => {
     return {
       date: parseDate(date),
       projects
@@ -39,13 +39,31 @@ function groupProjects(projects) {
   });
 }
 
+/**
+ * Get the languages from the projects, sorted by count
+ * @param {Project[]} projects 
+ */
+function getLangs(projects) {
+  return Object.entries(projects.reduce((acc, cur) => {
+    if (!cur.langs) return acc;
+    for (const lang of cur.langs) {
+      if (acc[lang]) {
+        acc[lang]++;
+      } else {
+        acc[lang] = 1;
+      }
+    }
+    return acc;
+  }, /**@type {Record<string, number>} */ ({}))).sort((a, b) => b[1] - a[1]).map(([lang, count]) => ({ lang, count }));
+}
+
 module.exports = async () => {
   const { electronics, software, networking } = yaml.load(await readFile("./src/projects/projects.yml", "utf8"));
 
   const categories =  [
-    { name: "Software", dates: groupProjects(software) },
-    { name: "Electronics", dates: groupProjects(electronics) },
-    { name: "Networking", dates: groupProjects(networking) },
+    { name: "Software", dates: groupProjects(software), langs: getLangs(software) },
+    { name: "Electronics", dates: groupProjects(electronics), langs: getLangs(electronics) },
+    { name: "Networking", dates: groupProjects(networking), langs: getLangs(networking) },
   ];
 
   return {
