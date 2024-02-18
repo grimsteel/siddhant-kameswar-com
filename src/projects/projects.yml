@@ -130,7 +130,7 @@ electronics:
 #   - ev3
 # - name: Unicorns Crash Course
 software:
-- name: Mi Band
+- name: Mi Band 4 Web
   date: 2023-04
   description: >-
     I was concerned about the privacy issues surrounding using the official app
@@ -142,6 +142,7 @@ software:
   - html
   - css
   - js
+  - ts
   tools:
   - Wireshark
   - Vue

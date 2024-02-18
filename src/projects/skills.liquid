@@ -1,0 +1,38 @@
+---
+layout: base.liquid
+tags: navbar
+order: 2
+permalink: "skills"
+title: "Skills"
+---
+
+<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl dark:text-white underline underline-offset-3 decoration-8 decoration-primary-400 dark:decoration-primary-600">Skills:</h1>
+
+
+<div class="max-w-screen-md flex my-2 items-center gap-3">
+  <h2 class="text-3xl font-medium text-gray-700 dark:text-gray-300 tracking-tight shrink-0">Languages</h2>
+  <hr class="h-px bg-gray-300 border-0 dark:bg-gray-600 grow w-full">
+</div>
+
+<ul class="grid w-full gap-6 grid-cols-3 md:grid-cols-5 mb-4">
+  {% for lang in aggregatedLangs %}
+    <a href="/projects/software?lang={{ lang.lang }}"
+      class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+      <div class="block">
+        <img class="mb-2 w-7 h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon@develop/icons/{{ devicons[lang.lang] }}/{{ devicons[lang.lang] }}-plain.svg" />
+        <div class="w-full text-lg font-semibold">{{ langs[lang.lang] }}</div>
+        <div class="w-full text-sm">{{ lang.count }} projects</div>
+      </div>
+    </a>
+  {% endfor %}
+</ul>
+
+<div class="max-w-screen-md flex my-2 items-center gap-3">
+  <h2 class="text-3xl font-medium text-gray-700 dark:text-gray-300 tracking-tight shrink-0">Tools/frameworks</h2>
+  <hr class="h-px bg-gray-300 border-0 dark:bg-gray-600 grow w-full">
+</div>
+
+<div class="max-w-screen-md flex my-2 items-center gap-3">
+  <h2 class="text-3xl font-medium text-gray-700 dark:text-gray-300 tracking-tight shrink-0">Other skills</h2>
+  <hr class="h-px bg-gray-300 border-0 dark:bg-gray-600 grow w-full">
+</div>

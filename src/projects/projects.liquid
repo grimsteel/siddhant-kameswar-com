@@ -28,7 +28,7 @@ eleventyComputed:
   }
 </style>
 
-<h1 class="mb-3 text-4xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white">Projects - {{ category.name  }}:</h1>
+<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl dark:text-white underline underline-offset-3 decoration-8 decoration-primary-400 dark:decoration-primary-600">Projects - {{ category.name  }}:</h1>
 <p class="text-gray-500 sm:text-xl dark:text-gray-400 mb-4">An imcomplete list of everything I've done</p>
 <section class="relative max-w-screen-xl w-full bg-white shadow-md dark:bg-gray-800 sm:rounded-lg mb-8">
 
@@ -67,7 +67,7 @@ eleventyComputed:
           <ul class="h-48 py-2 overflow-y-auto text-gray-700 dark:text-gray-200" aria-labelledby="btn-filter-language">
             {% for lang in category.langs %}
               <li class="dropdown-filter-language-item flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white cursor-pointer" data-lang="{{ lang.lang }}">
-                <img class="w-6 h-6 me-2 rounded-full" src="/docs/images/people/profile-picture-1.jpg">
+                <img class="w-5 h-5 me-2" src="https://cdn.jsdelivr.net/gh/devicons/devicon@develop/icons/{{ devicons[lang.lang] }}/{{ devicons[lang.lang] }}-plain.svg">
                 <div>
                   {{ langs[lang.lang] }}
                   <p class="text-xs font-normal text-gray-500 dark:text-gray-300">{{ lang.count }} project(s)</p>

@@ -66,6 +66,15 @@ module.exports = async () => {
     { name: "Networking", dates: groupProjects(networking), langs: getLangs(networking) },
   ];
 
+  const aggregatedLangs = categories.reduce((acc, { langs: cur }) => {
+    cur.forEach(({ lang, count }) => {
+      const existing = acc.find(el => el.lang === lang);
+      if (existing) existing.count += count;
+      else acc.push({ lang, count });
+    });
+    return acc;
+  }, []).sort((a, b) => b.count - a.count);
+
   return {
     categories,
     // Map of lang code (used in YAML file) to human readable name
@@ -83,6 +92,21 @@ module.exports = async () => {
       sql: "SQL",
       xml: "XML",
       xaml: "XAML"
-    }
+    },
+    devicons: {
+      python: "python",
+      html: "html5",
+      css: "css3",
+      js: "javascript",
+      ts: "typescript",
+      node: "nodejs",
+      kotlin: "kotlin",
+      c: "c",
+      csharp: "csharp",
+      cpp: "cplusplus",
+      sql: "postgresql",
+      xml: "xml"
+    },
+    aggregatedLangs
   };
 }
