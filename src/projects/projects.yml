@@ -20,12 +20,36 @@ networking:
   description: GL AR750
   skills:
   - MAC filters
-  - WIFI repeaters
+  - WiFi repeaters
 - name: Cloudflare
   date: 2023-08
   skills:
   - DNS
   - Transferring domains
+- name: Custom OpenWRT Travel Router
+  date: 2024-01
+  tools:
+  - OpenWRT
+  - Wireguard
+  skills:
+  - Networking
+  - Routers
+  - Firewalls
+  - Wireless standards & hardware
+  description: While our old GL travel router worked, it performed poorly with with a VPN connection. I decided to install OpenWRT (open source router OS) on a much more powerful x86 box I found. I set it up as a travel router (kind of like a wireless repeater) and configured it to connect to my pfSense VPN server for easy remote access while traveling. Although getting a WiFi network to broadcast was difficult at first (the Intel cards that are typically included in computers don't support broadcasting), it was a really fun experience.
+- name: Home Assistant
+  date: 2024-01
+  tools:
+  - Home Assistant
+  - Debian
+  - Mosquitto
+  - Frigate
+  skills:
+  - Home automation
+  - cameras
+  langs:
+  - python
+  description: I set up a Home Assistant instance for local smart home control, and integrated it with a Mosquitto MQTT server. I also set up Frigate, an open source NVR for AI security camera object detection.
 # system administration:
 # - name: Installing windows
 #   date: 2020-11
@@ -121,6 +145,17 @@ electronics:
   skills:
   - Soldering
   - RFID (Mifare Ultralight)
+- name: ESP32 IR Light controller
+  date: 2024-01
+  langs:
+  - c
+  tools:
+  - ESP-IDF
+  - MQTT
+  skills:
+  - IOT networking
+  - IR - NEC
+  description: I decided to remake my Arduino IR Light controller with an ESP32. This time, I didn't use an IR library and wrote the code to encode and decode the NEC protocol manually. I configured the ESP32 to connect via WiFi to an MQTT server to make Home Assistant integration easier.
 # presentations:
 # - name: Double S Magic Show
 #   skills:
