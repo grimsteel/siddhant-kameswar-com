@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,6 +9,9 @@ module.exports = {
       colors: {
         primary: colors.amber,
         gray: colors.zinc
+      },
+      fontFamily: {
+        'sans': ['"Fira Code"', ...defaultTheme.fontFamily.sans]
       }
     },
   },
