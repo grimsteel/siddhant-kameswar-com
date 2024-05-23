@@ -58,7 +58,7 @@ function getLangs(projects) {
 }
 
 module.exports = async () => {
-  const { electronics, software, networking } = yaml.load(await readFile("./src/projects/projects.yml", "utf8"));
+  const { electronics, software, networking } = yaml.load(await readFile("./src/data/projects.yml", "utf8"));
 
   const categories =  [
     { name: "Software", dates: groupProjects(software), langs: getLangs(software) },
@@ -91,7 +91,9 @@ module.exports = async () => {
       cpp: "C++",
       sql: "SQL",
       xml: "XML",
-      xaml: "XAML"
+      vba: "Visual Basic",
+      json: "JSON",
+      rust: "Rust"
     },
     devicons: {
       python: "python",
@@ -105,7 +107,10 @@ module.exports = async () => {
       csharp: "csharp",
       cpp: "cplusplus",
       sql: "postgresql",
-      xml: "xml"
+      xml: "xml",
+      vba: "visualbasic",
+      json: "json",
+      rust: { name: "rust", style: "original" }
     },
     aggregatedLangs
   };

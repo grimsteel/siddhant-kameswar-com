@@ -9,8 +9,12 @@ module.exports = eleventyConfig => {
         autoprefixer()
     ]);
 
+    eleventyConfig.addPassthroughCopy("./src/assets");
+    eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
+
     eleventyConfig.addTemplateFormats("css");
 
+    // Compile our css with tailwind
     eleventyConfig.addExtension("css", {
         outputFileExtension: "css",
         async compile(inputContent, inputPath) {
