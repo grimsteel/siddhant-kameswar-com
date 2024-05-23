@@ -1,5 +1,5 @@
 {
-  "name": "siddhant-kameswar-com",
+  "name": "siddhant.kameswar.com",
   "version": "0.1.0",
   "scripts": {
     "dev": "eleventy --serve",
