@@ -15,6 +15,16 @@ networking:
   - OpenVPN
   - Wireguard
   - security
+- name: Gitolite Server
+  date: 2023-07
+  cat: devops
+  tools:
+  - Gitolite
+  - SSH
+  skills:
+  - Git servers
+  - SSH access control
+  description: I set up a local git server for my internal projects
 - name: Travel Router
   date: 2020-05
   description: GL AR750
@@ -50,6 +60,17 @@ networking:
   langs:
   - python
   description: I set up a Home Assistant instance for local smart home control, and integrated it with a Mosquitto MQTT server. I also set up Frigate, an open source NVR for AI security camera object detection.
+- name: WStunnel + Wireguard
+  date: 2024-04
+  tools:
+  - pfSense
+  - WStunnel
+  skills:
+  - networking
+  - port forwarding
+  description: >-
+    UDP traffic isn't available anywhere, so I set up WStunnel on my router.
+    I learned how to securely forward ports internally as well as how to secure/manage traffic in and out of the firewall.
 # system administration:
 # - name: Installing windows
 #   date: 2020-11
@@ -151,10 +172,11 @@ electronics:
   - c
   tools:
   - ESP-IDF
-  - MQTT
+  - Mosquitto
   skills:
   - IOT networking
   - IR - NEC
+  - MQTT
   description: I decided to remake my Arduino IR Light controller with an ESP32. This time, I didn't use an IR library and wrote the code to encode and decode the NEC protocol manually. I configured the ESP32 to connect via WiFi to an MQTT server to make Home Assistant integration easier.
 # presentations:
 # - name: Double S Magic Show
@@ -165,8 +187,13 @@ electronics:
 #   - ev3
 # - name: Unicorns Crash Course
 software:
+# region Web
 - name: Mi Band 4 Web
   date: 2023-04
+  cat: web
+  links:
+  - https://github.com/grimsteel/miband4-web
+  - https://miband4.web.app
   description: >-
     I was concerned about the privacy issues surrounding using the official app
     for my smartwatch, the Mi Smart Band 4. (The "S" in IOT stands for "secure") I reverse engineered the Bluetooth
@@ -196,6 +223,7 @@ software:
   - css
   - js
   - node
+  - rust
   - sql
   tools:
   - Nginx
@@ -269,6 +297,9 @@ software:
   - Google Cloud
   - Code collaboration (Githun)
   - Publishing web applications
+  links:
+  - https://vocabustudy.org
+  - https://github.com/For-0/vocabustudy
 - name: Vocabustudy Domain
   date: 2022-11
   cat: web
@@ -351,44 +382,28 @@ software:
   tools:
   - Django
   - SQLite
-- name: Jotter
-  date: 2020-12
-  cat: desktop
-  description: This was my first desktop application. It was a simple text editor, like Notepad.
+- name: Fast Cloudflare Pages GH Action
+  date: 2023-12
+  cat: devops
+  description: A really fast Github Action for uploading assets to Cloudflare Pages (faster than the official action, which uses Wrangler)
   langs:
-  - csharp
-  - xml
+  - ts
+  - node
   tools:
-  - .NET
-  - winforms
-  - ClickOnce
-  - Visual Studio
-  skills:
-  - Desktop applications
-  - Windows GUIs
-- name: Take a Break
-  date: 2021-06
-  cat: desktop
-  description: I created this application to notify me every 15 minutes to take a break from using the computer.
-  langs:
-  - csharp
-  - xml
-  tools:
-  - .NET
-  - winforms
-  - ClickOnce
-  - Visual Studio
-  skills:
-  - Desktop applications
-  - Windows notifications
+  - Github Actions
+  - Cloudflare Pages
+# endregion
+
+# region Mobile Apps
+
 - name: Jotter Notes (v1)
   date: 2021-06
   cat: mobile
   description: This was a simple note-taking application. It was my first mobile app.
   langs:
   - csharp
-  - xaml
   - sql
+  - xml
   tools:
   - Xamarin
   - SQLite
@@ -405,7 +420,7 @@ software:
     and more convenient way of getting exactly the information the user cared about.
   langs:
   - csharp
-  - xaml
+  - xml
   tools:
   - Xamarin
   - Visual Studio
@@ -484,82 +499,250 @@ software:
   - Android share intents
   - Android location APIs
   date: 2023-11
-extensions:
-- name: Link Sweeper
-  date: 2021-01
-  description: First chrome extension
+- name: Location Shortcuts
+  cat: mobile
+  description: >-
+    The "recent" shortcuts in Google Maps are unreliable, especially on Android Auto.
+    I made this app to provide a reliable way to quickly open directions to various saved
+    locations.
+  links: 
+  - https://github.com/grimsteel/location-shortcuts
+  date: 2024-04
+  langs:
+  - kotlin
+  - json
+  tools:
+  - Android Studio
+  - Jetpack Compose
   skills:
-  - chrome extension
+  - Android auto
+- name: Link Sweeper
+  cat: extension
+  date: 2021-01
+  description: This was my first Chrome Extension. It removed tracking/malicious parameters from links.
+  langs:
+  - js
+  skills:
   - security
   - link parsing
   - html
+# endregion
+# region Chrome Extensions
 - name: Schoology Assignment Checklist
+  cat: extension
   date: 2021-03
-  description: "For school, added checklist to schoology"
+  description: >-
+    Back in 2021, when we had to do virtual learning, my school districted adopted the Schoology LMS.
+    At that time, Schoology offered no way to view which assignments were completed, so I made this
+    extension for my friends and I.
+  langs:
+  - js
+  - html
   skills:
-  - chrome extension
   - dealing with bad code
   - "first \"published\" extension"
-- name: Trip Planning
+- name: Trip Planning - Gas Stations
   date: 2022-05
-  description: Got gas data from GasBuddy
+  description: A companion extension to Trip Planning which extracted data about gas stations from GasBuddy.
+  cat: extension
+  langs:
+  - js
   skills:
-  - chrome extension
-  - interop
   - http
-- name: Quizlet Extension
+- name: Quizlet to Vocabustudy converter
+  cat: extension
+  description: A companion chrome extension for Vocabustudy that scrapes Quizlet sets 
+  links:
+  - https://github.com/For-0/quizlet-set-converter
+  - https://chromewebstore.google.com/detail/quizlet-to-vocabustudy-se/eghgpfmnjfjhpfiipnpgmpfiggiejgop
   date: 2023-04
 - name: Costco Receipts
+  description: An extension which extracts and archives Costco receipts within a specified time frame
+  cat: extension
+  skills:
+  - http
+  langs:
+  - js
+  - xml
   date: 2022-07
-- name: HEB Coupons
-  date: 2022-08
 - name: Custom Video Speed
   date: 2022-03
+  description: Many embedded videos do not offer controls to change the speed. This extension allowed the user to customize the speed (up to 10x) for almost any video.
+  cat: extension
+  langs:
+  - js
 - name: "Edficiency+"
+  cat: extension
+  langs:
+  - html
+  - js
+  - css
+  skills:
+  - dealing with bad code
+  links:
+  - https://github.com/grimsteel/edficiency-plus
+  - https://chromewebstore.google.com/detail/edficiency+/edfgbcbepiiknachpjkhknnmfgmacfdk
+  description: My high school uses Edficiency for flex time scheduling, so I made this extension to expose more information about flex sessions (and add dark mode to the website).
   date: 2023-12
+- name: User Agent Spoofer
+  langs:
+  - ts
+  cat: extension
+  description: >-
+    I was trying to connect to my school's wifi, but the login page doesn't like Firefox very much.
+    I had to quickly make this web extension to make it think I was using Chrome.
+  links:
+  - https://github.com/grimsteel/user-agent-spoofer
+  - https://addons.mozilla.org/en-US/firefox/addon/advanced-user-agent-spoofer/
+  date: 2024-03
 - name: Zipseek
+  langs:
+  - html
+  - js
+  skills:
+  - web scraping
+  cat: extension
+  description: Extension to aggregate results across zip codes from BrickSeek
   date: 2021-05
-# mindstorms:
-# - name: Lego Mindstorms EV3
-#   date: 2017-07
-#   description: First introductions to programming
-# - name: FFL
-#   description: menu system
-#   date: 2018-08
-# - name: Double S Magic shgow
-#   description: gate
-#   date: 2022-07
-c:
+# endregion
+# region Desktop
 - name: HEB Coupon Sync
+  description: >-
+    A Win32 GUI to sync coupons across HEB accounts. I learned a lot about how windows applications
+    work at a lower level. Because I wasn't using Visual Studio, I had to compile and link the application
+    myself (handling things like embedded resources and external libraries). Later, I switched to CMake
+    to automate some of this.
+  langs:
+  - cpp
+  tools:
+  - cmake
   skills:
   - win32
-  - c++
   - parsing json
   - net requests
-  - cmake
+  cat: desktop gui
   date: 2023-07
-- name: Arduino ESP
-- name: Monopoly
-  description: School AP CSP project
+- name: TUI Monopoly
+  cat: command line
+  description: >-
+    9th grade AP CSP project - I decided to go all-out and make a full terminal Monopoly interface.
+    This was largely my first proper C++ project. I learned a ton about desktop application development.
+    Beacuse the school computers were on Windows, I had to make my program compatible with both Visual C++
+    and gcc.
+
+    Note: The GH repo below is currently private as I don't want to cause any potential "testing integrity" issues.
   date: 2023-08
-  skills:
+  links:
+  - https://github.com/grimsteel/cli-monopoly
+  tools:
+  - git
   - make
   - visual c++
-  - c++
-  - ncurses
-  - terminal output
-  - git
-  - changing environment
-office addins:
-- name: HSDES Linker
-- name: Link Opener
-  date: 2021-03
+  - gcc
   skills:
-  - user form
-  - visual basic
+  - cross compilation
+  - terminal output/modes
+  langs:
+  - cpp
+- name: Jotter
+  date: 2020-12
+  cat: desktop gui
+  description: This was my first desktop application. It was a simple text editor, like Notepad.
+  langs:
+  - csharp
+  - xml
+  tools:
+  - .NET
+  - winforms
+  - ClickOnce
+  - Visual Studio
+  skills:
+  - Desktop applications
+  - Windows GUIs
+- name: Take a Break
+  date: 2021-06
+  cat: desktop gui
+  description: I created this application to notify me every 15 minutes to take a break from using the computer.
+  langs:
+  - csharp
+  - xml
+  tools:
+  - .NET
+  - winforms
+  - ClickOnce
+  - Visual Studio
+  skills:
+  - Desktop applications
+  - Windows notifications
+- name: CSP Robot Emulator
+  cat: command line
+  date: 2024-01
+  description: >-
+    An (in-progress) compiler and interpreter for the AP CSP Pseudocode language.
+    I wrote this using no external libraries, so I essentially had to write the
+    lexer and parser myself, based on the excellent book _Crafting Interpreters_.
+  links:
+  - https://github.com/grimsteel/csp-robot-emulator
+  langs:
+  - c
+  tools:
+  - gcc
+  - make
+- name: TUI Snake
+  cat: command line
+  date: 2024-03
+  description: >-
+    I was bored so I wrote a simple TUI for snake in ansi C. I learnt how to implement
+    common data structures like queues and dynamically sized lists myself.
+  langs:
+  - c
+  tools:
+  - gcc
+  - make
+  skills:
+  - lower level data structures
+  - multithreading
+  links:
+  - https://github.com/grimsteel/totp-cli
+- name: TOTP CLI
+  cat: command line
+  date: 2024-03
+  description: >-
+    A fast command line interface for generating TOTP 2-factor authentication codes.
+    I stored secret data in the D-Bus secret service.
+  tools:
+  - D-Bus
+  skills:
+  - time-based one time passwords (TOTP)
+  - secret service
+  langs:
+  - rust
+  links:
+  - https://github.com/grimsteel/totp-cli
+- name: Pass NetworkManager agent
+  cat: command line
+  date: 2024-05
+  description: >-
+    The Linux NetworkManager has support for custom secret agents, which securely store network secrets, like passwords and keys.
+    I created this so that I could store my network secrets in pass, the "Standard Unix Password Manager".
+  tools:
+  - D-Bus
+  - NetworkManager
+  langs:
+  - rust
+  links:
+  - https://github.com/grimsteel/totp-cli
+# endregion
+
+# region other
+- name: Excel Link Opener
+  description: A small utility to open large amounts of links in spreadsheets
+  date: 2021-03
+  cat: office addin
+  langs:
+  - vba
+  skills:
+  - user forms
   - excel addin
   - custom ui
-- name: Character Manager
-  date: 2021-03
-  skills:
-  - word addin
+# endregion
