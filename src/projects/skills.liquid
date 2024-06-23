@@ -36,6 +36,31 @@ title: "Skills"
   <h2 class="text-3xl font-medium text-gray-700 dark:text-gray-300 tracking-tight shrink-0">Tools/frameworks</h2>
   <hr class="h-px bg-gray-300 border-0 dark:bg-gray-600 grow w-full">
 </div>
+{% for item in skills %}
+  <div class=" max-w-screen-md flex my-2 items-center gap-3">
+    <h2 class="text-sm tracking-tight uppercase text-gray-700 dark:text-gray-300 shrink-0">{{ item[0] }}</h2>
+    <hr class="h-px bg-gray-300 border-0 dark:bg-gray-600 grow w-full">
+  </div>
+  <div class="grid w-full gap-6 grid-cols-3 md:grid-cols-5 mb-4">
+    {% for skill in item[1] %}
+      <div
+          class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <div class="block">
+          {% if skill.icon %}
+            {% assign httpArray = skill.icon | split:"http" %}
+            {% if httpArray[0] == "" %}
+              <img class="mb-2 w-7 h-7" src="{{ skill.icon }}" />
+            {% else %}
+              <img class="mb-2 w-7 h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon@develop/icons/{{ skill.icon }}/{{ skill.icon }}-original.svg" />
+            {% endif %}
+          {% endif  %}
+          <div class="w-full text-lg font-semibold">{{ skill.name }}</div>
+          
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endfor  %}
 
 <div class="max-w-screen-md flex my-2 items-center gap-3">
   <h2 class="text-3xl font-medium text-gray-700 dark:text-gray-300 tracking-tight shrink-0">Other skills</h2>

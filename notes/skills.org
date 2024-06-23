@@ -1,0 +1,23 @@
+* Skills
+
++ website - html development  
++ android apps - kotlin
+  "I've built apps for both android phones and the car through android auto"
++ android auto apps
++ fullstack development
+
++ network setup administation
+
++ system administration
+
++ MS office addins development
+
++ Firefox/Chromium extensions development
+
++ electronics
+
+
+** Tools
+
+*** Websites
+

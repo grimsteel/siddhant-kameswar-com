@@ -1,0 +1,71 @@
+web development:
+  - name: Parcel
+    icon: https://parceljs.org/favicon.fe6f9d11.ico
+  - name: Vite
+    icon: vitejs
+  - name: Vue
+    icon: vuejs
+  - name: Svelte
+    icon: svelte
+  - name: Typescript
+    icon: typescript
+  - name: ESBuild
+    icon: https://esbuild.github.io/favicon.svg
+  - name: Node.JS
+    icon: nodejs
+  - name: NPM
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg
+  - name: Deno
+    icon: denojs
+  - name: Cloudflare Workers/Pages
+    icon: cloudflareworkers
+  - name: Firebase
+    icon: firebase
+  - name: Tailwind CSS
+    icon: tailwindcss
+  - name: Selenium (Testing)
+    icon: selenium
+  - name: Progressive Web Apps
+    icon: https://upload.wikimedia.org/wikipedia/commons/d/d5/Progressive_Web_Apps_Logo.svg
+  - name: Responsive/Mobile First Design
+general:
+  - name: Git
+    icon: git
+  - name: GitHub
+    icon: github
+  - name: Gitpod
+    icon: gitpod
+  - name: SSH
+  - name: Emacs
+    icon: emacs
+  - name: Vim
+    icon: vim
+  - name: Visual Studio
+    icon: visualstudio
+  - name: VS Code
+    icon: vscode
+  - name: Docker
+    icon: docker
+backend:
+  - name: Postgres
+    icon: postgresql
+  - name: MySQL
+    icon: mysql
+  - name: Django
+    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg
+  - name: Flask
+    icon: flask
+  - name: Nginx
+    icon: nginx
+android apps:
+  - name: Android Studio
+    icon: androidstudio
+  - name: Android Auto
+desktop/console apps:
+  - name: Win32
+    icon: windows11
+  - name: ncurses
+  - name: GTK
+  - name: CMake
+    icon: cmake
+  - name: Make
