@@ -1,9 +1,10 @@
 ---
-networking:
+network administration:
 - name: pfSense setup
   date: 2023-07
   tools:
   - pfSense
+  description: I replaced our router and firewall with a custom one based on pfSense for the optimal network security and speed.
   skills:
   - VLANs
   - Networking
@@ -11,13 +12,13 @@ networking:
   - Dual boot
 - name: VPNs
   date: 2023-07
+  description: I set up Wireguard and OpenVPN VPN servers for external access to the network
   skills:
   - OpenVPN
   - Wireguard
   - security
 - name: Gitolite Server
   date: 2023-07
-  cat: devops
   tools:
   - Gitolite
   - SSH
@@ -71,37 +72,58 @@ networking:
   description: >-
     UDP traffic isn't available anywhere, so I set up WStunnel on my router.
     I learned how to securely forward ports internally as well as how to secure/manage traffic in and out of the firewall.
-# system administration:
-# - name: Installing windows
-#   date: 2020-11
-#   description: helped a friend
-# - name: pfSense Triple Boot
-#   date: 2023-07
-#   description: "\"difficult\", did it anyway"
-#   skills:
-#   - EFI
-#   - Grub
-#   - Arch Linux
-#   - Partitions
-#   - Boot order
-# - name: Linux
-#   date: 2021-11
-#   description: Installed ubuntu and did stuff
-#   skills:
-#   - Nginx
-#   - systemd
-#   - gitolite
-#   - system administration and hosting
-#   - apt
-#   - bash
-#   - scripts
-# - name: Gitolite
-#   date: 2023-07
-#   skills:
-#   - ssh
-#   - git hosting
-#   - access control
-electronics:
+- name: Fresh Tomato Access Point
+  date: 2024-06
+  tools:
+  - Fresh Tomato
+  skills:
+  - networking
+  - vlans
+  - flashing
+  description: >-
+    I flashed FreshTomato onto an RT-AC68U access point for better VLAN isolation in the network.
+    I configured VLAN forwarding with multiple SSIDs for the optimal network security.
+system administration:
+- name: Matrix instance
+  date: 2024-01
+  description: I configured a Conduit Matrix instance for my family along with P2P video conferencing.
+  tools:
+  - conduit
+  - sqlite
+  - element
+  skills:
+  - access control
+  - WebRTC
+  - TURN
+  - STUN
+- name: Installing Windows
+  date: 2020-11
+  description: I've done many clean installs of Windows
+- name: pfSense Triple Boot
+  date: 2023-07
+  description: I triple booted a backup pfSense instance with Arch Linux and Windows 
+  skills:
+  - EFI
+  - Grub
+  - Arch Linux
+  - Partitions
+  - Boot order
+- name: Unix system setup
+  date: 2023-11
+  description: I've installed and set up Linux systems a number of times
+  skills:
+  - arch linux
+  - debian linux
+  - ubuntu linux
+  - freebsd (pfSense)
+- name: Gitolite
+  description: I set up a local git server
+  date: 2023-07
+  skills:
+  - ssh
+  - git hosting
+  - access control
+electronics and iOT:
 - name: Piper kit
   date: 2018-12
   langs:
@@ -178,16 +200,58 @@ electronics:
   - IR - NEC
   - MQTT
   description: I decided to remake my Arduino IR Light controller with an ESP32. This time, I didn't use an IR library and wrote the code to encode and decode the NEC protocol manually. I configured the ESP32 to connect via WiFi to an MQTT server to make Home Assistant integration easier.
-# presentations:
-# - name: Double S Magic Show
-#   skills:
-#   - powerpoint
-#   - word
-#   - forms
-#   - ev3
-# - name: Unicorns Crash Course
-software:
-# region Web
+website development:
+- name: This Website
+  date: 2024-06
+  links:
+  - /
+  - https://github.com/grimsteel/siddhant-kameswar-com
+  langs:
+  - liquid
+  - html
+  - css
+  - node
+  tools:
+  - 11ty
+  skills:
+  - data generation
+  description: Most of this website is generated automatically from data files describing my projects and skills. This makes it very easy to maintain and edit. The website is powered by 11ty, making it very fast with minimal client side JavaScript. It uses Tailwind CSS for styling and Liquid for the frontend templates.
+- name: Pollerr
+  date: 2024-04
+  links:
+  - https://pollerr.pages.dev
+  langs:
+  - html
+  - css
+  - ts
+  skills:
+  - group work
+  tools:
+  - svelte
+  - git
+  description: A monetized polling website that aims to supply corporations with valuable statistics through incentives for their user base.
+- name: Activate Your Truth and Power
+  date: 2023-05
+  links:
+  - https://activateyourtruthandpower.com
+  langs:
+  - html
+  - css
+  - js
+  - ts
+  - rust
+  - sass
+  - liquid
+  skills:
+  - Containerization
+  - Visual block editors
+  tools:
+  - docker
+  - esbuild
+  - nginx
+  - eleventy
+  - cloudflare workers
+  description: I rebuilt my mother's website using 11ty and developed a comprehensive editor for her to use. I created my own block editor to replicate Wordpress's format.
 - name: Mi Band 4 Web
   date: 2023-04
   cat: web
@@ -217,7 +281,7 @@ software:
 - name: Send to Computer
   cat: web
   date: 2022-06
-  description: A simple utility which allowed my family and I to instantaneously transfer data between our computers.
+  description: A simple messaging application which allowed my family and I to instantaneously transfer data between our computers.
   langs:
   - html
   - css
@@ -300,14 +364,6 @@ software:
   links:
   - https://vocabustudy.org
   - https://github.com/For-0/vocabustudy
-- name: Vocabustudy Domain
-  date: 2022-11
-  cat: web
-  description: This was my first domain
-  tools:
-  - Google Domains
-  skills:
-  - DNS
 - name: Vocabustudy (2nd iteration)
   date: 2023-04
   cat: web
@@ -382,9 +438,9 @@ software:
   tools:
   - Django
   - SQLite
+devops and cI:
 - name: Fast Cloudflare Pages GH Action
   date: 2023-12
-  cat: devops
   description: A really fast Github Action for uploading assets to Cloudflare Pages (faster than the official action, which uses Wrangler)
   langs:
   - ts
@@ -392,10 +448,15 @@ software:
   tools:
   - Github Actions
   - Cloudflare Pages
-# endregion
-
-# region Mobile Apps
-
+- name: Vocabustudy Domain
+  date: 2022-11
+  cat: web
+  description: This was my first domain
+  tools:
+  - Google Domains
+  skills:
+  - DNS
+android app development:
 - name: Jotter Notes (v1)
   date: 2021-06
   cat: mobile
@@ -526,8 +587,7 @@ software:
   - security
   - link parsing
   - html
-# endregion
-# region Chrome Extensions
+browser extension development:
 - name: Schoology Assignment Checklist
   cat: extension
   date: 2021-03
@@ -604,8 +664,7 @@ software:
   cat: extension
   description: Extension to aggregate results across zip codes from BrickSeek
   date: 2021-05
-# endregion
-# region Desktop
+desktop app development:
 - name: HEB Coupon Sync
   description: >-
     A Win32 GUI to sync coupons across HEB accounts. I learned a lot about how windows applications
@@ -732,9 +791,7 @@ software:
   - rust
   links:
   - https://github.com/grimsteel/totp-cli
-# endregion
-
-# region other
+office addins:
 - name: Excel Link Opener
   description: A small utility to open large amounts of links in spreadsheets
   date: 2021-03
@@ -745,4 +802,3 @@ software:
   - user forms
   - excel addin
   - custom ui
-# endregion
