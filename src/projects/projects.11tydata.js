@@ -57,14 +57,21 @@ function getLangs(projects) {
   }, /**@type {Record<string, number>} */ ({}))).sort((a, b) => b[1] - a[1]).map(([lang, count]) => ({ lang, count }));
 }
 
-module.exports = async () => {
-  const { electronics, software, networking } = yaml.load(await readFile("./src/data/projects.yml", "utf8"));
+function capitalize(string) {
+  return string.split(" ").map(el => el[0].toUpperCase() + el.substring(1)).join(" ");
+}
 
-  const categories =  [
-    { name: "Software", dates: groupProjects(software), langs: getLangs(software) },
-    { name: "Electronics", dates: groupProjects(electronics), langs: getLangs(electronics) },
-    { name: "Networking", dates: groupProjects(networking), langs: getLangs(networking) },
-  ];
+module.exports = async () => {
+  const items = yaml.load(await readFile("./src/data/projects.yml", "utf8"));
+  const skills = yaml.load(await readFile("./src/data/skills.yml", "utf8"));
+
+  const categories = Object.entries(items).map(([name, projects]) => ({ name: capitalize(name), dates: groupProjects(projects), langs: getLangs(projects), count: projects.length }));
+
+  // const categories =  [
+  //   { name: "Software", dates: groupProjects(software), langs: getLangs(software) },
+  //   { name: "Electronics", dates: groupProjects(electronics), langs: getLangs(electronics) },
+  //   { name: "Networking", dates: groupProjects(networking), langs: getLangs(networking) },
+  // ];
 
   const aggregatedLangs = categories.reduce((acc, { langs: cur }) => {
     cur.forEach(({ lang, count }) => {
@@ -93,7 +100,9 @@ module.exports = async () => {
       xml: "XML",
       vba: "Visual Basic",
       json: "JSON",
-      rust: "Rust"
+      rust: "Rust",
+      liquid: "Liquid",
+      sass: "SASS"
     },
     devicons: {
       python: "python",
@@ -110,8 +119,11 @@ module.exports = async () => {
       xml: "xml",
       vba: "visualbasic",
       json: "json",
+      liquid: "html",
+      sass: "sass",
       rust: { name: "rust", style: "original" }
     },
-    aggregatedLangs
+    aggregatedLangs,
+    skills
   };
 }
