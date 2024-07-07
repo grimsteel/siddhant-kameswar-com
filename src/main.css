@@ -11,3 +11,75 @@
   font-style: normal;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+/* ===== NAVBAR ANIMATIONS ===== */
+@keyframes add-navbar-backdrop {
+  to {
+    @apply backdrop-blur bg-orange-100/60 border-gray-900/10;
+  }
+}
+@keyframes add-navbar-backdrop-dark {
+  to {
+    @apply backdrop-blur bg-primary-900/40 border-gray-50/[0.06];
+  }
+}
+@keyframes add-navbar-padding {
+  50% {
+    @apply p-4 lg:px-8;
+  }
+  100% {
+    @apply max-w-screen-xl p-4 lg:px-8;
+  }
+}
+
+@supports (not (animation-timeline: scroll())) and (backdrop-filter: blur(8px))  {
+  nav.navbar {
+    @apply backdrop-blur bg-orange-100/60 dark:bg-primary-900/40 border-gray-900/10 dark:border-gray-50/[0.06];
+  }
+  nav.navbar > div {
+    @apply p-4 lg:px-8 max-w-screen-xl;
+  }
+}
+
+@supports (animation-timeline: scroll()) and (backdrop-filter: blur(8px)) {
+  nav.navbar {
+    animation: add-navbar-backdrop linear both;
+    animation-timeline: scroll();
+    animation-range: 0 64px;
+  }
+  @media (prefers-color-scheme: dark) {
+    nav.navbar {
+      animation-name: add-navbar-backdrop-dark;
+    }
+  }
+  nav.navbar > div {
+    animation: add-navbar-padding linear both;
+    animation-timeline: scroll();
+    animation-range: 0 128px;
+  }
+}
+
+/* ===== VIEW-TIMELINE-IN-OUT */
+@keyframes enter-exit {
+	entry 0%  {
+		opacity: 0; transform: translateY(100%);
+	}
+	entry 100%  {
+		opacity: 1; transform: translateY(0);
+	}
+
+	exit 0% {
+		opacity: 1; transform: translateY(0);
+	}
+	exit 100% {
+		opacity: 0; transform: translateY(-100%);
+	}
+}
+
+@supports (animation-timeline: view()) {
+  .animate-enter-exit {
+    animation: linear enter-exit;
+    animation-timeline: view();
+  }
+}
+
