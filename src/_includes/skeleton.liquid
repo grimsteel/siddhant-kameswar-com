@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" class="min-h-full">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="{% if title %}{{ title }} - {% endif %}Siddhant Kameswar" />
+    {% if description %}
+      <meta name="description" content="{{ description }}" />
+    {% endif %}
+    <title>
+        {% if title %}
+        {{ title }} -
+        {% endif %}
+        Siddhant Kameswar
+    </title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  {{ content  }}
+</html>

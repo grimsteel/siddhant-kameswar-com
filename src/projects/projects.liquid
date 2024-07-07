@@ -41,9 +41,9 @@ eleventyComputed:
   { display: none; }
 </style>
 
-<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl dark:text-white underline underline-offset-3 decoration-8 decoration-primary-400 dark:decoration-primary-600">Projects - {{ category.name  }}:</h1>
+<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl dark:text-white underline underline-offset-3 decoration-8 decoration-primary-400 dark:decoration-primary-600">{{ category.name  }}:</h1>
 <p class="text-gray-500 sm:text-xl dark:text-gray-400 mb-4">An incomplete list of everything I've done</p>
-<section class="relative max-w-screen-xl w-full bg-white shadow-md dark:bg-gray-800 rounded-lg mb-8">
+<section class="relative max-w-screen-xl w-full bg-gray-50/50 shadow-md dark:bg-gray-800 rounded-lg mb-8">
 
   <div class="flex flex-col items-center justify-between p-4 gap-3 md:flex-row">
 
@@ -59,7 +59,7 @@ eleventyComputed:
           </svg>
         </div>
         <input type="search" id="search-projects"
-          class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+          class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
           placeholder="Search projects...">
       </div>
     </form>
@@ -70,7 +70,7 @@ eleventyComputed:
       <div class="flex items-center w-full space-x-3 md:w-auto">
         <!-- trigger button -->
         <button id="btn-filter-language" type="button" popovertarget="dropdown-filter-language"
-          class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg md:w-auto focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+          class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-200 rounded-lg md:w-auto focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2 text-gray-400">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
           </svg>
@@ -117,7 +117,7 @@ eleventyComputed:
       </div>
       <div class="project-container flex flex-wrap gap-3 items-start break-inside-avoid-column">
         {% for item in date.projects %}
-          <div class="project max-w-lg p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="project max-w-lg p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800/75 dark:border-gray-700">
             {% if item.cat %}
               <div class="mb-5">
                 <span class="opacity-75 bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
@@ -138,7 +138,7 @@ eleventyComputed:
               </div>
             {% endif %}
 
-            {% if iitem.tools.size > 0 %}
+            {% if item.tools.size > 0 %}
               <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Tools/frameworks utilized:</p>
               <div class="flex flex-wrap gap-1 mb-3">
                 {% for tool in item.tools %}
@@ -151,7 +151,7 @@ eleventyComputed:
               <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Skills acquired:</p>
               <div class="flex flex-wrap gap-1 mb-3">
                 {% for skill in item.skills %}
-                  <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">{{ skill }}</span>
+                  <span class="bg-gray-200 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">{{ skill }}</span>
                   {% endfor %}
               </div>
             {% endif %}

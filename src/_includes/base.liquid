@@ -1,79 +1,48 @@
-<!DOCTYPE html>
-<html lang="en" class="min-h-full">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="{% if title %}{{ title }} - {% endif %}Siddhant Kameswar" />
-    {% if description %}
-      <meta name="description" content="{{ description }}" />
-    {% endif %}
-    <title>
-      {% if title %}
-        {{ title }} -
-      {% endif %}
-      Siddhant Kameswar
-    </title>
-    <link rel="stylesheet" href="/main.css" />
-  </head>
-  <body class="bg-white dark:bg-gray-900 min-h-full">
-    <!-- background image -->
-    <div class="fixed w-screen h-screen inset-0 -z-10" id="bg-image">
-      <img src="/assets/backdrop-gradient-light.svg" class="dark:hidden min-w-full min-h-full max-w-[unset]" />
-      <img src="/assets/backdrop-gradient.svg" class="hidden dark:inline min-w-full min-h-full max-w-[unset]" />
-    </div>
+---
+layout: skeleton.liquid
+---
+<body class="bg-white dark:bg-black bg-gradient-to-r dark:from-red-950/50 dark:via-orange-950 dark:to-red-950/50 min-h-full from-red-100/50 via-orange-100 to-red-100/50">
 
-    <header class="inline">
-      <nav class="z-50 sticky top-3 bg-white/95 backdrop-blur dark:bg-transparent supports-[backdrop-filter]:bg-primary-100/60 dark:supports-[backdrop-filter]:bg-primary-950/40 border-gray-900/10 dark:border-gray-50/[0.06] border mt-3 mb-6 mx-3 rounded-lg">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 lg:px-8">
-          <!-- left side of navbar - my name-->
-          <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse text-2xl font-semibold dark:text-white">Siddhant Kameswar</a>
-          <button type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-          </button>
-          <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <!-- pages -->
-            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
-              {%- for navbarPage in collections.navbarSorted -%}
-                <li>
-                  <a
+  <header class="inline">
+    <nav class="z-50 sticky top-3 bg-transparent border border-transparent mt-3 mb-6 mx-3 rounded-lg navbar">
+      <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-2">
+        <!-- left side of navbar - my name-->
+        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse text-2xl font-semibold dark:text-white">Siddhant Kameswar</a>
+        <button type="button" id="navbar-toggle" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <!-- pages -->
+          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50/50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800/50 md:dark:bg-transparent dark:border-gray-700">
+            {%- for navbarPage in collections.navbarSorted -%}
+              <li>
+                <a
                     href="{{ navbarPage.url }}" {% if page.url == navbarPage.url %}aria-current="page"{% endif %}
                     class="block py-2 px-3 rounded md:p-0 dark:text-white {% if page.url == navbarPage.url %}text-white bg-primary-500 md:bg-transparent md:text-primary-700 md:dark:text-primary-500{% else %}text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-600 md:dark:hover:text-primary-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent{% endif %}"
-                  >
-                    {{ navbarPage.data.title }}
-                  </a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
+                >
+                  {{ navbarPage.data.title }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
         </div>
-      </nav>
-    </header>
-    <main class="px-4 mb-3">
-      {{ content }}
-    </main>
-    
-    <footer class="bg-primary-100/60 rounded-lg shadow m-4 dark:bg-primary-950/40">
-      <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 Siddhant Kameswar</span>
-        <!-- <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"> -->
-        <!--   <li> -->
-        <!--     <a href="#" class="hover:underline me-4 md:me-6">About</a> -->
-        <!--   </li> -->
-        <!--   <li> -->
-        <!--     <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a> -->
-        <!--   </li> -->
-        <!--   <li> -->
-        <!--     <a href="#" class="hover:underline me-4 md:me-6">Licensing</a> -->
-        <!--   </li> -->
-        <!--   <li> -->
-        <!--     <a href="#" class="hover:underline">Contact</a> -->
-        <!--   </li> -->
-        <!-- </ul> -->
       </div>
-    </footer>
-
-  </body>
-</html>
+    </nav>
+  </header>
+  <main class="px-4 mb-3">
+    {{ content }}
+  </main>
+  
+  <footer
+      class="rounded-lg shadow m-4 bg-white/95 backdrop-blur dark:bg-transparent supports-[backdrop-filter]:bg-orange-100/60 dark:supports-[backdrop-filter]:bg-primary-900/40 border-gray-900/10 dark:border-gray-50/[0.06] border">
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-200">© 2024 Siddhant Kameswar</span>
+    </div>
+  </footer>
+  <script>
+   document.getElementById("navbar-toggle").addEventListener("click", () => document.getElementById("navbar-default").classList.toggle("hidden"));
+  </script>
+</body>
