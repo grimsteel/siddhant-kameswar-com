@@ -17,7 +17,7 @@ title: "Skills"
 <ul class="grid w-full gap-6 grid-cols-1 sm:grid-cols-3 xl:grid-cols-5 mb-4">
   {% for lang in aggregatedLangs %}
     <a href="/projects/software?lang={{ lang.lang }}"
-      class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white/50 border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800/50 dark:hover:bg-gray-700">
+      class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-gray-50/50 border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800/50 dark:hover:bg-gray-700">
       <div class="block">
         {% assign devicon = devicons[lang.lang] %}
         {% if devicon.style %}
