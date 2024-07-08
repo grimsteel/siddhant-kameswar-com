@@ -1,3 +1,21 @@
+general:
+  - name: Git
+    icon: git
+  - name: GitHub
+    icon: github
+  - name: Gitpod
+    icon: gitpod
+  - name: SSH
+  - name: Emacs
+    icon: emacs
+  - name: Vim
+    icon: vim
+  - name: Visual Studio
+    icon: visualstudio
+  - name: VS Code
+    icon: vscode
+  - name: Docker
+    icon: docker
 web development:
   - name: Parcel
     icon: https://parceljs.org/favicon.fe6f9d11.ico
@@ -28,24 +46,6 @@ web development:
   - name: Progressive Web Apps
     icon: https://upload.wikimedia.org/wikipedia/commons/d/d5/Progressive_Web_Apps_Logo.svg
   - name: Responsive/Mobile First Design
-general:
-  - name: Git
-    icon: git
-  - name: GitHub
-    icon: github
-  - name: Gitpod
-    icon: gitpod
-  - name: SSH
-  - name: Emacs
-    icon: emacs
-  - name: Vim
-    icon: vim
-  - name: Visual Studio
-    icon: visualstudio
-  - name: VS Code
-    icon: vscode
-  - name: Docker
-    icon: docker
 backend:
   - name: Postgres
     icon: postgresql

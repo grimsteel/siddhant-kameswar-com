@@ -66,6 +66,7 @@ module.exports = async () => {
   const skills = yaml.load(await readFile("./src/data/skills.yml", "utf8"));
 
   const categories = Object.entries(items).map(([name, projects]) => ({ name: capitalize(name), dates: groupProjects(projects), langs: getLangs(projects), count: projects.length }));
+  categories.sort((a, b) => (b.count - a.count) || a.name.localeCompare(b.name));
 
   // const categories =  [
   //   { name: "Software", dates: groupProjects(software), langs: getLangs(software) },

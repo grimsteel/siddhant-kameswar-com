@@ -123,6 +123,18 @@ system administration:
   - ssh
   - git hosting
   - access control
+- name: Asus ZX551ML postmarketOS Port
+  date: 2024-06
+  description: I started a port of postmarketOS, a Linux distribution for phones, to the Asus Zenfone Zoom. I had to scour the internet for the kernel source code for this device, along with patches for the numerous bugs that arose when compiling this kernel.
+  tools:
+  - postmarketOS
+  - fastboot
+  skills:
+  - kernel compilation
+  - flashing
+  - android system administration
+  links:
+  - https://wiki.postmarketos.org/wiki/Asus_Zenfone_Zoom_(asus-z00xs)
 electronics and iOT:
 - name: Piper kit
   date: 2018-12
@@ -178,7 +190,7 @@ electronics and iOT:
   - Soldering (various components)
 - name: RFID Smart Tags
   description: >-
-    I attempted to decode the content of my school "SMART" bus tag
+    I attempted to decode the content of my school SMART bus tag
     using my Arduino and and RFID reader.
   date: 2022-06
   langs:
@@ -199,7 +211,16 @@ electronics and iOT:
   - IOT networking
   - IR - NEC
   - MQTT
-  description: I decided to remake my Arduino IR Light controller with an ESP32. This time, I didn't use an IR library and wrote the code to encode and decode the NEC protocol manually. I configured the ESP32 to connect via WiFi to an MQTT server to make Home Assistant integration easier.
+  description: "I decided to remake my Arduino IR Light controller with an ESP32. This time, I didn't use an IR library and wrote the code to encode and decode the NEC protocol manually. I configured the ESP32 to connect via WiFi to an MQTT server to make Home Assistant integration easier."
+- name: Roborock S5 Home Assistant
+  date: 2024-07
+  tools:
+  - Home Assistant
+  - pfSense
+  skills:
+  - Cross VLAN communication
+  - Privacy/security
+  description: I set up the Roborock Home Assistant integration to allow management of the robot vacuum directly through Home Assistant, rather than through Xiaomi's proprietary app. Even though the vacuum, being on a different VLAN, did not accept requests from Home Assistant's VLAN, I was able to accomplish this by setting up a NAT forwarding rule in pfsense.
 website development:
 - name: This Website
   date: 2024-06
@@ -577,6 +598,7 @@ android app development:
   - Jetpack Compose
   skills:
   - Android auto
+browser extension development:
 - name: Link Sweeper
   cat: extension
   date: 2021-01
@@ -587,7 +609,6 @@ android app development:
   - security
   - link parsing
   - html
-browser extension development:
 - name: Schoology Assignment Checklist
   cat: extension
   date: 2021-03
@@ -790,7 +811,23 @@ desktop app development:
   langs:
   - rust
   links:
-  - https://github.com/grimsteel/totp-cli
+  - https://github.com/grimsteel/pass-nm-agent
+- name: Mi Band 4 GTK
+  cat: desktop gui
+  date: 2024-07
+  description: >-
+    A GTK 4 UI for the Mi Smart Band 4, using the BlueZ D-Bus API for Bluetooth Low Energy communication.
+    It uses the freedesktop MPRIS D-Bus API to allow management of the currently playing media on the band.
+  tools:
+  - D-Bus
+  - BlueZ
+  - MPRIS
+  - GTK 4
+  langs:
+  - rust
+  - xml
+  links:
+  - https://github.com/grimsteel/miband4-gtk
 office addins:
 - name: Excel Link Opener
   description: A small utility to open large amounts of links in spreadsheets
