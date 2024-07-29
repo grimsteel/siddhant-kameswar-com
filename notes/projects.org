@@ -1,6 +1,0 @@
-- *Roborock*
-  * pfsense
-  * vlan - NAT translation
-  * freedom
-- *PostmarketOS*
-  * open source/free software
