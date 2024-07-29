@@ -45,6 +45,7 @@
   - Routers
   - Firewalls
   - Wireless standards & hardware
+  image: /assets/screenshots/openwrt-server.webp
   description: While our old GL travel router worked, it performed poorly with with a VPN connection. I decided to install OpenWRT (open source router OS) on a much more powerful x86 box I found. I set it up as a travel router (kind of like a wireless repeater) and configured it to connect to my pfSense VPN server for easy remote access while traveling. Although getting a WiFi network to broadcast was difficult at first (the Intel cards that are typically included in computers don't support broadcasting), it was a really fun experience.
 - name: Home Assistant
   date: 2024-01

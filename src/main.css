@@ -36,16 +36,19 @@
   }
 }
 
-@supports (not (animation-timeline: scroll())) and (backdrop-filter: blur(8px))  {
-  nav.navbar, nav.home-navbar {
+@supports (not (animation-timeline: scroll()))  {
+  nav.navbar, #home-header > nav {
     @apply backdrop-blur bg-orange-100/60 dark:bg-primary-900/40 border-gray-900/10 dark:border-gray-50/[0.06];
   }
-  nav.navbar > div, nav.home-navbar > div {
+  nav.navbar > div, #home-header > nav > div {
     @apply p-4 lg:px-8 max-w-screen-xl;
+  }
+  #home-i-am {
+    display: none;
   }
 }
 
-@supports (animation-timeline: scroll()) and (backdrop-filter: blur(8px)) {
+@supports (animation-timeline: scroll()) {
   nav.navbar {
     animation: add-navbar-backdrop linear both;
     animation-timeline: scroll();
@@ -166,16 +169,16 @@
     display: inline-block;
   }
   #home-i-am-name > span:nth-child(1) {
-    animation-range: 175vh 275vh;
+    animation-range: 175vh 375vh;
   }
   #home-i-am-name > span:nth-child(2) {
-    animation-range: 275vh 375vh;
+    animation-range: 375vh 575vh;
   }
   #home-i-am-name > span:nth-child(3) {
-    animation-range: 375vh 475vh;
+    animation-range: 575vh 775vh;
   }
   #home-i-am-name > span:nth-child(4) {
-    animation-range: 475vh 575vh;
+    animation-range: 775vh 975vh;
   }
 }
 /* ===== HOMEPAGE NAVBAR ANIMATIONS ===== */

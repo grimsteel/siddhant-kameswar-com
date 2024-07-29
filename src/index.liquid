@@ -59,43 +59,44 @@ title: Home
       </svg>
     </button>
     
-    <p class="mb-12 text-2xl font-medium fixed top-24 w-full text-center md:text-start text-gray-900 dark:text-gray-100 flex justify-center items-center gap-3 flex-wrap" id="home-i-am">
+    <p class="mb-12 text-2xl font-medium fixed top-20 text-center md:text-start text-gray-900 dark:text-gray-100 inline-flex justify-center items-center gap-3 flex-wrap z-40 bg-white/[.01] backdrop-blur p-3 rounded" id="home-i-am">
       I've worked with
       <span
         class="md:text-4xl font-bold text-nowrap relative inline-block" id="home-i-am-name">
         <span>web applications</span>
+        <span>native desktop applications</span>
         <span>mobile apps</span>
-        <span>linux systems and networks</span>
-        <span>embedded systems</span>
+        <span>networks and linux systems</span>
         <!-- dictates sizing of the box -->
-        <span class="invisible">linux systems and networks</span>
+        <span class="invisible">native desktop applications</span>
       </span>
     </p>
   </section>
+
+  {% for sec in sections %}
+    {% for project in sec.projects %}
+      <section class="flex h-screen items-center justify-center flex-col home-section">
+        <div
+          class="animate-enter-exit max-w-lg p-6 border rounded-lg bg-orange-100/50 border-orange-200 dark:bg-orange-900/25 dark:border-orange-800/50 shadow-lg shadow-orange-200 dark:shadow-orange-950/50 mb-6">
+          
+          {% if project.image %}
+            <img class="lightbox rounded-lg shadow-xl dark:shadow-gray-800 mb-3 border-2 border-gray-500 max-h-96" src="{{ project.image }}" alt="project screenshot" />
+          {% endif  %}
+          
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ project.name }}</h5>
+          <p class="font-normal text-gray-900 dark:text-gray-200 mb-5">{{ project.description | truncate: 100 }}</p>
+        </div>
+        
+        {% if forloop.last %}
+          <a class="block text-lg text-orange-700 dark:text-orange-300 hover:text-orange-800 dark:hover:text-orange-200 hover:underline animate-enter-exit mb-3"
+             href="/projects/?c={{ sec.cat }}">
+            View all projects ->
+          </a>
+        {% endif %}
+      </section>
+    {% endfor %}
+  {% endfor %}
   
-  <section class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:px-12 flex h-screen items-center justify-center flex-col home-section">
-    <p class="mb-6 text-lg font-bold text-gray-900 dark:text-white">
-      View some of my best projects below:
-    </p>
-  </section>
-
-  <section class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:px-12 flex h-screen items-center justify-center flex-col home-section">
-    <p class="mb-6 text-lg font-bold text-gray-900 dark:text-white">
-      View some of my best projects below:
-    </p>
-  </section>
-
-  <section class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:px-12 flex h-screen items-center justify-center flex-col home-section">
-    <p class="mb-6 text-lg font-bold text-gray-900 dark:text-white">
-      View some of my best projects below:
-    </p>
-  </section>
-
-  <section class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:px-12 flex h-screen items-center justify-center flex-col home-section">
-    <p class="mb-6 text-lg font-bold text-gray-900 dark:text-white">
-      View some of my best projects below:
-    </p>
-  </section>
   <footer
     class="rounded-lg shadow m-4 bg-white/95 backdrop-blur dark:bg-transparent supports-[backdrop-filter]:bg-orange-100/60 dark:supports-[backdrop-filter]:bg-primary-900/40 border-gray-900/10 dark:border-gray-50/[0.06] border">
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
@@ -103,6 +104,11 @@ title: Home
     </div>
   </footer>
   <script>
-   document.getElementById("navbar-toggle").addEventListener("click", () => document.getElementById("navbar-default").classList.toggle("hidden"));
+    document.getElementById("navbar-toggle").addEventListener("click", () => document.getElementById("navbar-default").classList.toggle("hidden"));
+    document.addEventListener("click", e => {
+      if (e.target.classList?.contains("lightbox")) {
+        e.target.requestFullscreen();
+      }
+    });
   </script>
 </body>
