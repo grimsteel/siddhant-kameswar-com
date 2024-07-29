@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "target": "ESNext"
+  },
+  "include": ["global.d.ts", "src/*.ts"],
+  "moduleResolution": "bundler"
+}
