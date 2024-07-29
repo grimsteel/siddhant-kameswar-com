@@ -43,6 +43,12 @@ layout: skeleton.liquid
     </div>
   </footer>
   <script>
-   document.getElementById("navbar-toggle").addEventListener("click", () => document.getElementById("navbar-default").classList.toggle("hidden"));
+    document.getElementById("navbar-toggle").addEventListener("click", () => document.getElementById("navbar-default").classList.toggle("hidden"));
+
+    document.addEventListener("click", e => {
+      if (e.target.classList?.contains("lightbox")) {
+        e.target.requestFullscreen();
+      }
+    });
   </script>
 </body>
