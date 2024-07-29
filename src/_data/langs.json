@@ -1,0 +1,19 @@
+{
+  "python": "Python",
+  "html": "HTML",
+  "css": "CSS",
+  "js": "JavaScript",
+  "ts": "TypeScript",
+  "node": "Node.js",
+  "kotlin": "Kotlin",
+  "c": "C",
+  "csharp": "C#",
+  "cpp": "C++",
+  "sql": "SQL",
+  "xml": "XML",
+  "vba": "Visual Basic",
+  "json": "JSON",
+  "rust": "Rust",
+  "liquid": "Liquid",
+  "sass": "SASS"
+}

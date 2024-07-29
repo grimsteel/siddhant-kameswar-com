@@ -1,0 +1,261 @@
+- name: This Website
+  date: 2024-06
+  links:
+  - /
+  - https://github.com/grimsteel/siddhant-kameswar-com
+  langs:
+  - liquid
+  - html
+  - css
+  - node
+  tools:
+  - 11ty
+  skills:
+  - data generation
+  description: Most of this website is generated automatically from data files describing my projects and skills. This makes it very easy to maintain and edit. The website is powered by 11ty, making it very fast with minimal client side JavaScript. It uses Tailwind CSS for styling and Liquid for the frontend templates.
+- name: Pollerr
+  date: 2024-04
+  links:
+  - https://pollerr.pages.dev
+  langs:
+  - html
+  - css
+  - ts
+  skills:
+  - group work
+  tools:
+  - svelte
+  - git
+  description: A monetized polling website that aims to supply corporations with valuable statistics through incentives for their user base.
+- name: Activate Your Truth and Power
+  date: 2023-05
+  links:
+  - https://activateyourtruthandpower.com
+  langs:
+  - html
+  - css
+  - js
+  - ts
+  - rust
+  - sass
+  - liquid
+  skills:
+  - Containerization
+  - Visual block editors
+  tools:
+  - docker
+  - esbuild
+  - nginx
+  - eleventy
+  - cloudflare workers
+  description: I rebuilt my mother's website using 11ty and developed a comprehensive editor for her to use. I created my own block editor to replicate Wordpress's format.
+- name: Mi Band 4 Web
+  date: 2023-04
+  cat: web
+  image: /assets/screenshots/mi-band-web.webp
+  links:
+  - https://github.com/grimsteel/miband4-web
+  - https://miband4.web.app
+  description: >-
+    I was concerned about the privacy issues surrounding using the official app
+    for my smartwatch, the Mi Smart Band 4. (The "S" in IOT stands for "secure") I reverse engineered the Bluetooth
+    low energy protocol the watch used, using my phone's BLE log and Wireshark.
+    I created this web application as an open source and secure alternative to
+    the app.
+  langs:
+  - html
+  - css
+  - js
+  - ts
+  tools:
+  - Wireshark
+  - Vue
+  - Tailwind CSS
+  skills:
+  - Bluetooth snooping
+  - Hex data analysis
+  - Bluetooth Low Energy (GATT)
+  - Web Bluetooth API
+- name: Send to Computer
+  cat: web
+  date: 2022-06
+  description: A simple messaging application which allowed my family and I to instantaneously transfer data between our computers.
+  langs:
+  - html
+  - css
+  - js
+  - node
+  - rust
+  - sql
+  tools:
+  - Nginx
+  - SQLite
+  skills:
+  - websockets
+  - databases
+  - hosting
+# - name: Uniwebsite
+#   date: 2020-10
+#   description: HTML website
+#   skills:
+#   - html
+#   - static sites
+- name: Homework Tracker
+  date: 2022-03
+  cat: web
+  description: >-
+    A web application to organize and track homework. Because this was one of my
+    first "published" applications, I learnt how to package and version applications to be shared with other people.
+  langs:
+  - html
+  - css
+  - js
+  skills:
+  - Progressive Web Apps
+  - Offline support
+- name: Simple Text Editor
+  date: 2022-12
+  cat: web
+  description: >-
+    Chromebooks, which I used at school, didn't have a text editor built in. I created this web application
+    as a replacement, which allowed me to edit files on my Chromebook's filesystem - think Notepad with syntax highlighting.
+  langs:
+  - html
+  - css
+  - js
+  tools:
+  - Codemirror
+  - Parcel
+  - Bulma (UI Framework)
+  skills:
+  - Progressive Web Apps
+  - File System Access API
+  - Indexed DB
+  links:
+  - https://github.com/for-0/simple-text-editor
+  - https://editor.forzero.vocabustudy.org/
+- name: Vocabustudy
+  image: /assets/screenshots/vocabustudy.webp
+  description: >-
+    I created Vocabustudy as a fast, free, and ad-free alternative to Quizlet, an
+    educational studying platform. It quickly took off as many of my friends
+    (and their friends) started to use it. As this was bigger than any project
+    I had done before, I decided to track the code with Git. I learnt how to use
+    Firebase for storing data, authentication, and hosting.
+  date: 2022-08
+  cat: web
+  langs:
+  - html
+  - css
+  - js
+  - node
+  tools:
+  - Git
+  - Github
+  - Parcel
+  - Material Components Web
+  - Firestore
+  - Firebase Authentication
+  - Google OAuth
+  - Firebase Hosting
+  skills:
+  - Hosting
+  - Google Cloud
+  - Code collaboration (Githun)
+  - Publishing web applications
+  links:
+  - https://vocabustudy.org
+  - https://github.com/For-0/vocabustudy
+- name: Vocabustudy (2nd iteration)
+  date: 2023-04
+  cat: web
+  description: I decided to rewrite Vocabustudy in TypeScript due to JavaScript's inherent lack of type safety. Now, almost every JavaScript project I do uses TypeScript.
+  langs:
+  - ts
+- name: Vocabustudy (3rd iteration)
+  date: 2023-12
+  cat: web
+  description: I rewrote Vocabustudy again to be faster, more lightweight, and more user friendly
+  langs:
+  - html
+  - css
+  - ts
+  - node
+  tools:
+  - Vue
+  - Tailwind CSS
+  - Cloudflare Pages
+  - Firebase
+  skills:
+  - Progressive Web Applications
+  - Offline support
+# - name: Open source
+#   date: 2022-11
+#   description: "parcel, definitely typed"
+#   skills:
+#   - github
+#   - pull requests
+# - name: parcel
+#   description: ISA thing
+- name: The Double S Printshop
+  date: 2020-12 
+  cat: web
+  description: This project, like many of the ones I created when I was this young, had no "real" purpose and simply helped me learn how to use Django.
+  langs:
+  - python
+  - sql
+  - html
+  tools:
+  - Django
+  - SQLite
+  skills:
+  - Full stack development
+  - Database management
+- name: Trip Planning
+  date: 2021-05
+  cat: web
+  description: I created this web application to help my family and I track data such as points of interest, gas stations, restaurants, and hotels for our vacations.
+  langs:
+  - python
+  - sql
+  - html
+  - css
+  - js
+  tools:
+  - Flask
+  - SQLite
+  - Nginx
+  skills:
+  - Full stack development
+  - Structuring large websites
+  - Managing geospatial data
+- name: G. Monster
+  date: 2021-11
+  cat: web
+  description: I created this website to help my sister organize and display her "G. Monster" comic strip.
+  langs:
+  - python
+  - sql
+  - html
+  tools:
+  - Django
+  - SQLite
+- name: Send to Computer v2
+  cat: web
+  date: 2024-07
+  description: A rewrite of this simple messaging application in Rust and Typescript. I packaged it up into a Docker container for easy use.
+  langs:
+  - html
+  - css
+  - ts
+  - node
+  - rust
+  links:
+  - https://github.com/grimsteel/send-to-computer
+  tools:
+  - Docker
+  skills:
+  - websockets
+  - databases
+  - hosting
+  - containerization

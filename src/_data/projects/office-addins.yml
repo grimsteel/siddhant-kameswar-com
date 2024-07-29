@@ -1,0 +1,10 @@
+- name: Excel Link Opener
+  description: A small utility to open large amounts of links in spreadsheets
+  date: 2021-03
+  cat: office addin
+  langs:
+  - vba
+  skills:
+  - user forms
+  - excel addin
+  - custom ui

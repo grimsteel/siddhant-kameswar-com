@@ -1,0 +1,22 @@
+{
+  "python": "python",
+  "html": "html5",
+  "css": "css3",
+  "js": "javascript",
+  "ts": "typescript",
+  "node": "nodejs",
+  "kotlin": "kotlin",
+  "c": "c",
+  "csharp": "csharp",
+  "cpp": "cplusplus",
+  "sql": "postgresql",
+  "xml": "xml",
+  "vba": "visualbasic",
+  "json": "json",
+  "liquid": "html",
+  "sass": "sass",
+  "rust": {
+    "name": "rust",
+    "style": "original"
+  }
+}

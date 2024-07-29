@@ -1,0 +1,17 @@
+- name: Fast Cloudflare Pages GH Action
+  date: 2023-12
+  description: A really fast Github Action for uploading assets to Cloudflare Pages (faster than the official action, which uses Wrangler)
+  langs:
+  - ts
+  - node
+  tools:
+  - Github Actions
+  - Cloudflare Pages
+- name: Vocabustudy Domain
+  date: 2022-11
+  cat: web
+  description: This was my first domain
+  tools:
+  - Google Domains
+  skills:
+  - DNS

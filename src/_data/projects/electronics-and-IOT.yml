@@ -1,0 +1,85 @@
+- name: Piper kit
+  date: 2018-12
+  langs:
+  - python
+  tools:
+  - Raspberry Pi
+  - Linux
+  description: This was my first introduction to electronics and the Raspberry Pi. It was also my first time using a Linux based operating system.
+  skills:
+  - Electronics
+  - GPIO communication
+- name: 37 Sensor kit
+  date: 2020-11
+  description: TODO
+  langs:
+  - c
+  - python
+  tools:
+  - Raspberry Pi
+  - Arduino
+  skills:
+  - electronics
+- name: Arduino
+  date: 2021-11
+  description: TODO
+  langs:
+  - c
+  tools:
+  - Arduino IDE
+  skills:
+  - Electronics
+- name: IR Lights
+  date: 2021-12
+  description: >-
+    A big issue with infrared devices is that if the remote stops
+    working, the entire device essentially becomes useless.
+    Using my Arduino and an IR receiver, I decoded the IR codes for 
+    the overhead lights in my office and set up a replacement for the remote.
+  tools:
+  - Arduino
+  skills:
+  - IR - NEC
+  - IoT
+- name: ESP32
+  date: 2023-11
+  description: I got an esp32c3
+  langs:
+  - c
+  tools:
+  - ESP-IDF
+  skills:
+  - Soldering (various components)
+- name: RFID Smart Tags
+  description: >-
+    I attempted to decode the content of my school SMART bus tag
+    using my Arduino and and RFID reader.
+  date: 2022-06
+  langs:
+  - c
+  tools:
+  - Arduino
+  skills:
+  - Soldering
+  - RFID (Mifare Ultralight)
+- name: ESP32 IR Light controller
+  date: 2024-01
+  langs:
+  - c
+  tools:
+  - ESP-IDF
+  - Mosquitto
+  skills:
+  - IOT networking
+  - IR - NEC
+  - MQTT
+  description: "I decided to remake my Arduino IR Light controller with an ESP32. This time, I didn't use an IR library and wrote the code to encode and decode the NEC protocol manually. I configured the ESP32 to connect via WiFi to an MQTT server to make Home Assistant integration easier."
+- name: Roborock S5 Home Assistant
+  date: 2024-07
+  tools:
+  - Home Assistant
+  - pfSense
+  skills:
+  - Cross VLAN communication
+  - Privacy/security
+  description: I set up the Roborock Home Assistant integration to allow management of the robot vacuum directly through Home Assistant, rather than through Xiaomi's proprietary app. Even though the vacuum, being on a different VLAN, did not accept requests from Home Assistant's VLAN, I was able to accomplish this by setting up a NAT forwarding rule in pfsense.

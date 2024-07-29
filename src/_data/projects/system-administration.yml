@@ -1,0 +1,61 @@
+- name: Matrix instance
+  date: 2024-01
+  description: I configured a Conduit Matrix instance for my family along with P2P video conferencing.
+  tools:
+  - conduit
+  - sqlite
+  - element
+  skills:
+  - access control
+  - WebRTC
+  - TURN
+  - STUN
+- name: Installing Windows
+  date: 2020-11
+  description: I've done many clean installs of Windows
+- name: pfSense Triple Boot
+  date: 2023-07
+  description: I triple booted a backup pfSense instance with Arch Linux and Windows 
+  skills:
+  - EFI
+  - Grub
+  - Arch Linux
+  - Partitions
+  - Boot order
+- name: Unix system setup
+  date: 2023-11
+  description: I've installed and set up Linux systems a number of times
+  skills:
+  - arch linux
+  - debian linux
+  - ubuntu linux
+  - freebsd (pfSense)
+- name: Gitolite
+  description: I set up a local git server
+  date: 2023-07
+  skills:
+  - ssh
+  - git hosting
+  - access control
+- name: Asus ZX551ML postmarketOS Port
+  date: 2024-06
+  description: I started a port of postmarketOS, a Linux distribution for phones, to the Asus Zenfone Zoom. I had to scour the internet for the kernel source code for this device, along with patches for the numerous bugs that arose when compiling this kernel.
+  tools:
+  - postmarketOS
+  - fastboot
+  skills:
+  - kernel compilation
+  - flashing
+  - android system administration
+  links:
+  - https://wiki.postmarketos.org/wiki/Asus_Zenfone_Zoom_(asus-z00xs)
+- name: Traefik Reverse Proxy
+  date: 2024-07
+  description: Because most of the services on my main server were running in containers in Podman, I moved from the Nginx reverse proxy to Traefik, and set up automatic TLS certificate renewal with Step CA.
+  tools:
+  - Traefik
+  - Step CA
+  - Podman
+  skills:
+  - containerization
+  - acme

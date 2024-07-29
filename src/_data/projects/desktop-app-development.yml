@@ -1,0 +1,159 @@
+- name: HEB Coupon Sync
+  description: >-
+    A Win32 GUI to sync coupons across HEB accounts. I learned a lot about how windows applications
+    work at a lower level. Because I wasn't using Visual Studio, I had to compile and link the application
+    myself (handling things like embedded resources and external libraries). Later, I switched to CMake
+    to automate some of this.
+  langs:
+  - cpp
+  tools:
+  - cmake
+  skills:
+  - win32
+  - parsing json
+  - net requests
+  cat: desktop gui
+  date: 2023-07
+- name: TUI Monopoly
+  cat: command line
+  image: /assets/screenshots/monopoly.webp
+  description: >-
+    9th grade AP CSP project - I decided to go all-out and make a full terminal Monopoly interface.
+    This was largely my first proper C++ project. I learned a ton about desktop application development.
+    Beacuse the school computers were on Windows, I had to make my program compatible with both Visual C++
+    and gcc.
+
+    Note: The GH repo below is currently private as I don't want to cause any potential "testing integrity" issues.
+  date: 2023-08
+  links:
+  - https://github.com/grimsteel/cli-monopoly
+  tools:
+  - git
+  - make
+  - visual c++
+  - gcc
+  skills:
+  - cross compilation
+  - terminal output/modes
+  langs:
+  - cpp
+- name: Jotter
+  date: 2020-12
+  cat: desktop gui
+  description: This was my first desktop application. It was a simple text editor, like Notepad.
+  langs:
+  - csharp
+  - xml
+  tools:
+  - .NET
+  - winforms
+  - ClickOnce
+  - Visual Studio
+  skills:
+  - Desktop applications
+  - Windows GUIs
+- name: Take a Break
+  date: 2021-06
+  cat: desktop gui
+  description: I created this application to notify me every 15 minutes to take a break from using the computer.
+  langs:
+  - csharp
+  - xml
+  tools:
+  - .NET
+  - winforms
+  - ClickOnce
+  - Visual Studio
+  skills:
+  - Desktop applications
+  - Windows notifications
+- name: CSP Robot Emulator
+  cat: command line
+  date: 2024-01
+  description: >-
+    An (in-progress) compiler and interpreter for the AP CSP Pseudocode language.
+    I wrote this using no external libraries, so I essentially had to write the
+    lexer and parser myself, based on the excellent book _Crafting Interpreters_.
+  links:
+  - https://github.com/grimsteel/csp-robot-emulator
+  langs:
+  - c
+  tools:
+  - gcc
+  - make
+- name: TUI Snake
+  cat: command line
+  date: 2024-03
+  description: >-
+    I was bored so I wrote a simple TUI for snake in ansi C. I learnt how to implement
+    common data structures like queues and dynamically sized lists myself.
+  langs:
+  - c
+  tools:
+  - gcc
+  - make
+  skills:
+  - lower level data structures
+  - multithreading
+  links:
+  - https://github.com/grimsteel/totp-cli
+- name: TOTP CLI
+  cat: command line
+  date: 2024-03
+  description: >-
+    A fast command line interface for generating TOTP 2-factor authentication codes.
+    I stored secret data in the D-Bus secret service.
+  tools:
+  - D-Bus
+  skills:
+  - time-based one time passwords (TOTP)
+  - secret service
+  langs:
+  - rust
+  links:
+  - https://github.com/grimsteel/totp-cli
+- name: Pass NetworkManager agent
+  cat: command line
+  date: 2024-05
+  description: >-
+    The Linux NetworkManager has support for custom secret agents, which securely store network secrets, like passwords and keys.
+    I created this so that I could store my network secrets in pass, the "Standard Unix Password Manager".
+  tools:
+  - D-Bus
+  - NetworkManager
+  langs:
+  - rust
+  links:
+  - https://github.com/grimsteel/pass-nm-agent
+- name: Mi Band 4 GTK
+  cat: desktop gui
+  date: 2024-07
+  description: >-
+    A GTK 4 UI for the Mi Smart Band 4, using the BlueZ D-Bus API for Bluetooth Low Energy communication.
+    It uses the freedesktop MPRIS D-Bus API to allow management of the currently playing media on the band.
+  tools:
+  - D-Bus
+  - BlueZ
+  - MPRIS
+  - GTK 4
+  langs:
+  - rust
+  - xml
+  image: /assets/screenshots/mi-band-gtk.webp
+  links:
+  - https://github.com/grimsteel/miband4-gtk
+  - https://aur.archlinux.org/packages/miband4-gtk-bin
+- name: Pass Secret Service agent
+  cat: command line
+  date: 2024-07
+  description: >-
+    org.freedesktop.secrets is the standard way (DBus API) to store encrypted "secrets" in Linux, like passwords or tokens.
+    This is a D-Bus service that implements org.freedesktop.secrets that uses pass (GPG encrypted secrets) as a backend.
+  tools:
+  - D-Bus
+  - pass
+  links:
+  - https://github.com/grimsteel/
+  - https://aur.archlinux.org/packages/pass-secret-service-bin
+  langs:
+  - rust

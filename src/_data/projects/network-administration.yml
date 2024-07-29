@@ -1,0 +1,83 @@
+- name: pfSense setup
+  date: 2023-07
+  tools:
+  - pfSense
+  description: I replaced our router and firewall with a custom one based on pfSense for the optimal network security and speed.
+  skills:
+  - VLANs
+  - Networking
+  - Firewalls
+  - Dual boot
+- name: VPNs
+  date: 2023-07
+  description: I set up Wireguard and OpenVPN VPN servers for external access to the network
+  skills:
+  - OpenVPN
+  - Wireguard
+  - security
+- name: Gitolite Server
+  date: 2023-07
+  tools:
+  - Gitolite
+  - SSH
+  skills:
+  - Git servers
+  - SSH access control
+  description: I set up a local git server for my internal projects
+- name: Travel Router
+  date: 2020-05
+  description: GL AR750
+  skills:
+  - MAC filters
+  - WiFi repeaters
+- name: Cloudflare
+  date: 2023-08
+  skills:
+  - DNS
+  - Transferring domains
+- name: Custom OpenWRT Travel Router
+  date: 2024-01
+  tools:
+  - OpenWRT
+  - Wireguard
+  skills:
+  - Networking
+  - Routers
+  - Firewalls
+  - Wireless standards & hardware
+  description: While our old GL travel router worked, it performed poorly with with a VPN connection. I decided to install OpenWRT (open source router OS) on a much more powerful x86 box I found. I set it up as a travel router (kind of like a wireless repeater) and configured it to connect to my pfSense VPN server for easy remote access while traveling. Although getting a WiFi network to broadcast was difficult at first (the Intel cards that are typically included in computers don't support broadcasting), it was a really fun experience.
+- name: Home Assistant
+  date: 2024-01
+  tools:
+  - Home Assistant
+  - Debian
+  - Mosquitto
+  - Frigate
+  skills:
+  - Home automation
+  - cameras
+  langs:
+  - python
+  description: I set up a Home Assistant instance for local smart home control, and integrated it with a Mosquitto MQTT server. I also set up Frigate, an open source NVR for AI security camera object detection.
+- name: WStunnel + Wireguard
+  date: 2024-04
+  tools:
+  - pfSense
+  - WStunnel
+  skills:
+  - networking
+  - port forwarding
+  description: >-
+    UDP traffic isn't available anywhere, so I set up WStunnel on my router.
+    I learned how to securely forward ports internally as well as how to secure/manage traffic in and out of the firewall.
+- name: Fresh Tomato Access Point
+  date: 2024-06
+  tools:
+  - Fresh Tomato
+  skills:
+  - networking
+  - vlans
+  - flashing
+  description: >-
+    I flashed FreshTomato onto an RT-AC68U access point for better VLAN isolation in the network.
+    I configured VLAN forwarding with multiple SSIDs for the optimal network security.
