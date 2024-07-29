@@ -3,20 +3,157 @@ layout: base.liquid
 tags: navbar
 order: 1
 title: Projects
-dropdownCategory: projects
 ---
 
 <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl dark:text-white underline underline-offset-3 decoration-8 decoration-primary-400 dark:decoration-primary-600">Projects:</h1>
 <p class="text-gray-500 sm:text-xl dark:text-gray-400 mb-4">An incomplete list of everything I've done</p>
 
-<ul class="grid w-full gap-6 grid-cols-3 md:grid-cols-5 mb-4">
-  {% for category in collections.projects %}
-    <a href="{{ category.url }}"
-       class="inline-flex flex-col items-center justify-between w-full p-5 text-gray-700 dark:text-gray-300 bg-gray-50/50 border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-200 dark:border-gray-700 hover:text-gray-800 hover:bg-gray-100 dark:bg-gray-800/50 dark:hover:bg-gray-700">
-      <div class="w-full text-lg font-semibold" style="overflow-wrap: break-word;">{{ category.data.title }}</div>
-      <div class="w-full text-sm">{{ category.data.count }} projects</div>
-    </a>
-  {% endfor %}
-</ul>
+<div class="flex items-start flex-col md:flex-row-reverse gap-3" x-data="projects">
+  <sidebar class="relative w-full md:w-auto md:min-w-16 shrink-0 bg-gray-50/50 shadow-md dark:bg-gray-800 rounded-lg p-3">
+    <form class="mb-3">
+      <!-- search box -->
+      <label for="search-projects" class="sr-only">Search projects</label>
+      <div class="relative w-full">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+            viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clip-rule="evenodd" />
+          </svg>
+        </div>
+        <input type="search" id="search-projects" x-model="search"
+          class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-100 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+          placeholder="Search projects...">
+      </div>
+    </form>
+    
+    <div class="mb-6">
+      <h2 class="text-lg font-semibold mb-1 text-gray-800 dark:text-gray-100">Categories:</h2>
 
+      <button class="underline text-primary-500 hover:text-primary-700 dark:hover:text-primary-300 text-sm mb-3"
+        @click="category = ''">
+        Clear category
+      </button>
+      
+      {% for category in categories %}
+        <div class="flex items-center mb-3">
+          <input id="radio-category-{{ category.id }}" type="radio" value="{{ category.id }}"
+            name="radio-category" x-model="category"
+            class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+          <label for="radio-category-{{ category.id }}"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-200">
+            {{ category.name }} ({{category.count}})
+          </label>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <div>
+      <h2 class="text-lg font-semibold mb-1 text-gray-800 dark:text-gray-100">Languages:</h2>
 
+      <button class="underline text-primary-500 hover:text-primary-700 dark:hover:text-primary-300 text-sm mb-3"
+        @click="language = ''">
+        Clear language
+      </button>
+
+      <template x-for="lang in categoryData.langs" :key="lang.lang">
+        <div class="flex items-center mb-3">
+          <input :id="`radio-lang-${ lang.lang }`" type="radio" :value="lang.lang"
+            name="radio-lang" x-model="language"
+            class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+          <label
+            :for="`radio-lang-${ lang.lang }`"
+            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-200"
+            x-text="`${langNames[lang.lang]} (${lang.count})`">
+            
+          </label>
+        </div>
+      </template>
+    </div>
+  </sidebar>
+  
+  <section class="columns-1 lg:columns-2 xl:columns-3">
+    <template x-for="date in projects">
+      <div class="break-inside-avoid-column">
+        <div class="project-date-header max-w-screen-md flex my-2 items-center gap-3">
+          <h2 class="text-sm tracking-tight uppercase text-gray-700 dark:text-gray-300 shrink-0" x-text="parseDate(date.date)"></h2>
+          <hr class="h-px bg-gray-300 border-0 dark:bg-gray-600 grow w-full">
+        </div>
+        <div class="project-container flex flex-wrap gap-3 items-start break-inside-avoid-column">
+          <template x-for="project in date.projects" :key="project.name">
+            <div
+              :class="`project max-w-lg p-6 border rounded-lg ${project.image ? 'bg-orange-100 border-orange-200 dark:bg-orange-900/50 dark:border-orange-700 shadow-lg shadow-orange-200 dark:shadow-orange-900' : 'bg-gray-50 dark:bg-gray-800/75 border-gray-200 dark:border-gray-700 shadow'}`">
+              <template x-if="project.cat">
+                <div class="mb-3">
+                  <span class="opacity-75 bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+                    <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
+                    <span x-text="project.cat"></span>
+                  </span>
+                </div>
+              </template>
+
+              <template x-if="project.image">
+                <img class="lightbox w-full h-auto rounded-lg shadow-xl dark:shadow-gray-800 mb-3 border-2 border-gray-500" :src="project.image" alt="project screenshot" />
+              </template>
+              
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white name" x-text="project.name"></h5>
+              <p class="font-normal text-gray-700 dark:text-gray-300 mb-5 description" x-text="project.description"></p>
+              
+              <template x-if="project.langs">
+                <div class="mb-3">
+                  <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Languages used:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <template x-for="lang in project.langs">
+                      <span class="lang-tag bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 cursor-pointer hover:bg-blue-200 dark:hover:bg-blue-800" x-text="langNames[lang]"></span>
+                    </template>
+                  </div>
+                </div>
+              </template>
+              
+              <template x-if="project.tools">
+                <div class="mb-3">
+                  <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Tools/frameworks utilized:</p>
+                  <div class="flex flex-wrap gap-1 mb-3">
+                    <template x-for="tool in project.tools">
+                      <span
+                        class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"
+                        x-text="tool"></span>
+                    </template>
+                  </div>
+                </div>
+              </template>
+              
+              <template x-if="project.skills">
+                <div class="mb-3">
+                  <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm">Skills acquired:</p>
+                  <div class="flex flex-wrap gap-1 mb-3">
+                    <template x-for="skill in project.skills">
+                      <span class="bg-gray-200 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300" x-text="skill"></span>
+                    </template>
+                  </div>
+                </div>
+              </template>
+              
+              <template x-if="project.links">
+                <div class="mb-3">
+                  <p class="font-medium text-gray-800 dark:text-gray-100 mb-1 text-sm mt-2">Links:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <template x-for="link in project.links">
+                      <a class="text-gray-900 dark:text-white hover:text-primary-950 dark:hover:text-primary-100 me-2" :href="link" target="_blank" x-html="linkIcon(link)">
+                      </a>
+                    </template>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </template>
+        </div>
+      </div>
+    </template>
+  </section>
+</div>
+
+<script id="aggregated-langs" type="application/json">{{ aggregatedLangs | json }}</script>
+<script id="project-data" type="application/json">{{ categories | json }}</script>
+<script src="/js/projects.js"></script> 
