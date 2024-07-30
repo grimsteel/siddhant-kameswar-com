@@ -1,0 +1,7 @@
+{
+  "name": "functions",
+  "dependencies": {
+    "@cloudflare/workers-types": "^4.20240725.0",
+    "mimetext": "^3.0.24"
+  }
+}

@@ -11,6 +11,7 @@ module.exports = eleventyConfig => {
   ]);
 
   eleventyConfig.addPassthroughCopy("./src/assets");
+  eleventyConfig.addPassthroughCopy({ "./functions/_routes.json": "_routes.json" });
   eleventyConfig.addPassthroughCopy({ "./js/dist": "js" });
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 
