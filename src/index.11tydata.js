@@ -4,7 +4,10 @@ module.exports = {
       return data.rawSections.map(({ projects, cat }) => ({
         cat,
         projects: projects.map(({ cat, idx }) => {
-          return data.projects[cat][idx];
+          return {
+            ...data.projects[cat][idx],
+            cat
+          }
         })
       }));
     }

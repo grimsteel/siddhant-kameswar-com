@@ -11,9 +11,11 @@ title: Home
     <nav class="z-50 bg-transparent border border-transparent mt-3 mx-3 rounded-lg top-3 sticky mb-6">
       <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-2">
         <!-- left side of navbar - my name-->
-        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse text-2xl font-semibold dark:text-white">
-          Siddhant Kameswar
-        </a>
+        <h1>
+          <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse text-2xl font-semibold dark:text-white">
+            Siddhant Kameswar
+          </a>
+        </h1>
         <button type="button" id="navbar-toggle" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-700 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
           <span class="sr-only">Open main menu</span>
           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -39,27 +41,29 @@ title: Home
         </div>
       </div>
     </nav>
-  </header>
-    
-  <section class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:px-12 flex h-screen items-center justify-center flex-col home-section">
+  </header>  
+  <section class="py-8 px-4 mx-auto max-w-4xl text-center lg:px-12 flex h-screen items-center justify-center flex-col home-section">
     <p
-      class="mb-12 text-2xl font-medium text-gray-900 dark:text-white">
-      I'm <span class="md:text-4xl font-bold text-transparent bg-gradient-to-r from-orange-900 to-rose-900 dark:from-orange-200 dark:to-rose-200 bg-clip-text text-nowrap inline-block">Siddhant Kameswar</span>, a <span class="decoration-wavy decoration-2 decoration-orange-900 dark:decoration-orange-200 underline-offset-8 underline">self-motivated high school student</span>.
+      class="text-2xl md:text-4xl font-medium text-gray-900 dark:text-white animate-enter-exit my-auto">
+      I'm <span class="md:text-6xl font-bold text-transparent bg-gradient-to-r from-orange-900 to-rose-900 dark:from-orange-200 dark:to-rose-200 bg-clip-text text-nowrap inline-block">Siddhant Kameswar</span>, a <span class="decoration-wavy decoration-2 decoration-orange-900 dark:decoration-orange-200 underline-offset-8 underline">passionate high school student</span>.
     </p>
-    <p class="mb-6 text-lg text-gray-900 dark:text-white">
+    <p class="text-lg md:text-xl text-gray-900 dark:text-white animate-enter-exit mb-auto">
       I've built complex <a class="font-bold hover:underline" href="/projects/?c=web-development">web applications</a> and <a class="font-bold hover:underline" href="/projects/?c=browser-extension-development">browser extensions</a>, developed countless <a href="/projects/?c=android-app-development" class="font-bold hover:underline">mobile apps</a>, and worked with <a class="font-bold hover:underline" href="/projects/?c=electronics-and-IOT">embedded systems and IOT</a>, just to name a few things.
     </p>
-    <p class="mb-6 text-lg font-bold text-gray-900 dark:text-white">
+    <p class="text-lg font-bold text-gray-900 dark:text-white animate-enter-exit mb-6">
       View some of my best projects below:
     </p>
     <button
-      class="text-orange-500 bg-orange-200/25 border border-orange-500 hover:bg-orange-200 focus:outline-none rounded-full inline-flex items-center dark:bg-orange-900/25 dark:hover:bg-orange-900 p-2.5 animate-bounce">
+      class="text-orange-500 bg-orange-200/25 border border-current hover:bg-orange-200 focus:outline-none rounded-full inline-flex items-center dark:bg-primary-900/25 dark:text-primary-500/75 dark:hover:bg-primary-900 p-2.5 animate-bounce mb-auto btn-scroll-next">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
       </svg>
     </button>
-    
-    <p class="mb-12 text-2xl font-medium fixed top-20 text-center md:text-start text-gray-900 dark:text-gray-100 inline-flex justify-center items-center gap-3 flex-wrap z-40 bg-white/[.01] backdrop-blur p-3 rounded" id="home-i-am">
+  </section>
+
+  <!-- wrapper for the view-timeline -->
+  <div id="home-section-container">
+    <p class="mb-12 text-2xl font-medium fixed top-20 text-center md:text-start text-gray-900 dark:text-gray-100 justify-center items-center gap-3 flex-wrap z-40 bg-white/[.01] backdrop-blur p-3 rounded w-full flex" id="home-i-am">
       I've worked with
       <span
         class="md:text-4xl font-bold text-nowrap relative inline-block" id="home-i-am-name">
@@ -71,32 +75,41 @@ title: Home
         <span class="invisible">native desktop applications</span>
       </span>
     </p>
-  </section>
-
-  {% for sec in sections %}
-    {% for project in sec.projects %}
-      <section class="flex h-screen items-center justify-center flex-col home-section">
-        <div
-          class="animate-enter-exit max-w-lg p-6 border rounded-lg bg-orange-100/50 border-orange-200 dark:bg-orange-900/25 dark:border-orange-800/50 shadow-lg shadow-orange-200 dark:shadow-orange-950/50 mb-6">
+    {% for sec in sections %}
+      {% for project in sec.projects %}
+        <section class="flex h-screen items-center justify-center flex-col home-section animate-enter-exit">
+          <div
+            class="max-w-2xl p-6 border rounded-lg bg-orange-100/50 border-orange-200 dark:bg-orange-900/25 dark:border-orange-800/50 shadow-lg shadow-orange-200/50 dark:shadow-orange-950/50 mb-3 text-center">
+            
+            {% if project.image %}
+              <img class="lightbox rounded-lg dark:shadow-gray-900 mb-6 max-h-96 mx-auto {% if not project.transparentImage %}shadow-xl{% endif %}" src="{{ project.image }}" alt="project screenshot" />
+            {% endif  %}
+            
+            <h3 class="mb-3 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">{{ project.name }}</h3>
+            <p class="font-normal text-lg text-gray-900 dark:text-gray-100 mb-3">{{ project.description | truncate: 200 }}</p>
+          </div>
           
-          {% if project.image %}
-            <img class="lightbox rounded-lg shadow-xl dark:shadow-gray-800 mb-3 border-2 border-gray-500 max-h-96" src="{{ project.image }}" alt="project screenshot" />
-          {% endif  %}
-          
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ project.name }}</h5>
-          <p class="font-normal text-gray-900 dark:text-gray-200 mb-5">{{ project.description | truncate: 100 }}</p>
-        </div>
-        
-        {% if forloop.last %}
-          <a class="block text-lg text-orange-700 dark:text-orange-300 hover:text-orange-800 dark:hover:text-orange-200 hover:underline animate-enter-exit mb-3"
-             href="/projects/?c={{ sec.cat }}">
+          <a class="block md:text-lg text-orange-700 dark:text-orange-300 hover:text-orange-800 dark:hover:text-orange-200 hover:underline mb-3"
+             href="/projects/?c={{ project.cat }}">
             View all projects ->
           </a>
-        {% endif %}
-      </section>
+          
+          <button
+            class="text-orange-500 bg-orange-200/25 border border-current hover:bg-orange-200 focus:outline-none rounded-full inline-flex items-center dark:bg-primary-900/25 dark:text-primary-500/75 dark:hover:bg-primary-900 p-2.5 animate-bounce btn-scroll-next mt-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                 class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+            </svg>
+          </button>
+        </section>
+      {% endfor %}
     {% endfor %}
-  {% endfor %}
-  
+  </div>
+    
+  <section class="flex h-screen items-center justify-center flex-col home-section">
+    
+  </section>
+    
   <footer
     class="rounded-lg shadow m-4 bg-white/95 backdrop-blur dark:bg-transparent supports-[backdrop-filter]:bg-orange-100/60 dark:supports-[backdrop-filter]:bg-primary-900/40 border-gray-900/10 dark:border-gray-50/[0.06] border">
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
@@ -110,5 +123,9 @@ title: Home
         e.target.requestFullscreen();
       }
     });
+
+    document.querySelectorAll(".btn-scroll-next").forEach(el => el.addEventListener("click", () => {
+      el.closest(".home-section")?.nextElementSibling?.scrollIntoView({ behavior: "smooth" });
+    }));
   </script>
 </body>
