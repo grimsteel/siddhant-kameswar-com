@@ -77,30 +77,33 @@ title: Home
     </p>
     {% for sec in sections %}
       {% for project in sec.projects %}
-        <section class="flex h-screen items-center justify-center flex-col home-section animate-enter-exit">
-          <div
-            class="max-w-2xl p-6 border rounded-lg bg-orange-100/50 border-orange-200 dark:bg-orange-900/25 dark:border-orange-800/50 shadow-lg shadow-orange-200/50 dark:shadow-orange-950/50 mb-3 text-center">
+        <section class="h-screen home-section">
+          <div class="animate-enter-exit flex items-center justify-center h-full flex-col">
+            <div
+              class="max-w-2xl p-6 border rounded-lg bg-orange-100/50 border-orange-200 dark:bg-orange-900/25 dark:border-orange-800/50 shadow-lg shadow-orange-200/50 dark:shadow-orange-950/50 mb-3 text-center">
+              
+              {% if project.image %}
+                <img class="lightbox rounded-lg dark:shadow-gray-900 mb-6 max-h-96 mx-auto {% if not project.transparentImage %}shadow-xl{% endif %}"
+                     src="{{ project.image }}" alt="project screenshot" />
+              {% endif %}
+              
+              <h3 class="mb-3 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">{{ project.name }}</h3>
+              <p class="font-normal text-lg text-gray-900 dark:text-gray-100 mb-3">{{ project.description | truncate: 200 }}</p>
+            </div>
             
-            {% if project.image %}
-              <img class="lightbox rounded-lg dark:shadow-gray-900 mb-6 max-h-96 mx-auto {% if not project.transparentImage %}shadow-xl{% endif %}" src="{{ project.image }}" alt="project screenshot" />
-            {% endif  %}
+            <a class="block md:text-lg text-orange-700 dark:text-orange-300 hover:text-orange-800 dark:hover:text-orange-200 hover:underline mb-3"
+               href="/projects/?c={{ project.cat }}">
+              View all projects ->
+            </a>
             
-            <h3 class="mb-3 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">{{ project.name }}</h3>
-            <p class="font-normal text-lg text-gray-900 dark:text-gray-100 mb-3">{{ project.description | truncate: 200 }}</p>
+            <button
+              class="text-orange-500 bg-orange-200/25 border border-current hover:bg-orange-200 focus:outline-none rounded-full inline-flex items-center dark:bg-primary-900/25 dark:text-primary-500/75 dark:hover:bg-primary-900 p-2.5 animate-bounce btn-scroll-next mt-3">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                   class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+              </svg>
+            </button>
           </div>
-          
-          <a class="block md:text-lg text-orange-700 dark:text-orange-300 hover:text-orange-800 dark:hover:text-orange-200 hover:underline mb-3"
-             href="/projects/?c={{ project.cat }}">
-            View all projects ->
-          </a>
-          
-          <button
-            class="text-orange-500 bg-orange-200/25 border border-current hover:bg-orange-200 focus:outline-none rounded-full inline-flex items-center dark:bg-primary-900/25 dark:text-primary-500/75 dark:hover:bg-primary-900 p-2.5 animate-bounce btn-scroll-next mt-3">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                 class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
-            </svg>
-          </button>
         </section>
       {% endfor %}
     {% endfor %}
@@ -109,21 +112,10 @@ title: Home
   <section class="flex h-screen items-center justify-center flex-col home-section">
     
   </section>
-    
-  <footer
-    class="rounded-lg shadow m-4 bg-white/95 backdrop-blur dark:bg-transparent supports-[backdrop-filter]:bg-orange-100/60 dark:supports-[backdrop-filter]:bg-primary-900/40 border-gray-900/10 dark:border-gray-50/[0.06] border">
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-200">© 2024 Siddhant Kameswar</span>
-    </div>
-  </footer>
+  
+  {% render 'footer.html' %}
+ 
   <script>
-    document.getElementById("navbar-toggle").addEventListener("click", () => document.getElementById("navbar-default").classList.toggle("hidden"));
-    document.addEventListener("click", e => {
-      if (e.target.classList?.contains("lightbox")) {
-        e.target.requestFullscreen();
-      }
-    });
-
     document.querySelectorAll(".btn-scroll-next").forEach(el => el.addEventListener("click", () => {
       el.closest(".home-section")?.nextElementSibling?.scrollIntoView({ behavior: "smooth" });
     }));

@@ -1,0 +1,43 @@
+---
+layout: base.liquid
+tags: navbar
+order: 3
+title: Contact
+---
+
+<section class="max-w-screen-md mx-auto">
+  <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl dark:text-white underline underline-offset-3 decoration-8 decoration-primary-400 dark:decoration-primary-600">Contact me:</h1>
+
+  <p class="lead text-gray-900 dark:text-white mb-2">Fill out this form and I'll try to get back to you as soon as possible:</p>
+  
+  <p class="text-gray-700 dark:text-gray-200 mb-6 text-sm">
+    (You can also email me at
+    <kbd
+      class="px-1.5 py-1 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-lg dark:bg-gray-700 dark:text-gray-100 dark:border-gray-500">siddhant [at] kameswar [dot] com</kbd>)
+  </p>
+
+  
+
+  <form class="max-w-lg">
+    <div class="mb-3">
+      <label for="input-email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email:</label>
+      <input type="email" id="input-email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-prim focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required />
+    </div>
+    
+    <div class="mb-3">
+      <label for="input-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name:</label>
+      <input type="email" id="input-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-prim focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="input-message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message:</label>
+      <textarea id="input-message" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-prim focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required rows="4"></textarea>
+    </div>
+
+    <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA"></div>
+      
+    <button type="submit" class="text-white bg-primary-500 hover:bg-primary-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Submit</button>
+  </form>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+</section>
