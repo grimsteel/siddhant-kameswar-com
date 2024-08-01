@@ -35,7 +35,13 @@ module.exports = eleventyConfig => {
             sourceMap: false,
             nonStandard: { deepSelectorCombinator: true },
             include: Features.Nesting,
-            errorRecovery: true
+            errorRecovery: true,
+            targets: {
+              chrome: 105,
+              firefox: 105,
+              ios_saf: 16,
+              android: 10
+            }
           });
           return result.code.toString();
         };

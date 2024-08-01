@@ -55,7 +55,7 @@ eleventyExcludeFromCollections: true
   nav.navbar {
     animation: add-navbar-backdrop linear both;
     animation-timeline: scroll();
-    animation-range: 0 64px;
+    animation-range: 0 64px !important;
   }
   @media (prefers-color-scheme: dark) {
     nav.navbar {
@@ -65,7 +65,7 @@ eleventyExcludeFromCollections: true
   nav.navbar > div {
     animation: add-navbar-padding linear both;
     animation-timeline: scroll();
-    animation-range: 0 128px;
+    animation-range: 0 128px !important;
   }
 }
 
@@ -111,7 +111,7 @@ eleventyExcludeFromCollections: true
     transform: translateY(calc(50vh - 50%));
     animation: morph-navbar linear both;
     animation-timeline: scroll();
-    animation-range: 0 100vh;
+    animation-range: 0 100vh !important;
     width: 100%;
     text-align: center;
   }
@@ -124,13 +124,13 @@ eleventyExcludeFromCollections: true
     display: inline-flex;
     animation: add-navbar-padding linear both;
     animation-timeline: scroll();
-    animation-range: 0 100vh;
+    animation-range: 0 100vh !important;
   }
   #home-header h1 > a {
     @apply text-8xl mb-6;
     animation: morph-home-link linear both;
     animation-timeline: scroll();
-    animation-range: 0 100vh;
+    animation-range: 0 100vh !important;
   }
   @media (max-width: 640px) {
     #home-header h1 > a {
@@ -142,20 +142,20 @@ eleventyExcludeFromCollections: true
     min-width: 100%;
     animation: morph-item-container linear both;
     animation-timeline: scroll();
-    animation-range: 0 100vh;
+    animation-range: 0 100vh !important;
   }
   #home-header ul {
     justify-content: space-around;
     animation: morph-item-list linear both;
     animation-timeline: scroll();
-    animation-range: 0 100vh;
+    animation-range: 0 100vh !important;
   }
   @media (min-width: 768px) {
     #home-header ul a {
       @apply text-xl text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 underline rounded-none underline-offset-8 hover:underline-offset-2 transition-all;
       animation: morph-items linear both;
       animation-timeline: scroll();
-      animation-range: 0 100vh;
+      animation-range: 0 100vh !important;
     }
   }
 
@@ -181,16 +181,16 @@ eleventyExcludeFromCollections: true
     display: inline-block;
   }
   #home-i-am-name > span:nth-child(1) {
-    animation-range: 175vh 375vh;
+    animation-range: 175vh 375vh !important;
   }
   #home-i-am-name > span:nth-child(2) {
-    animation-range: 375vh 575vh;
+    animation-range: 375vh 575vh !important;
   }
   #home-i-am-name > span:nth-child(3) {
-    animation-range: 575vh 775vh;
+    animation-range: 575vh 775vh !important;
   }
   #home-i-am-name > span:nth-child(4) {
-    animation-range: 775vh 975vh;
+    animation-range: 775vh 975vh !important;
   }
 }
 /* ===== HOMEPAGE NAVBAR ANIMATIONS ===== */
@@ -239,23 +239,6 @@ eleventyExcludeFromCollections: true
   }
   100% {
     @apply decoration-transparent text-base no-underline;
-  }
-}
-@keyframes appear {
-  entry 0% {
-    opacity: 0;
-  }
-  entry 75% {
-    opacity: 0;
-  }
-  entry 100% {
-    opacity: 1;
-  }
-  exit 75% {
-    opacity: 1;
-  }
-  exit 100% {
-    opacity: 0;
   }
 }
 @keyframes scroll-in-out {
