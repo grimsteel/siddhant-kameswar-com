@@ -197,20 +197,6 @@
 #   - pull requests
 # - name: parcel
 #   description: ISA thing
-- name: The Double S Printshop
-  date: 2020-12 
-  cat: web
-  description: This project, like many of the ones I created when I was this young, had no "real" purpose and simply helped me learn how to use Django.
-  langs:
-  - python
-  - sql
-  - html
-  tools:
-  - Django
-  - SQLite
-  skills:
-  - Full stack development
-  - Database management
 - name: Trip Planning
   date: 2021-05
   cat: web

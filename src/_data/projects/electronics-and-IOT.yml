@@ -41,15 +41,6 @@
   skills:
   - IR - NEC
   - IoT
-- name: ESP32
-  date: 2023-11
-  description: I got an esp32c3
-  langs:
-  - c
-  tools:
-  - ESP-IDF
-  skills:
-  - Soldering (various components)
 - name: RFID Smart Tags
   description: >-
     I attempted to decode the content of my school SMART bus tag
