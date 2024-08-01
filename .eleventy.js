@@ -2,6 +2,8 @@ const autoprefixer = require("autoprefixer");
 const postcss = require("postcss");
 const tailwindcss = require("tailwindcss");
 const yaml = require("js-yaml");
+const { transform, Features } = require("lightningcss");
+const htmlnano = require("htmlnano");
 
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 module.exports = eleventyConfig => {
@@ -11,6 +13,7 @@ module.exports = eleventyConfig => {
   ]);
 
   eleventyConfig.addPassthroughCopy("./src/assets");
+  eleventyConfig.addPassthroughCopy("./src/robots.txt");
   eleventyConfig.addPassthroughCopy({ "./functions/_routes.json": "_routes.json" });
   eleventyConfig.addPassthroughCopy({ "./js/dist": "js" });
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
@@ -22,13 +25,32 @@ module.exports = eleventyConfig => {
     outputFileExtension: "css",
     async compile(inputContent, inputPath) {
       if (inputPath === "./src/main.css") {
-        return async data => {
+        return async _data => {
           const content = await postcssInstance.process(inputContent, { from: "./src/main.css" });
-          return content.css
+          // run through lightningcss
+          const result = transform({
+            filename: "./src/main.css",
+            code: Buffer.from(content.css),
+            minify: true,
+            sourceMap: false,
+            nonStandard: { deepSelectorCombinator: true },
+            include: Features.Nesting,
+            errorRecovery: true
+          });
+          return result.code.toString();
         };
       }
     }
   });
+
+  if (process.env.NODE_ENV === "production") {
+    eleventyConfig.addTransform("htmlmin", async function (content) {
+      if (this.page.outputPath?.endsWith(".html")) {
+        return await htmlnano.process(content, { minifyCss: false }).then(a => a.html);
+      }
+      return content;
+    });
+  }
 
   eleventyConfig.addDataExtension("yml", contents => yaml.load(contents));
 
