@@ -2,7 +2,9 @@
   date: 2024-06
   links:
   - /
+  - https://pagespeed.web.dev/analysis/https-siddhant-kameswar-com/7h9t3yge57?form_factor=mobile
   - https://github.com/grimsteel/siddhant-kameswar-com
+  image: /assets/screenshots/this-website.webp
   langs:
   - liquid
   - html
