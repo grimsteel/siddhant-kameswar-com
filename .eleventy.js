@@ -50,12 +50,21 @@ export default eleventyConfig => {
   });
 
   if (process.env.NODE_ENV === "production") {
+    const turnstileKey = process.env.TURNSTILE_SITE_KEY;
+    if (!turnstileKey) {
+      throw new Error("missing TURNSTILE_SITE_KEY environment variable");
+    }
+    eleventyConfig.addGlobalData("turnstileKey", turnstileKey);
+    
     eleventyConfig.addTransform("htmlmin", async function (content) {
       if (this.page.outputPath?.endsWith(".html")) {
         return await htmlnano.process(content, { minifyCss: false }).then(a => a.html);
       }
       return content;
     });
+  } else {
+    // turnstile testing site key
+    eleventyConfig.addGlobalData("turnstileKey", "1x00000000000000000000AA");
   }
 
   eleventyConfig.addDataExtension("yml", contents => load(contents));
