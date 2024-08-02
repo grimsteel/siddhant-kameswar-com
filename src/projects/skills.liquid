@@ -44,14 +44,9 @@ description: "Programming languages and tools I've worked with"
       <div
           class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-gray-50/50 border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800/50 dark:hover:bg-gray-700">
         <div class="block">
-          {% if skill.icon %}
-            {% assign httpArray = skill.icon | split:"http" %}
-            {% if httpArray[0] == "" %}
-              <img class="mb-2 w-7 h-7" src="{{ skill.icon }}" />
-            {% else %}
-              <img class="mb-2 w-7 h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon@develop/icons/{{ skill.icon }}/{{ skill.icon }}-original.svg" />
-            {% endif %}
-          {% endif  %}
+          <svg class="mb-3 w-7 h-7 text-gray-700 dark:text-gray-300">
+            <use href="/assets/skill-icons.svg#{{ skill.icon }}" />
+          </svg>
           <div class="w-full text-lg font-semibold">{{ skill.name }}</div>
           
         </div>

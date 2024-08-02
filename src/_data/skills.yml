@@ -5,11 +5,8 @@ general:
     icon: github
   - name: Gitpod
     icon: gitpod
-  - name: SSH
   - name: Emacs
     icon: emacs
-  - name: Vim
-    icon: vim
   - name: Visual Studio
     icon: visualstudio
   - name: VS Code
@@ -18,7 +15,8 @@ general:
     icon: docker
 web development:
   - name: Parcel
-    icon: https://parceljs.org/favicon.fe6f9d11.ico
+    icon: parcel
+    icon_url: https://parceljs.org/favicon.fe6f9d11.ico
   - name: Vite
     icon: vitejs
   - name: Vue
@@ -28,11 +26,13 @@ web development:
   - name: Typescript
     icon: typescript
   - name: ESBuild
-    icon: https://esbuild.github.io/favicon.svg
+    icon_url: https://esbuild.github.io/favicon.svg
+    icon: esbuild
   - name: Node.JS
     icon: nodejs
   - name: NPM
-    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg
+    icon: npm
+    icon_url: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg
   - name: Deno
     icon: denojs
   - name: Cloudflare Workers/Pages
@@ -41,31 +41,38 @@ web development:
     icon: firebase
   - name: Tailwind CSS
     icon: tailwindcss
-  - name: Selenium (Testing)
-    icon: selenium
   - name: Progressive Web Apps
-    icon: https://upload.wikimedia.org/wikipedia/commons/d/d5/Progressive_Web_Apps_Logo.svg
+    icon: pwa
+    icon_url: https://upload.wikimedia.org/wikipedia/commons/d/d5/Progressive_Web_Apps_Logo.svg
   - name: Responsive/Mobile First Design
+    icon: android
 backend:
   - name: Postgres
     icon: postgresql
   - name: MySQL
     icon: mysql
   - name: Django
-    icon: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg
+    icon: django
+    icon_url: https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg
   - name: Flask
     icon: flask
   - name: Nginx
     icon: nginx
+  - name: Traefik
+    icon: traefikproxy
 android apps:
   - name: Android Studio
     icon: androidstudio
   - name: Android Auto
+    icon: androidauto
+    icon_url: https://upload.wikimedia.org/wikipedia/commons/4/4b/Android_Auto_icon.svg
 desktop/console apps:
   - name: Win32
     icon: windows11
-  - name: ncurses
   - name: GTK
+    icon: gtk
+    icon_url: https://upload.wikimedia.org/wikipedia/commons/7/71/GTK_logo.svg
   - name: CMake
     icon: cmake
-  - name: Make
+  - name: GCC
+    icon: gcc
