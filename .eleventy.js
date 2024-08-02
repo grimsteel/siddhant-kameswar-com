@@ -1,12 +1,12 @@
-const autoprefixer = require("autoprefixer");
-const postcss = require("postcss");
-const tailwindcss = require("tailwindcss");
-const yaml = require("js-yaml");
-const { transform, Features } = require("lightningcss");
-const htmlnano = require("htmlnano");
+import autoprefixer from "autoprefixer";
+import postcss from "postcss";
+import tailwindcss from "tailwindcss";
+import { load } from "js-yaml";
+import { transform, Features } from "lightningcss";
+import * as htmlnano from "htmlnano";
 
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
-module.exports = eleventyConfig => {
+export default eleventyConfig => {
   const postcssInstance = postcss([
     tailwindcss(),
     autoprefixer()
@@ -58,7 +58,7 @@ module.exports = eleventyConfig => {
     });
   }
 
-  eleventyConfig.addDataExtension("yml", contents => yaml.load(contents));
+  eleventyConfig.addDataExtension("yml", contents => load(contents));
 
   eleventyConfig.addCollection("navbarSorted", collectionApi => {
     return collectionApi.getFilteredByTag("navbar").sort((a, b) => a.data.order - b.data.order);

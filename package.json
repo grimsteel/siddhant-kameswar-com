@@ -8,6 +8,7 @@
     "clean": "rm -rf dist/ && rm -rf js/dist/"
   },
   "private": true,
+  "type": "module",
   "author": "Siddhant Kameswar",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0-alpha.13",

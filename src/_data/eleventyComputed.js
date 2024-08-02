@@ -65,40 +65,37 @@ let lastCategoryCompute = 0;
 let cachedLangs = null;
 let lastLangCompute = 0;
 
-module.exports = {
-  categories(data) {
+export function categories(data) {
     // recompute if more than 5s ago
     if (cachedCategories && (Date.now() - lastCategoryCompute) < 5 * 1000) return cachedCategories;
-    
+
     lastCategoryCompute = Date.now();
     const categories = Object.entries(data.projects).map(([id, projects]) => ({
-      name: capitalize(id),
-      dates: groupProjects(projects),
-      langs: getLangs(projects),
-      count: projects.length,
-      id
+        name: capitalize(id),
+        dates: groupProjects(projects),
+        langs: getLangs(projects),
+        count: projects.length,
+        id
     }));
     // sort by count desc/name asc
     categories.sort((a, b) => (b.count - a.count) || a.name.localeCompare(b.name));
     if (categories.length > 0) cachedCategories = categories;
     return categories;
-  },
-  // aggregate all of the languages across all of the projects
-  aggregatedLangs: (data) => {
+}
+export function aggregatedLangs(data) {
     // recompute if more than 5s ago
     if (cachedLangs && (Date.now() - lastLangCompute) < 5 * 1000) return cachedLangs;
-    
+
     lastLangCompute = Date.now();
     const langs = data.categories.reduce?.((acc, { langs: cur }) => {
-      cur.forEach(({ lang, count }) => {
-        const existing = acc.find(el => el.lang === lang);
-        if (existing) existing.count += count;
-        else acc.push({ lang, count });
-      });
-      return acc;
+        cur.forEach(({ lang, count }) => {
+            const existing = acc.find(el => el.lang === lang);
+            if (existing) existing.count += count;
+            else acc.push({ lang, count });
+        });
+        return acc;
     }, []).sort((a, b) => b.count - a.count);
 
     if (langs?.length > 0) cachedLangs = langs;
     return langs;
-  }
-};
+}
