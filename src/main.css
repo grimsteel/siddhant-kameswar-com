@@ -70,27 +70,6 @@ eleventyExcludeFromCollections: true
 }
 
 /* ===== VIEW-TIMELINE-IN-OUT */
-@keyframes enter-exit {
-	entry 0%  {
-		opacity: 0; transform: translateY(50%);
-	}
-  entry 50% {
-    opacity: 0.25; transform: translateY(25%);
-  }
-	entry 100%  {
-		opacity: 1; transform: translateY(0);
-	}
-
-	exit 0% {
-		opacity: 1; transform: translateY(0);
-	}
-  exit 50% {
-    opacity: 0.25; transform: translateY(-25%);
-  }
-	exit 100% {
-		opacity: 0; transform: translateY(-50%);
-	}
-}
 
 @supports (animation-timeline: view()) {
   .animate-enter-exit {
@@ -194,8 +173,15 @@ eleventyExcludeFromCollections: true
   }
 
   @media (prefers-color-scheme: dark) {
-    body#home-body {
-      animation: darken-background both;
+    #home-backdrop {
+      display: block;
+      inset: 0;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      z-index: -1;
+      animation-name: darken-background;
+      animation-fill-mode: both;
       animation-timeline: scroll();
       animation-range: 200vh 1000vh !important;
     }

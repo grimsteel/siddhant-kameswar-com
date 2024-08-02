@@ -67,6 +67,8 @@ export default eleventyConfig => {
     eleventyConfig.addGlobalData("turnstileKey", "1x00000000000000000000AA");
   }
 
+  eleventyConfig.addGlobalData("currentYear", new Date().getFullYear());
+
   eleventyConfig.addDataExtension("yml", contents => load(contents));
 
   eleventyConfig.addCollection("navbarSorted", collectionApi => {

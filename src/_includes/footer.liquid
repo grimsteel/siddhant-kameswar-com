@@ -1,7 +1,7 @@
 <footer
   class="rounded-lg shadow m-4 bg-white/95 backdrop-blur dark:bg-transparent supports-[backdrop-filter]:bg-orange-100/60 dark:supports-[backdrop-filter]:bg-primary-900/40 border-gray-900/10 dark:border-gray-50/[0.06] border">
   <div class="w-full mx-auto max-w-screen-xl p-4 flex flex-col md:flex-row items-center justify-between text-gray-700 dark:text-gray-100 gap-2">
-    <span class="text-sm sm:text-center">© 2024 Siddhant Kameswar</span>
+    <span class="text-sm sm:text-center">© 2023-<span id="current-year">{{ currentYear }}</span> Siddhant Kameswar</span>
     
     <a href="https://github.com/grimsteel" rel="noreferrer noopener" target="_blank">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -20,4 +20,7 @@
           e.target.requestFullscreen();
       }
   });
+
+  // update the current year
+  document.getElementById("current-year").innerText = new Date().getFullYear();
 </script>
