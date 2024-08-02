@@ -3,7 +3,7 @@ import postcss from "postcss";
 import tailwindcss from "tailwindcss";
 import { load } from "js-yaml";
 import { transform, Features } from "lightningcss";
-import * as htmlnano from "htmlnano";
+import htmlnano from "htmlnano";
 
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 export default eleventyConfig => {
