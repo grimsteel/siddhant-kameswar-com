@@ -192,6 +192,14 @@ eleventyExcludeFromCollections: true
   #home-i-am-name > span:nth-child(4) {
     animation-range: 775vh 975vh !important;
   }
+
+  @media (prefers-color-scheme: dark) {
+    body#home-body {
+      animation: darken-background both;
+      animation-timeline: scroll();
+      animation-range: 200vh 1000vh !important;
+    }
+  }
 }
 /* ===== HOMEPAGE NAVBAR ANIMATIONS ===== */
 @keyframes morph-navbar {
@@ -253,5 +261,21 @@ eleventyExcludeFromCollections: true
   }
   100% {
     transform: translateY(-100%);
+  }
+}
+
+/* body darkness animation */
+@keyframes darken-background {
+  0% {
+    backdrop-filter: brightness(1);
+  }
+  10% {
+    backdrop-filter: brightness(0.8);
+  }
+  90% {
+    backdrop-filter: brightness(0.8);
+  }
+  100% {
+    backdrop-filter: brightness(1);
   }
 }

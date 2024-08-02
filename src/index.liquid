@@ -6,7 +6,7 @@ title: Home
 description: "Siddhant Kameswar - student passionate about computers, programming, and more"
 ---
 
-<body class="bg-orange-50 dark:bg-orange-950 lg:bg-white lg:dark:bg-black lg:bg-gradient-to-r dark:from-red-950/50 dark:via-orange-950 dark:to-red-950/50 min-h-full from-red-100/50 via-orange-100 to-red-100/50">
+<body class="bg-orange-50 dark:bg-orange-950 lg:bg-white lg:dark:bg-black lg:bg-gradient-to-r dark:from-red-950/50 dark:via-orange-950 dark:to-red-950/50 min-h-full from-red-100/50 via-orange-100 to-red-100/50" id="home-body">
 
   <header id="home-header">
     <nav class="z-50 bg-transparent border border-transparent mt-3 mx-3 rounded-lg top-3 sticky mb-6">
@@ -46,7 +46,7 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
   <section class="py-8 px-4 mx-auto max-w-4xl text-center lg:px-12 flex h-screen items-center justify-center flex-col home-section">
     <p
       class="text-2xl md:text-4xl font-medium text-gray-900 dark:text-white animate-enter-exit my-auto md:leading-relaxed">
-      I'm <span class="md:text-6xl font-bold text-transparent bg-gradient-to-r from-orange-900 to-rose-900 dark:from-orange-200 dark:to-rose-200 bg-clip-text text-nowrap inline-block">Siddhant Kameswar</span>, a <span class="decoration-wavy decoration-2 decoration-orange-900 dark:decoration-orange-200 underline-offset-4 md:underline-offset-8 underline">high school student</span> passionate about computers, programming, and more.
+      I'm <span class="md:text-6xl font-bold text-transparent bg-gradient-to-r from-orange-900 to-rose-900 dark:from-orange-200 dark:to-rose-200 bg-clip-text text-nowrap inline-block hover:bg-gradient-to-l">Siddhant Kameswar</span>, a <span class="text-orange-950 dark:text-orange-100">high school student</span> passionate about computers, programming, and more.
     </p>
     
     <p class="text-lg md:text-xl text-gray-900 dark:text-white animate-enter-exit mb-auto">
@@ -115,15 +115,27 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
     {% endfor %}
   </div>
     
-  <section class="flex h-screen items-center justify-center flex-col home-section">
-    
+  <section class="flex h-screen items-center justify-center flex-col home-section" id="last-home-section">
+    <p class="text-lg md:text-xl text-gray-900 dark:text-white animate-enter-exit mb-12">
+      View <a class="font-bold text-orange-700 dark:text-orange-300 hover:underline" href="/projects/">all of my
+      projects</a> or <a class="font-bold text-orange-700 dark:text-orange-300 hover:underline"
+                         href="/contact/">contact me</a>!
+    </p>
+
+    <p class="md:text-lg text-gray-900 dark:text-white animate-enter-exit">
+      Check out my <a href="https://github.com/grimsteel/" target="_blank" rel="noreferrer no opener" class="font-semibold hover:underline">GitHub profile</a>!</p>
+    </p>
   </section>
   
-  {% render 'footer.html' %}
+  {% render 'footer' %}
  
   <script>
+    const lastHomeSection = document.getElementById("last-home-section");
+    
     document.querySelectorAll(".btn-scroll-next").forEach(el => el.addEventListener("click", () => {
-      el.closest(".home-section")?.nextElementSibling?.scrollIntoView({ behavior: "smooth" });
+      // scroll to the next section
+      const nextSection = el.closest(".home-section")?.nextElementSibling ?? lastHomeSection;
+      nextSection.scrollIntoView({ behavior: "smooth" });
     }));
   </script>
 </body>

@@ -95,7 +95,7 @@ description: "An incomplete list of my projects"
               </template>
 
               <template x-if="project.image">
-                <img :class="`lightbox w-full h-auto rounded-lg mb-3 ${project.transparentImage ? '' : 'shadow-xl dark:shadow-gray-800 border-2 border-gray-500'}`" :src="project.image" alt="project screenshot" />
+                <img :class="`lightbox w-full h-auto rounded-lg mb-3 ${project.transparentImage ? '' : 'shadow-xl dark:shadow-gray-800 border-2 border-gray-300 dark:border-gray-500'}`" :src="project.image" alt="project screenshot" />
               </template>
               
               <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white name" x-text="project.name"></h5>

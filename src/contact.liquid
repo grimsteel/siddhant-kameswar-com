@@ -55,6 +55,13 @@ description: "Contact me"
 
       const data = new FormData(form);
 
+      // make sure they completed turnstile verification
+      if (!data.get("cf-turnstile-response")) {
+        errorMessage.textContent = "Please complete the CAPTCHA";
+        e.submitter.disabled = false;
+        return;
+      }
+
       try {
         const response = await fetch("/api/contact", {
           method: "POST",
