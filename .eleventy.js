@@ -4,6 +4,9 @@ import tailwindcss from "tailwindcss";
 import { load } from "js-yaml";
 import { transform, Features } from "lightningcss";
 import htmlnano from "htmlnano";
+import { createHash } from "crypto";
+import { rename } from "fs/promises";
+import { join } from "path";
 
 /** @param {import('@11ty/eleventy').UserConfig} eleventyConfig */
 export default eleventyConfig => {
@@ -19,6 +22,9 @@ export default eleventyConfig => {
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 
   eleventyConfig.addTemplateFormats("css");
+
+  let cssFilename = "";
+  let movedNewFile = false;
 
   // Compile our css with tailwind
   eleventyConfig.addExtension("css", {
@@ -43,10 +49,30 @@ export default eleventyConfig => {
               android: 10
             }
           });
+          // hash file
+          const hasher = createHash("MD5");
+          hasher.update(result.code);
+          const hash = hasher.digest("hex").substring(0, 5);
+          const newFilename = `main-${hash}.css`;
+          if (newFilename !== cssFilename) {
+            cssFilename = newFilename;
+            movedNewFile = false;
+          }
+          
           return result.code.toString();
         };
       }
     }
+  });
+
+  // eleventy unwraps the first function
+  eleventyConfig.addShortcode("cssFilename", async () => {
+    if (!movedNewFile) {
+      movedNewFile = true;
+      // add the hash to the css file
+      await rename(join("dist", "main.css"), join("dist", cssFilename));
+    }
+    return cssFilename;
   });
 
   if (process.env.NODE_ENV === "production") {
