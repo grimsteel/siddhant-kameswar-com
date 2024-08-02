@@ -13,8 +13,6 @@
   "xml": "xml",
   "vba": "visualbasic",
   "json": "json",
-  "liquid": "html",
-  "sass": "sass",
   "rust": {
     "name": "rust",
     "style": "original"

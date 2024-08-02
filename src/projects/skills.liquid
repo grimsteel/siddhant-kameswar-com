@@ -20,12 +20,9 @@ description: "Programming languages and tools I've worked with"
     <a href="/projects/?l={{ lang.lang }}"
       class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-gray-50/50 border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 hover:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800/50 dark:hover:bg-gray-700">
       <div class="block">
-        {% assign devicon = devicons[lang.lang] %}
-        {% if devicon.style %}
-        <img class="mb-2 w-7 h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon@develop/icons/{{ devicon.name }}/{{ devicon.name }}-{{ devicon.style }}.svg" />
-        {% else %}
-        <img class="mb-2 w-7 h-7" src="https://cdn.jsdelivr.net/gh/devicons/devicon@develop/icons/{{ devicon }}/{{ devicon }}-plain.svg" />
-        {% endif %}
+        <svg class="mb-3 w-7 h-7">
+          <use href="/assets/language-icons.svg#{{ lang.lang }}" />
+        </svg>
         <div class="w-full text-lg font-semibold">{{ langs[lang.lang] }}</div>
         <div class="w-full text-sm">{{ lang.count }} projects</div>
       </div>
