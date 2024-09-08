@@ -1,6 +1,5 @@
 - name: Jotter Notes (v1)
   date: 2021-06
-  cat: mobile
   description: This was a simple note-taking application. It was my first mobile app.
   langs:
   - csharp
@@ -15,7 +14,6 @@
   - MVVM architecture
 - name: Flood Status (v1)
   date: 2021-06
-  cat: mobile
   description: >-
     This application displayed the status of several low water crossings in my area.
     The website (https://atxfloods.com) was very slow, so I made this app as a faster
@@ -30,7 +28,6 @@
   - HTTP Requests
   - XML Parsing
 - name: Jotter Notes (v2)
-  cat: mobile
   date: 2023-11
   image: /assets/screenshots/jotter-notes.webp
   description: I rewrote Jotter Notes using Jetpack Compose.
@@ -44,7 +41,6 @@
   skills:
   - Android app architecture
 - name: Flood Status (v2)
-  cat: mobile
   description: >-
     After making the initial version of Flood Status, I quickly realized that non native solutions
     like Xamarin were very slow. I rewrote the app using Kotlin and the native Android SDK.
@@ -58,7 +54,6 @@
   - Android app development
 - name: Trip Planning (mobile app)
   date: 2022-03
-  cat: mobile
   description: >-
     I created this app as an extension to my Trip Planning platform in order to allow us to quickly view data from Trip Planning
     and launch Google Maps with directions to various destinations. I created an Android Auto interface to allow opening directions
@@ -75,7 +70,6 @@
   - Geospatial data
 - name: Ble File Share
   date: 2023-11
-  cat: mobile
   langs:
   - kotlin
   tools:
@@ -86,7 +80,6 @@
   - Kotlin Flows (asynchrony)
   - Bluetooth Low Energy (GATT)
 - name: Location Share
-  cat: mobile
   description: >-
     My family and I needed a way to quickly communicate our geographic locations to each other,
     even in areas with limited connectivity (cell service). This app provided a way to send the
@@ -103,7 +96,6 @@
   - Android location APIs
   date: 2023-11
 - name: Location Shortcuts
-  cat: mobile
   description: >-
     The "recent" shortcuts in Google Maps are unreliable, especially on Android Auto.
     I made this app to provide a reliable way to quickly open directions to various saved
@@ -120,3 +112,18 @@
   - Jetpack Compose
   skills:
   - Android auto
+- name: Clearpass Wifi
+  description: The official ClearPass QuickConnect app for connecting to managed Wi-Fi networks requires numerous intrusive permissions on Android, and has a very annoying interface. I made this app as an open source replacement with a better/faster/more advanced interface.
+  langs:
+  - kotlin
+  - xml
+  tools:
+  - Android Studio
+  - Jetpack Compose
+  skills:
+  - Android Keystore
+  - Android Wi-Fi network suggestions
+  date: 2024-08
+  links:
+  - https://github.com/grimsteel/clearpass-wifi
+  image: /assets/screenshots/clearpass-wifi.webp

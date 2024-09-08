@@ -1,5 +1,4 @@
 - name: Link Sweeper
-  cat: extension
   date: 2021-01
   description: This was my first Chrome Extension. It removed tracking/malicious parameters from links.
   langs:
@@ -9,7 +8,6 @@
   - link parsing
   - html
 - name: Schoology Assignment Checklist
-  cat: extension
   date: 2021-03
   description: >-
     Back in 2021, when we had to do virtual learning, my school districted adopted the Schoology LMS.
@@ -24,13 +22,11 @@
 - name: Trip Planning - Gas Stations
   date: 2022-05
   description: A companion extension to Trip Planning which extracted data about gas stations from GasBuddy.
-  cat: extension
   langs:
   - js
   skills:
   - http
 - name: Quizlet to Vocabustudy converter
-  cat: extension
   description: A companion chrome extension for Vocabustudy that scrapes Quizlet sets 
   links:
   - https://github.com/For-0/quizlet-set-converter
@@ -38,7 +34,6 @@
   date: 2023-04
 - name: Costco Receipts
   description: An extension which extracts and archives Costco receipts within a specified time frame
-  cat: extension
   skills:
   - http
   langs:
@@ -48,11 +43,9 @@
 - name: Custom Video Speed
   date: 2022-03
   description: Many embedded videos do not offer controls to change the speed. This extension allowed the user to customize the speed (up to 10x) for almost any video.
-  cat: extension
   langs:
   - js
 - name: "Edficiency+"
-  cat: extension
   langs:
   - html
   - js
@@ -67,7 +60,6 @@
 - name: User Agent Spoofer
   langs:
   - ts
-  cat: extension
   description: >-
     I was trying to connect to my school's wifi, but the login page doesn't like Firefox very much.
     I had to quickly make this web extension to make it think I was using Chrome.
@@ -81,6 +73,14 @@
   - js
   skills:
   - web scraping
-  cat: extension
   description: Extension to aggregate results across zip codes from BrickSeek
   date: 2021-05
+- name: "Securly Plus"
+  langs:
+  - html
+  - js
+  - css
+  links:
+  - https://github.com/grimsteel/securly-plus
+  description: When my school switched to Securly Flex from Edficiency, I made this extension to improve the general Securly Flex user experience. It adds a dark theme to the website as well as numerous customization options.
+  date: 2024-09

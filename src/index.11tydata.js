@@ -42,7 +42,7 @@ export const rawSections = [
     "projects": [
       {
         "cat": "android-app-development",
-        "idx": 2
+        "idx": 8
       },
       {
         "cat": "android-app-development",
