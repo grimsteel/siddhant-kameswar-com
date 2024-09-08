@@ -27,7 +27,7 @@ eleventyExcludeFromCollections: true
 }
 @keyframes add-navbar-backdrop-dark {
   to {
-    @apply backdrop-blur bg-primary-900/40 border-gray-50/[0.06];
+    @apply backdrop-blur bg-orange-950/50 border-gray-50/[0.06];
   }
 }
 @keyframes add-navbar-padding {
@@ -41,7 +41,7 @@ eleventyExcludeFromCollections: true
 
 @supports (not (animation-timeline: scroll()))  {
   nav.navbar, #home-header > nav {
-    @apply backdrop-blur bg-orange-100/60 dark:bg-primary-900/40 border-gray-900/10 dark:border-gray-50/[0.06];
+    @apply backdrop-blur bg-orange-100/60 dark:bg-orange-950/50 border-gray-900/10 dark:border-gray-50/[0.06];
   }
   nav.navbar > div, #home-header > nav > div {
     @apply p-4 lg:px-8 max-w-screen-xl;
@@ -179,7 +179,7 @@ eleventyExcludeFromCollections: true
       height: 100vh;
       width: 100%;
       position: fixed;
-      z-index: -1;
+      z-index: 0;
       animation-name: darken-background;
       animation-fill-mode: both;
       animation-timeline: scroll();
@@ -203,7 +203,7 @@ eleventyExcludeFromCollections: true
     background-color: transparent;
   }
   to {
-    @apply backdrop-blur bg-primary-900/40 border-gray-50/[0.06] top-0 left-0;
+    @apply backdrop-blur bg-orange-950/50 border-gray-50/[0.06] top-0 left-0;
     width: calc(100% - 1.5rem);
     transform: none;
   }
@@ -253,7 +253,7 @@ eleventyExcludeFromCollections: true
 /* body darkness animation */
 @keyframes darken-background {
   0% {
-    backdrop-filter: brightness(1);
+    backdrop-filter: brightness(1.2);
   }
   10% {
     backdrop-filter: brightness(0.8);
@@ -262,6 +262,6 @@ eleventyExcludeFromCollections: true
     backdrop-filter: brightness(0.8);
   }
   100% {
-    backdrop-filter: brightness(1);
+    backdrop-filter: brightness(1.2);
   }
 }
