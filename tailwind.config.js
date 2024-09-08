@@ -24,7 +24,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        'sans': ['"Fira Code"', ...defaultTheme.fontFamily.sans]
+        'sans': ['"Fira Sans"', ...defaultTheme.fontFamily.sans],
+        'mono': ['"Fira Code"', ...defaultTheme.fontFamily.mono]
       }
     },
   },

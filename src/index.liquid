@@ -9,7 +9,7 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
   <div id="home-backdrop" class="hidden"></div>
 
   <header id="home-header" class="contents">
-    <nav class="z-50 bg-transparent border border-transparent mt-3 mx-3 rounded-lg top-3 sticky mb-6">
+    <nav class="z-50 bg-transparent border border-transparent mt-3 mx-3 rounded-lg top-3 sticky mb-6 font-mono">
       <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-2">
         <!-- left side of navbar - my name-->
         <h1>
@@ -46,7 +46,7 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
   <section class="py-8 px-4 mx-auto max-w-4xl text-center lg:px-12 flex h-screen items-center justify-center flex-col home-section">
     <p
       class="text-2xl md:text-4xl font-medium text-gray-900 dark:text-white animate-enter-exit my-auto md:leading-relaxed">
-      I'm <span class="md:text-6xl font-bold text-transparent bg-gradient-to-r from-orange-900 to-rose-900 dark:from-orange-200 dark:to-rose-200 bg-clip-text text-nowrap inline-block hover:bg-gradient-to-l">Siddhant Kameswar</span>, a <span class="text-orange-950 dark:text-orange-100">high school student</span> passionate about computers, programming, and more.
+      I'm <span class="md:text-6xl font-bold text-transparent bg-gradient-to-r from-orange-900 to-rose-900 dark:from-orange-200 dark:to-rose-200 bg-clip-text text-nowrap inline-block hover:bg-gradient-to-l font-mono">Siddhant<span class="font-sans"> </span>Kameswar</span>, a <span class="text-orange-950 dark:text-orange-100">high school student</span> passionate about computers, programming, and more.
     </p>
     
     <p class="text-lg md:text-xl text-gray-900 dark:text-white animate-enter-exit mb-auto">
@@ -92,7 +92,7 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
                      src="{{ project.image }}" alt="project screenshot" />
               {% endif %}
               
-              <h2 class="mb-3 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">{{ project.name }}</h2>
+              <h2 class="mb-3 text-4xl font-bold tracking-tight text-gray-900 dark:text-white font-mono">{{ project.name }}</h2>
               <p class="font-normal text-lg text-gray-900 dark:text-gray-100 mb-3">{{ project.description | truncate: 200 }}</p>
             </div>
             
@@ -117,14 +117,14 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
     
   <section class="flex h-screen items-center justify-center flex-col home-section" id="last-home-section">
     <p class="text-xl md:text-2xl text-gray-900 dark:text-white animate-enter-exit mb-12 text-center">
-      View <a class="font-bold text-orange-700 dark:text-orange-300 hover:underline" href="/projects/">all of my
-      projects</a> or <a class="font-bold text-orange-700 dark:text-orange-300 hover:underline"
+      View <a class="font-bold text-orange-700 dark:text-orange-300 hover:underline font-mono" href="/projects/">all of my
+      projects</a> or <a class="font-bold text-orange-700 dark:text-orange-300 hover:underline font-mono"
                          href="/contact/">contact me</a>!
     </p>
 
     <p class="text-lg md:text-xl text-gray-900 dark:text-white animate-enter-exit flex items-center">
       Check out my
-      <a href="https://github.com/grimsteel/" target="_blank" rel="noreferrer no opener" class="font-semibold hover:underline inline-flex items-center gap-3 flex-row-reverse ms-3">
+      <a href="https://github.com/grimsteel/" target="_blank" rel="noreferrer no opener" class="font-semibold hover:underline inline-flex items-center gap-3 flex-row-reverse ms-3 font-mono">
         GitHub profile
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
           <path
