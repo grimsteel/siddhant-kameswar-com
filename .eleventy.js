@@ -16,7 +16,7 @@ export default eleventyConfig => {
   ]);
 
   eleventyConfig.addPassthroughCopy("./src/assets");
-  eleventyConfig.addPassthroughCopy("./src/robots.txt");
+  eleventyConfig.addPassthroughCopy({ "./src/static": "/" });
   eleventyConfig.addPassthroughCopy({ "./functions/_routes.json": "_routes.json" });
   eleventyConfig.addPassthroughCopy({ "./js/dist": "js" });
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");

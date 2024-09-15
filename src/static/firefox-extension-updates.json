@@ -1,0 +1,13 @@
+{
+  "addons": {
+    "random-email-generator@noreply.kameswar.com": {
+      "updates": [
+        {
+          "version": "0.1",
+          "update_link": "https://storage.kameswar.com/8eab35e884594129a803-0.1.xpi",
+          "update_hash": "sha256:b4586f660a3715e02d32eb63a9784fa3f8757b488f364daff99c033875659e62"
+        }
+      ]
+    }
+  }
+}
