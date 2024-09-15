@@ -1,4 +1,4 @@
-# siddhant.kameswar.com
+# kameswar.com
 
 My portfolio website
 
@@ -16,7 +16,7 @@ The backend for the contact form is hosted on Cloudflare Workers.
 
 There's as little JavaScript as possible on the site, giving it a perfect PageSpeed Insights score:
 
-![pagespeed insights](https://siddhant.kameswar.com/assets/screenshots/this-website.webp)
+![pagespeed insights](https://kameswar.com/assets/screenshots/this-website.webp)
 
 
 ![image](https://github.com/user-attachments/assets/981dfc35-0f0b-4c92-a5ed-f5c693161025)

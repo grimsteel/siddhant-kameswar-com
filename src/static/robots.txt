@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://siddhant.kameswar.com/sitemap.xml
+Sitemap: https://kameswar.com/sitemap.xml
