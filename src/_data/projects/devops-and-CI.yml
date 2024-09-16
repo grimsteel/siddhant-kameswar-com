@@ -10,8 +10,9 @@
 - name: Vocabustudy Domain
   date: 2022-11
   cat: web
-  description: This was my first domain
+  description: This was my first experience managing a domain, from DNS records to custom email addresses.
   tools:
   - Google Domains
+  - Cloudflare
   skills:
   - DNS

@@ -82,5 +82,6 @@
   - css
   links:
   - https://github.com/grimsteel/securly-plus
+  - https://securly-plus.kameswar.com/
   description: When my school switched to Securly Flex from Edficiency, I made this extension to improve the general Securly Flex user experience. It adds a dark theme to the website as well as numerous customization options.
   date: 2024-09

@@ -22,8 +22,6 @@
     This was largely my first proper C++ project. I learned a ton about desktop application development.
     Beacuse the school computers were on Windows, I had to make my program compatible with both Visual C++
     and gcc.
-
-    Note: The GH repo below is currently private as I don't want to cause any potential "testing integrity" issues.
   date: 2023-08
   links:
   - https://github.com/grimsteel/cli-monopoly

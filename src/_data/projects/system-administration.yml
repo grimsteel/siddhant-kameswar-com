@@ -10,9 +10,6 @@
   - WebRTC
   - TURN
   - STUN
-- name: Installing Windows
-  date: 2020-11
-  description: I've done many clean installs of Windows
 - name: pfSense Triple Boot
   date: 2023-07
   description: I triple booted a backup pfSense instance with Arch Linux and Windows 
@@ -22,14 +19,6 @@
   - Arch Linux
   - Partitions
   - Boot order
-- name: Unix system setup
-  date: 2023-11
-  description: I've installed and set up Linux systems a number of times
-  skills:
-  - arch linux
-  - debian linux
-  - ubuntu linux
-  - freebsd (pfSense)
 - name: Gitolite
   description: I set up a local git server
   date: 2023-07

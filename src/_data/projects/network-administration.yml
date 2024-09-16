@@ -24,17 +24,6 @@
   - Git servers
   - SSH access control
   description: I set up a local git server for my internal projects
-- name: Travel Router
-  date: 2020-05
-  description: GL AR750
-  skills:
-  - MAC filters
-  - WiFi repeaters
-- name: Cloudflare
-  date: 2023-08
-  skills:
-  - DNS
-  - Transferring domains
 - name: Custom OpenWRT Travel Router
   date: 2024-01
   tools:
