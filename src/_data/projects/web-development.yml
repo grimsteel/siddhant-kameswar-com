@@ -216,17 +216,6 @@
   - Full stack development
   - Structuring large websites
   - Managing geospatial data
-- name: G. Monster
-  date: 2021-11
-  cat: web
-  description: I created this website to help my sister organize and display her "G. Monster" comic strip.
-  langs:
-  - python
-  - sql
-  - html
-  tools:
-  - Django
-  - SQLite
 - name: Send to Computer v2
   cat: web
   date: 2024-07
