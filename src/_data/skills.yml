@@ -76,3 +76,15 @@ desktop/console apps:
     icon: cmake
   - name: GCC
     icon: gcc
+electronics:
+  - name: ESP32
+    icon: espressif
+    icon_url: https://www.espressif.com/sites/all/themes/espressif/favicon.ico
+  - name: KiCAD
+    icon: kicad
+    icon_url: https://www.kicad.org/apple-touch-icon-60x60.png
+  - name: Arduino
+    icon: arduino
+  - name: RF design
+    icon: rf
+    icon_url: ""

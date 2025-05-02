@@ -155,3 +155,15 @@
   - https://aur.archlinux.org/packages/pass-secret-service-bin
   langs:
   - rust
+- name: USACO CLI
+  cat: command line
+  date: 2024-09
+  description: "Unofficial USACO cli: Supports automatic solution testing and submission"
+  tools:
+  - Tokio
+  langs:
+  - rust
+  links:
+  - https://github.com/grimsteel/usaco-cli
+  - https://lib.rs/crates/usaco-cli
+  
