@@ -31,3 +31,15 @@
   - Cross VLAN communication
   - Privacy/security
   description: I set up the Roborock Home Assistant integration to allow management of the robot vacuum directly through Home Assistant, rather than through Xiaomi's proprietary app. Even though the vacuum, being on a different VLAN, did not accept requests from Home Assistant's VLAN, I was able to accomplish this by setting up a NAT forwarding rule in pfsense.
+- name: beartag
+  date: 2025-02
+  tools:
+  - KiCAD
+  skills:
+  - PCB design and fabrication
+  - RF design
+  - CH57x MCU family
+  links:
+  - https://github.com/grimsteel/beartag
+  description: "Low cost, open source BLE device tracker | Compatible with macless-haystack"
+  
