@@ -16,7 +16,7 @@
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.8",
     "autoprefixer": "^10.4.20",
-    "esbuild": "^0.24.2",
+    "esbuild": "^0.25.0",
     "htmlnano": "^2.1.1",
     "js-yaml": "^4.1.0",
     "lightningcss": "^1.28.2",
