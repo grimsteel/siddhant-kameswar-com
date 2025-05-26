@@ -16,5 +16,10 @@
   "rust": {
     "name": "rust",
     "style": "original"
-  }
+  },
+  "lisp": {
+    "name": "emacs",
+    "style": "original"
+  },
+  "asm": "linux"
 }

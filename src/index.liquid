@@ -30,7 +30,7 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
               {% if navbarPage.url != "/" %}
                 <li>
                   <a
-                    href="{{ navbarPage.url }}" 
+                    href="{{ navbarPage.url }}"
                     class="block py-2 px-3 rounded md:p-0 dark:text-white text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-600 md:dark:hover:text-primary-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
                     {{ navbarPage.data.title }}
@@ -42,21 +42,27 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
         </div>
       </div>
     </nav>
-  </header>  
+  </header>
   <section class="py-8 px-4 mx-auto max-w-4xl text-center lg:px-12 flex h-screen items-center justify-center flex-col home-section">
     <p
       class="text-2xl md:text-4xl font-medium text-gray-900 dark:text-white animate-enter-exit my-auto md:leading-relaxed">
-      I'm <span class="md:text-6xl font-bold text-transparent bg-gradient-to-r from-orange-900 to-rose-900 dark:from-orange-200 dark:to-rose-200 bg-clip-text text-nowrap inline-block hover:bg-gradient-to-l font-mono">Siddhant<span class="font-sans"> </span>Kameswar</span>, a <span class="text-orange-950 dark:text-orange-100">high school student</span> passionate about computers, programming, and more.
+      I'm <span class="md:text-6xl font-bold text-transparent bg-gradient-to-r from-orange-900 to-rose-900 dark:from-orange-200 dark:to-rose-200 bg-clip-text text-nowrap inline-block hover:bg-gradient-to-l font-mono">Siddhant<span class="font-sans"> </span>Kameswar</span>, a <span class="text-orange-950 dark:text-orange-100">high school student</span> (class of '27) passionate about computer science, electronics, and more.
     </p>
-    
+
     <p class="text-lg md:text-xl text-gray-900 dark:text-white animate-enter-exit mb-auto">
       I've built complex <a class="font-bold hover:underline" href="/projects/?c=web-development">web applications</a> and <a class="font-bold hover:underline" href="/projects/?c=browser-extension-development">browser extensions</a>, developed countless <a href="/projects/?c=android-app-development" class="font-bold hover:underline">mobile apps</a>, and worked with <a class="font-bold hover:underline" href="/projects/?c=electronics-and-IOT">embedded systems and IOT</a>, just to name a few things.
     </p>
-    
+
+    <p class="text-lg md:text-xl text-gray-900 dark:text-white animate-enter-exit mb-auto">
+      I'm looking for interesting internships or research opportunities in the fields of CS, engineering, and networking.
+
+      <a class="font-bold hover:underline" href="/contact">Contact me...</a>
+    </p>
+
     <p class="text-lg font-bold text-gray-900 dark:text-white animate-enter-exit mb-6">
       View some of my best projects below:
     </p>
-    
+
     <button
       class="text-orange-500 bg-orange-200/25 border border-current hover:bg-orange-200 focus:outline-none rounded-full inline-flex items-center dark:bg-primary-900/25 dark:text-primary-500/75 dark:hover:bg-primary-900 p-2.5 animate-bounce mb-auto btn-scroll-next">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -73,9 +79,9 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
       <span
         class="md:text-4xl font-bold text-nowrap relative inline-block text-center lg:text-left" id="home-i-am-name">
         <span>web applications</span>
+        <span>electronics and PCBs</span>
         <span>native desktop applications</span>
         <span>mobile apps</span>
-        <span>networks and linux systems</span>
         <!-- dictates sizing of the box -->
         <span class="invisible">native desktop applications</span>
       </span>
@@ -86,21 +92,21 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
           <div class="animate-enter-exit flex items-center justify-center h-full flex-col">
             <div
               class="max-w-2xl p-6 border rounded-lg bg-orange-100/50 border-orange-200 dark:bg-orange-900/25 dark:border-orange-800/50 shadow-lg shadow-orange-200/50 dark:shadow-orange-950/50 mb-3 text-center">
-              
+
               {% if project.image %}
                 <img class="lightbox rounded-lg dark:shadow-gray-900 mb-6 max-h-96 mx-auto {% if not project.transparentImage %}shadow-xl{% endif %}" loading="lazy"
                      src="{{ project.image }}" alt="project screenshot" />
               {% endif %}
-              
+
               <h2 class="mb-3 text-4xl font-bold tracking-tight text-gray-900 dark:text-white font-mono">{{ project.name }}</h2>
               <p class="font-normal text-lg text-gray-900 dark:text-gray-100 mb-3">{{ project.description | truncate: 200 }}</p>
             </div>
-            
+
             <a class="block md:text-lg text-orange-700 dark:text-orange-300 hover:text-orange-800 dark:hover:text-orange-200 hover:underline mb-3"
                href="/projects/?c={{ project.cat }}">
               View all projects ->
             </a>
-            
+
             <button
               class="text-orange-500 bg-orange-200/25 border border-current hover:bg-orange-200 focus:outline-none rounded-full inline-flex items-center dark:bg-primary-900/25 dark:text-primary-500/75 dark:hover:bg-primary-900 p-2.5 animate-bounce btn-scroll-next mt-3">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -114,7 +120,7 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
       {% endfor %}
     {% endfor %}
   </div>
-    
+
   <section class="flex h-screen items-center justify-center flex-col home-section" id="last-home-section">
     <p class="text-xl md:text-2xl text-gray-900 dark:text-white animate-enter-exit mb-12 text-center">
       View <a class="font-bold text-orange-700 dark:text-orange-300 hover:underline font-mono" href="/projects/">all of my
@@ -133,12 +139,12 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
       </a>!
     </p>
   </section>
-  
+
   {% render 'footer' %}
- 
+
   <script>
     const lastHomeSection = document.getElementById("last-home-section");
-    
+
     document.querySelectorAll(".btn-scroll-next").forEach(el => el.addEventListener("click", () => {
       // scroll to the next section
       const nextSection = el.closest(".home-section")?.nextElementSibling ?? lastHomeSection;

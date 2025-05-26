@@ -166,4 +166,17 @@
   links:
   - https://github.com/grimsteel/usaco-cli
   - https://lib.rs/crates/usaco-cli
-  
+- name: Solitaire ASM
+  cat: command line
+  date: 2025-01
+  description: "One of my craziest side projects: A LAN multiplayer solitaire TUI written entirely in <3kb of x86_64 assembly"
+  langs:
+  - asm
+  links:
+  - https://github.com/grimsteel/card-games-asm
+  tools:
+  - NASM
+  - Linux API (syscalls)
+  - TCP Sockets
+  skills:
+  - Assembly optimization

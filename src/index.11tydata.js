@@ -28,6 +28,19 @@ export const rawSections = [
   {
     "projects": [
       {
+        "cat": "electronics-and-IOT",
+        "idx": 3
+      },
+      {
+        "cat": "electronics-and-IOT",
+        "idx": 6
+      }
+    ],
+    "cat": "electronics-and-IOT"
+  },
+  {
+    "projects": [
+      {
         "cat": "desktop-app-development",
         "idx": 1
       },
@@ -50,18 +63,5 @@ export const rawSections = [
       }
     ],
     "cat": "android-app-development"
-  },
-  {
-    "projects": [
-      {
-        "cat": "network-administration",
-        "idx": 5
-      },
-      {
-        "cat": "system-administration",
-        "idx": 5
-      }
-    ],
-    "cat": "network-administration"
   }
 ];

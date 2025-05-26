@@ -3,7 +3,7 @@
   description: >-
     A big issue with infrared devices is that if the remote stops
     working, the entire device essentially becomes useless.
-    Using my Arduino and an IR receiver, I decoded the IR codes for 
+    Using my Arduino and an IR receiver, I decoded the IR codes for
     the overhead lights in my office and set up a replacement for the remote.
   tools:
   - Arduino
@@ -31,6 +31,45 @@
   - Cross VLAN communication
   - Privacy/security
   description: I set up the Roborock Home Assistant integration to allow management of the robot vacuum directly through Home Assistant, rather than through Xiaomi's proprietary app. Even though the vacuum, being on a different VLAN, did not accept requests from Home Assistant's VLAN, I was able to accomplish this by setting up a NAT forwarding rule in pfsense.
+- name: Home Assistant RF Bridge
+  date: 2024-12
+  description: A small wireless module that adds IR and RF communication capabilities to Home Assistant using ESPHome or MQTT
+  tools:
+  - Home Assistant
+  - KiCAD
+  - ESPHome
+  skills:
+  - PCB design
+  - IR protocols
+  links:
+  - https://github.com/grimsteel/homeassistant-rf-bridge
+  image: /assets/screenshots/hass-rf-bridge.webp
+- name: Weather Dash
+  date: 2024-12
+  description: "1.8\" weather dashboard - two buttons + rechargable battery + DHT11"
+  tools:
+  - KiCAD
+  - ESP-now
+  - LVGL
+  skiils:
+  - PCB design
+  langs:
+  - c
+  links:
+  - https://github.com/grimsteel/weather-dash
+- name: The Pixel Clock
+  date: 2024-01
+  description: "A holiday-themed side project: A clock shaped PCB with numerous neopixels. Parts of the firmware are written in native 8086 assembly."
+  links:
+  - https://github.com/grimsteel/pixel-clock
+  skills:
+  - PCB design
+  - CH55x MCU family
+  tools:
+  - KiCAD
+  langs:
+  - c
+  - asm
 - name: beartag
   date: 2025-02
   tools:
@@ -42,4 +81,16 @@
   links:
   - https://github.com/grimsteel/beartag
   description: "Low cost, open source BLE device tracker | Compatible with macless-haystack"
-  
+  image: /assets/screenshots/beartag.webp
+- name: ESP-NOW relay
+  date: 2025-04
+  description: "An HTTP relay server for the ESP-NOW protocol. Allows any computer with a wireless interface to be used as an ESP-NOW sender."
+  links:
+  - https://github.com/grimsteel/esp-now-relay
+  langs:
+  - rust
+  tools:
+  - Axum
+  - ESP-NOW
+  skills:
+  - radiotap

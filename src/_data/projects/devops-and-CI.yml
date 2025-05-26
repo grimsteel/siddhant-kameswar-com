@@ -7,3 +7,13 @@
   tools:
   - Github Actions
   - Cloudflare Pages
+- name: "Tree Sitter: Firestore Rules"
+  date: 2024-12
+  description: Tree-sitter parser and syntax highlighting for Google Cloud Firestore rules. Can be adapted to give any editor language support for Firestore Rules.
+  langs:
+  - lisp
+  - node
+  tools:
+  - Tree Sitter
+  links:
+  - https://github.com/grimsteel/tree-sitter-firestore-rules

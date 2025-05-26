@@ -14,5 +14,7 @@
   "vba": "Visual Basic",
   "json": "JSON",
   "rust": "Rust",
-  "liquid": "Liquid"
+  "liquid": "Liquid",
+  "asm": "Assembly",
+  "lisp": "Lisp"
 }
