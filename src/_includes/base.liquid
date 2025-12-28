@@ -2,13 +2,16 @@
 layout: skeleton.liquid
 ---
 <body class="bg-orange-100/50 dark:bg-[#270D05] min-h-full">
-
-  <header class="inline">
-    <nav class="z-50 sticky top-3 bg-transparent border border-transparent mt-3 mb-6 mx-3 rounded-lg navbar font-mono">
-      <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-2">
+   <header class="inline">
+    <nav class="z-50 border-b top-0 w-screen sticky mb-6 tracking-wide backdrop-blur bg-zinc-700/50 dark:bg-zinc-500/25 border-zinc-900 dark:border-zinc-600 transition-opacity">
+      <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4 lg:px-8 max-w-screen-xl">
         <!-- left side of navbar - my name-->
-        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse text-2xl font-semibold dark:text-white">Siddhant Kameswar</a>
-        <button type="button" id="navbar-toggle" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+        <h1>
+          <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse text-2xl font-semibold dark:text-white">
+            Siddhant Kameswar
+          </a>
+        </h1>
+        <button type="button" id="navbar-toggle" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-700 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
           <span class="sr-only">Open main menu</span>
           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
@@ -17,21 +20,24 @@ layout: skeleton.liquid
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
           <!-- pages -->
           <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50/50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800/50 md:dark:bg-transparent dark:border-gray-700">
-            {%- for navbarPage in collections.navbarSorted -%}
-              <li>
-                <a
-                    href="{{ navbarPage.url }}" {% if page.url == navbarPage.url %}aria-current="page"{% endif %}
-                    class="block py-2 px-3 rounded md:p-0 dark:text-white {% if page.url == navbarPage.url %}text-white bg-primary-500 md:bg-transparent md:text-primary-700 md:dark:text-primary-500{% else %}text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-600 md:dark:hover:text-primary-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent{% endif %}"
-                >
-                  {{ navbarPage.data.title }}
-                </a>
-              </li>
-            {%- endfor -%}
+            {% for navbarPage in collections.navbarSorted %}
+              {% if navbarPage.url != "/" %}
+                <li>
+                  <a
+                    href="{{ navbarPage.url }}"
+                    class="block py-2 px-3 rounded md:p-0 dark:text-white text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary-600 md:dark:hover:text-primary-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    {{ navbarPage.data.title }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
           </ul>
         </div>
       </div>
     </nav>
   </header>
+
   <main class="px-4 mb-3">
     {{ content }}
   </main>

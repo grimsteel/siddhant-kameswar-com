@@ -5,12 +5,147 @@ order: 0
 description: "Siddhant Kameswar - student passionate about computers, programming, and more"
 ---
 
-<body class="bg-orange-100/50 dark:bg-[#270D05] min-h-full" id="home-body">
-  <div id="home-backdrop" class="hidden"></div>
+<body class="bg-zinc-50 dark:bg-zinc-950 min-h-full relative" id="home-body">
+  <img class="absolute inset-0 h-screen w-screen object-cover" src="/assets/background.webp" />
+  <section class="flex h-screen items-center justify-center flex-col py-8 px-4 backdrop-brightness-50 home-section" id="lead-section">
+    <div class="inline-block mb-24">
+      <h1>
+        <a href="/" class="relative text-6xl block md:text-8xl after:content-['Siddhant_Kameswar'] after:absolute after:inset-0 font-semibold text-white drop-shadow-lg mb-3 text-center after:bg-gradient-to-r after:from-white after:via-amber-500 after:to-white after:bg-[length:200%_auto] after:bg-clip-text after:text-transparent hover:after:animate-shimmer after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-1000">
+          Siddhant Kameswar
+        </a>
+      </h1>
+      <ul class="font-medium flex flex-col md:p-0 mt-4 md:flex-row gap-3 items-center justify-between text-center grow width-0">
+        {% for navbarPage in collections.navbarSorted %}
+          {% if navbarPage.url != "/" %}
+            <li>
+              <a
+                href="{{ navbarPage.url }}"
+                class="block text-xl md:text-2xl rounded dark:text-white text-gray-900 hover:text-amber-400 hover:underline"
+              >
+                {{ navbarPage.data.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <button
+      class="text-zinc-200 bg-zinc-500/50 border border-current hover:bg-amber-500/50 hover:text-amber-200 transition-colors focus:outline-none rounded-full inline-flex items-center p-2.5 animate-bounce btn-scroll-next">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+      </svg>
+      <span class="sr-only">Next section</span>
+    </button>
+  </section>
+
+  <section class="py-8 px-4 border-t-4 border-rose-300 home-section">
+    <div class="max-w-screen-xl mx-auto">
+      <h2 class="text-4xl font-bold tracking-wide dark:text-white drop-shadow-lg mb-2">Who am I?</h2>
+      
+      <p
+        class="text-lg md:text-xl font-medium text-gray-900 dark:text-white my-auto md:leading-relaxed mb-3">
+        I'm a <span class="text-rose-600 dark:text-rose-400">high school student</span> (class of '27) passionate about computer science, electronics, and more.
+      </p>
+      
+      <p class="text-lg md:text-xl text-gray-900 dark:text-white mb-3">
+        I've built complex <a class="font-bold hover:underline" href="/projects/?c=web-development">web applications</a> and <a class="font-bold hover:underline" href="/projects/?c=browser-extension-development">browser extensions</a>, developed countless <a href="/projects/?c=android-app-development" class="font-bold hover:underline">mobile apps</a>, and worked with <a class="font-bold hover:underline" href="/projects/?c=electronics-and-IOT">embedded systems and IOT</a>, just to name a few things.
+      </p>
+      
+      <p class="text-lg md:text-xl text-gray-900 dark:text-white mb-3">
+        I'm looking for interesting internships or research opportunities in the fields of CS, engineering, and networking.
+      </p>
+      <p class="text-lg md:text-2xl">
+        <a class="font-bold hover:underline text-rose-600 dark:text-rose-400 flex items-center gap-3" href="/contact">
+          <span>Contact me</span>
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 animate-bounce-x">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+          </svg>
+
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t-4 pt-8 border-orange-300">
+    <p
+      class="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8 flex justify-between max-w-screen-xl mx-auto">
+      <span class="tracking-wide">Some of my best projects:</span>
+      
+      <a class="font-bold hover:underline text-orange-600 dark:text-orange-400 inline-flex items-center gap-3" href="/projects">
+        <span>View all</span>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 animate-bounce-x">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+        </svg>
+        
+      </a>
+    </p>
+
+    {% for section in sections %}
+      
+      <div class="md:grid grid-cols-6 items-center border-t-4 group/section {{ section.color }}">
+        <h3 class="text-4xl font-semibold dark:text-white text-center p-8 tracking-wide">
+          <a class="hover:underline {{ section.text }}" href="/projects?c={{ section.cat }}">{{ section.name }}</a>
+        </h3>
+
+        <div class="col-span-5 overflow-hidden group/scroller min-w-0">
+          <div class="flex flex-col md:flex-row animate-scroll group-hover/scroller:[animation-play-state:paused] w-max group-even/section:[animation-direction:reverse]">
+            <div class="flex">
+              {% for project in section.projects %}
+                <a class="group/project relative w-full md:h-56 md:w-fit flex-none" href="{{ project.link }}">
+                  <img class="md:min-w-96 md:w-auto object-cover md:h-full w-full h-auto" src="{{ project.image }}" alt="Project image" />
+                  <div class="absolute inset-0 w-full h-full  bg-gradient-to-t transition-all group-hover/project:via-black/60 from-black/60 to-transparent"></div>
+                  <div class="absolute bottom-3 left-3">
+                    <p class="mb-3 text-sm text-white opacity-0 transition-opacity group-hover/project:opacity-100">{{ project.description }}</p>
+                    <h3 class="text-lg font-semibold text-white ">{{ project.name }}</h3>
+                  </div>
+                </a>
+              {% endfor %}
+            </div>
+            <!-- second section -->
+            <div class="hidden md:flex" aria-hidden="true">
+              {% for project in section.projects %}
+                <a class="group/project relative w-full md:h-56 md:w-fit flex-none" href="{{ project.link }}">
+                  <img class="md:min-w-96 md:w-auto object-cover md:h-full w-full h-auto" src="{{ project.image }}" alt="Project image" />
+                  <div class="absolute inset-0 w-full h-full  bg-gradient-to-t transition-all group-hover/project:via-black/60 from-black/60 to-transparent"></div>
+                  <div class="absolute bottom-3 left-3">
+                    <p class="mb-3 text-sm text-white opacity-0 transition-opacity group-hover/project:opacity-100">{{ project.description }}</p>
+                    <h3 class="text-lg font-semibold text-white ">{{ project.name }}</h3>
+                  </div>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+
+  <section class="py-8 px-4 border-t-4 border-cyan-300">
+    <div class="max-w-screen-xl mx-auto">    
+      <p class="text-xl md:text-2xl text-gray-900 dark:text-white mb-3">
+        View <a class="font-bold text-cyan-600 dark:text-cyan-400 hover:underline tracking-wide" href="/projects/">all of my projects</a> or <a class="font-bold text-cyan-600 dark:text-cyan-400 hover:underline tracking-wide"
+                                                                                                                                                href="/contact/">contact me</a>!
+      </p>
+      
+      <p class="text-lg md:text-xl text-gray-900 dark:text-white flex items-center">
+        Check out my
+        <a href="https://github.com/grimsteel/" target="_blank" rel="noreferrer no opener" class="font-semibold hover:underline inline-flex items-center gap-3 flex-row-reverse ms-3 font-mono">
+          GitHub profile
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+          </svg>
+        </a>!
+      </p>
+    </div>
+  </section>
 
   <header id="home-header" class="contents">
-    <nav class="z-50 bg-transparent border border-transparent mt-3 mx-3 rounded-lg top-3 sticky mb-6 font-mono">
-      <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-2">
+    <nav class="z-50 border-b top-0 w-screen fixed mb-6 tracking-wide backdrop-blur bg-zinc-700/50 dark:bg-zinc-500/25 border-zinc-900 dark:border-zinc-600 transition-opacity opacity-0">
+      <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4 lg:px-8 max-w-screen-xl">
         <!-- left side of navbar - my name-->
         <h1>
           <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse text-2xl font-semibold dark:text-white">
@@ -43,112 +178,28 @@ description: "Siddhant Kameswar - student passionate about computers, programmin
       </div>
     </nav>
   </header>
-  <section class="py-8 px-4 mx-auto max-w-4xl text-center lg:px-12 flex h-screen items-center justify-center flex-col home-section">
-    <p
-      class="text-2xl md:text-4xl font-medium text-gray-900 dark:text-white animate-enter-exit my-auto md:leading-relaxed">
-      I'm <span class="md:text-6xl font-bold text-transparent bg-gradient-to-r from-orange-900 to-rose-900 dark:from-orange-200 dark:to-rose-200 bg-clip-text text-nowrap inline-block hover:bg-gradient-to-l font-mono">Siddhant<span class="font-sans"> </span>Kameswar</span>, a <span class="text-orange-950 dark:text-orange-100">high school student</span> (class of '27) passionate about computer science, electronics, and more.
-    </p>
 
-    <p class="text-lg md:text-xl text-gray-900 dark:text-white animate-enter-exit mb-auto">
-      I've built complex <a class="font-bold hover:underline" href="/projects/?c=web-development">web applications</a> and <a class="font-bold hover:underline" href="/projects/?c=browser-extension-development">browser extensions</a>, developed countless <a href="/projects/?c=android-app-development" class="font-bold hover:underline">mobile apps</a>, and worked with <a class="font-bold hover:underline" href="/projects/?c=electronics-and-IOT">embedded systems and IOT</a>, just to name a few things.
-    </p>
-
-    <p class="text-lg md:text-xl text-gray-900 dark:text-white animate-enter-exit mb-auto">
-      I'm looking for interesting internships or research opportunities in the fields of CS, engineering, and networking.
-
-      <a class="font-bold hover:underline" href="/contact">Contact me...</a>
-    </p>
-
-    <p class="text-lg font-bold text-gray-900 dark:text-white animate-enter-exit mb-6">
-      View some of my best projects below:
-    </p>
-
-    <button
-      class="text-orange-500 bg-orange-200/25 border border-current hover:bg-orange-200 focus:outline-none rounded-full inline-flex items-center dark:bg-primary-900/25 dark:text-primary-500/75 dark:hover:bg-primary-900 p-2.5 animate-bounce mb-auto btn-scroll-next">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
-      </svg>
-      <span class="sr-only">Next section</span>
-    </button>
-  </section>
-
-  <!-- wrapper for the view-timeline -->
-  <div id="home-section-container">
-    <p class="mb-12 text-2xl font-medium fixed top-20 text-center md:text-start text-gray-900 dark:text-gray-100 justify-center items-center gap-3 flex-wrap z-40 bg-white/[.01] backdrop-blur p-3 rounded w-full flex" id="home-i-am">
-      I've worked with
-      <span
-        class="md:text-4xl font-bold text-nowrap relative inline-block text-center lg:text-left" id="home-i-am-name">
-        <span>web applications</span>
-        <span>electronics and PCBs</span>
-        <span>native desktop applications</span>
-        <span>mobile apps</span>
-        <!-- dictates sizing of the box -->
-        <span class="invisible">native desktop applications</span>
-      </span>
-    </p>
-    {% for sec in sections %}
-      {% for project in sec.projects %}
-        <section class="h-screen home-section">
-          <div class="animate-enter-exit flex items-center justify-center h-full flex-col">
-            <div
-              class="max-w-2xl p-6 border rounded-lg bg-orange-100/50 border-orange-200 dark:bg-orange-900/25 dark:border-orange-800/50 shadow-lg shadow-orange-200/50 dark:shadow-orange-950/50 mb-3 text-center">
-
-              {% if project.image %}
-                <img class="lightbox rounded-lg dark:shadow-gray-900 mb-6 max-h-96 mx-auto {% if not project.transparentImage %}shadow-xl{% endif %}" loading="lazy"
-                     src="{{ project.image }}" alt="project screenshot" />
-              {% endif %}
-
-              <h2 class="mb-3 text-4xl font-bold tracking-tight text-gray-900 dark:text-white font-mono">{{ project.name }}</h2>
-              <p class="font-normal text-lg text-gray-900 dark:text-gray-100 mb-3">{{ project.description | truncate: 200 }}</p>
-            </div>
-
-            <a class="block md:text-lg text-orange-700 dark:text-orange-300 hover:text-orange-800 dark:hover:text-orange-200 hover:underline mb-3"
-               href="/projects/?c={{ project.cat }}">
-              View all projects ->
-            </a>
-
-            <button
-              class="text-orange-500 bg-orange-200/25 border border-current hover:bg-orange-200 focus:outline-none rounded-full inline-flex items-center dark:bg-primary-900/25 dark:text-primary-500/75 dark:hover:bg-primary-900 p-2.5 animate-bounce btn-scroll-next mt-3">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                   class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
-              </svg>
-              <span class="sr-only">Next section</span>
-            </button>
-          </div>
-        </section>
-      {% endfor %}
-    {% endfor %}
-  </div>
-
-  <section class="flex h-screen items-center justify-center flex-col home-section" id="last-home-section">
-    <p class="text-xl md:text-2xl text-gray-900 dark:text-white animate-enter-exit mb-12 text-center">
-      View <a class="font-bold text-orange-700 dark:text-orange-300 hover:underline font-mono" href="/projects/">all of my
-      projects</a> or <a class="font-bold text-orange-700 dark:text-orange-300 hover:underline font-mono"
-                         href="/contact/">contact me</a>!
-    </p>
-
-    <p class="text-lg md:text-xl text-gray-900 dark:text-white animate-enter-exit flex items-center">
-      Check out my
-      <a href="https://github.com/grimsteel/" target="_blank" rel="noreferrer no opener" class="font-semibold hover:underline inline-flex items-center gap-3 flex-row-reverse ms-3 font-mono">
-        GitHub profile
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path
-            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-        </svg>
-      </a>!
-    </p>
-  </section>
 
   {% render 'footer' %}
 
   <script>
-    const lastHomeSection = document.getElementById("last-home-section");
-
     document.querySelectorAll(".btn-scroll-next").forEach(el => el.addEventListener("click", () => {
       // scroll to the next section
-      const nextSection = el.closest(".home-section")?.nextElementSibling ?? lastHomeSection;
+      const nextSection = el.closest(".home-section")?.nextElementSibling;
       nextSection.scrollIntoView({ behavior: "smooth" });
     }));
+
+   const header = document.querySelector("#home-header > nav");
+
+   // show header when lead section gone
+   new IntersectionObserver(entries => {
+     entries.forEach(entry => {
+       if (entry.isIntersecting) {
+         header.classList.add("opacity-0");
+       } else {
+         header.classList.remove("opacity-0");
+       }
+     });
+   }, {threshold: 0.1}).observe(document.getElementById("lead-section"));
   </script>
 </body>

@@ -1,67 +1,43 @@
+const included = [
+  {
+    name: "Electronics and IOT",
+    cat: "electronics-and-IOT",
+    color: "border-yellow-500",
+    text: "hover:text-yellow-500"
+  },
+  {
+    name: "Web Applications",
+    cat: "web-development",
+    color: "border-lime-500",
+    text: "hover:text-lime-500"
+  },
+  {
+    name: "Systems Applications",
+    cat: "desktop-app-development",
+    color: "border-emerald-500",
+    text: "hover:text-emerald-500"
+  },
+  {
+    name: "Mobile Apps",
+    cat: "android-app-development",
+    color: "border-teal-500",
+    text: "hover:text-teal-500"
+  }
+];
+  
+
 export const eleventyComputed = {
   sections(data) {
-    return data.rawSections.map(({ projects, cat }) => ({
+    return included.map(({ name, cat, color, text }) => ({
+      name,
       cat,
-      projects: projects.map(({ cat, idx }) => {
-        return {
-          ...data.projects[cat][idx],
-          cat
-        }
-      })
+      color,
+      text,
+      projects: data.projects[cat].filter(project => project.image).sort((a, b) => b.date.localeCompare(a.date))
+        .map(project => ({
+          ...project,
+          link: `/projects/?s=${encodeURIComponent(project.name)}`
+        }))
     }));
   }
 };
-export const rawSections = [
-  {
-    "projects": [
-      {
-        "cat": "web-development",
-        "idx": 7
-      },
-      {
-        "cat": "web-development",
-        "idx": 3
-      }
-    ],
-    "cat": "web-development"
-  },
-  {
-    "projects": [
-      {
-        "cat": "electronics-and-IOT",
-        "idx": 3
-      },
-      {
-        "cat": "electronics-and-IOT",
-        "idx": 6
-      }
-    ],
-    "cat": "electronics-and-IOT"
-  },
-  {
-    "projects": [
-      {
-        "cat": "desktop-app-development",
-        "idx": 1
-      },
-      {
-        "cat": "desktop-app-development",
-        "idx": 8
-      }
-    ],
-    "cat": "desktop-app-development"
-  },
-  {
-    "projects": [
-      {
-        "cat": "android-app-development",
-        "idx": 8
-      },
-      {
-        "cat": "android-app-development",
-        "idx": 7
-      }
-    ],
-    "cat": "android-app-development"
-  }
-];

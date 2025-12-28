@@ -6,6 +6,19 @@ module.exports = {
   content: ["./src/**/*.{liquid,html,js,md}"],
   theme: {
     extend: {
+      keyframes: {
+        shimmer: {
+          '100%': { backgroundPosition: '200% center' },
+        },
+        scroll: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' }
+        }
+      },
+      animation: {
+        shimmer: 'shimmer 1.5s linear infinite',
+        scroll: 'scroll 25s linear infinite'
+      },
       colors: {
         primary: colors.amber,
         //gray: colors.zinc,

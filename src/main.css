@@ -54,222 +54,28 @@ eleventyExcludeFromCollections: true
   @apply cursor-pointer;
 }
 
-/* ===== NAVBAR ANIMATIONS ===== */
-@keyframes add-navbar-backdrop {
-  to {
-    @apply backdrop-blur bg-orange-100/60 border-gray-900/10;
-  }
+#lead-section {
+  background-image: radial-gradient(circle at center, #fff0 0%, #0007 100%);
 }
-@keyframes add-navbar-backdrop-dark {
-  to {
-    @apply backdrop-blur bg-orange-950/50 border-gray-50/[0.06];
-  }
+
+.animate-bounce-x {
+  animation: bounce-x 1s infinite;
 }
-@keyframes add-navbar-padding {
+
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
   50% {
-    @apply p-4 lg:px-8;
-  }
-  100% {
-    @apply max-w-screen-xl p-4 lg:px-8 flex;
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
-@supports (not (animation-timeline: scroll()))  {
-  nav.navbar, #home-header > nav {
-    @apply backdrop-blur bg-orange-100/60 dark:bg-orange-950/50 border-gray-900/10 dark:border-gray-50/[0.06];
-  }
-  nav.navbar > div, #home-header > nav > div {
-    @apply p-4 lg:px-8 max-w-screen-xl;
-  }
-  #home-i-am {
-    display: none;
-  }
-}
 
-@supports (animation-timeline: scroll()) {
-  nav.navbar {
-    animation: add-navbar-backdrop linear both;
-    animation-timeline: scroll();
-    animation-range: 0 64px !important;
-  }
-  @media (prefers-color-scheme: dark) {
-    nav.navbar {
-      animation-name: add-navbar-backdrop-dark;
-    }
-  }
-  nav.navbar > div {
-    animation: add-navbar-padding linear both;
-    animation-timeline: scroll();
-    animation-range: 0 128px !important;
-  }
-}
 
-/* ===== VIEW-TIMELINE-IN-OUT */
-
-@supports (animation-timeline: view()) {
-  .animate-enter-exit {
-    animation: linear enter-exit;
-    animation-timeline: view();
-  }
-}
-
-@supports (animation-timeline: scroll()) {
-  #home-header {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    height: 100vh;
-  }
-  #home-header > nav {
-    position: fixed;
-    transform: translateY(calc(50vh - 50%));
-    animation: morph-navbar linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100vh !important;
-    width: 100%;
-    text-align: center;
-  }
-  @media (prefers-color-scheme: dark) {
-    #home-header > nav {
-      animation-name: morph-navbar-dark;
-    }
-  }
-  #home-header > nav > div {
-    display: inline-flex;
-    animation: add-navbar-padding linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100vh !important;
-  }
-  #home-header h1 > a {
-    @apply text-8xl mb-6;
-    animation: morph-home-link linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100vh !important;
-  }
-  @media (max-width: 640px) {
-    #home-header h1 > a {
-      @apply text-6xl;
-    }
-  }
-  #home-header #navbar-default {
-    width: 0;
-    min-width: 100%;
-    animation: morph-item-container linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100vh !important;
-  }
-  #home-header ul {
-    justify-content: space-around;
-    animation: morph-item-list linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100vh !important;
-  }
-  @media (min-width: 768px) {
-    #home-header ul a {
-      @apply text-xl text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 underline rounded-none underline-offset-8 hover:underline-offset-2 transition-all;
-      animation: morph-items linear both;
-      animation-timeline: scroll();
-      animation-range: 0 100vh !important;
-    }
-  }
-
-  #home-section-container {
-    view-timeline: --home-section-container;
-  }
-
-  #home-i-am {
-    animation: appear both;
-    animation-timeline: --home-section-container;
-  }
-  #home-i-am-name {
-    overflow: clip;
-  }
-  #home-i-am-name > span:not(:last-child) {
-    @apply text-transparent bg-gradient-to-r from-orange-900 to-rose-900 dark:from-orange-200 dark:to-rose-200 bg-clip-text;
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: scroll-in-out both;
-    animation-timeline: scroll();
-    width: 100%;
-    display: inline-block;
-  }
-  #home-i-am-name > span:nth-child(1) {
-    animation-range: 175vh 375vh !important;
-  }
-  #home-i-am-name > span:nth-child(2) {
-    animation-range: 375vh 575vh !important;
-  }
-  #home-i-am-name > span:nth-child(3) {
-    animation-range: 575vh 775vh !important;
-  }
-  #home-i-am-name > span:nth-child(4) {
-    animation-range: 775vh 975vh !important;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    #home-backdrop {
-      display: block;
-      inset: 0;
-      height: 100vh;
-      width: 100%;
-      position: fixed;
-      z-index: 0;
-      animation-name: darken-background;
-      animation-fill-mode: both;
-      animation-timeline: scroll();
-      animation-range: 200vh 1000vh !important;
-    }
-  }
-}
 /* ===== HOMEPAGE NAVBAR ANIMATIONS ===== */
-@keyframes morph-navbar {
-  75% {
-    background-color: transparent;
-  }
-  to {
-    @apply backdrop-blur bg-orange-100/60 border-gray-900/10 top-0 left-0;
-    width: calc(100% - 1.5rem);
-    transform: none;
-  }
-}
-@keyframes morph-navbar-dark {
-  75% {
-    background-color: transparent;
-  }
-  to {
-    @apply backdrop-blur bg-orange-950/50 border-gray-50/[0.06] top-0 left-0;
-    width: calc(100% - 1.5rem);
-    transform: none;
-  }
-}
-@keyframes morph-home-link {
-  to {
-    @apply text-2xl mb-0;
-  }
-}
-
-@keyframes morph-item-list {
-  to {
-    justify-content: start;
-  }
-}
-
-@keyframes morph-item-container {
-  to {
-    min-width: unset;
-    width: auto;
-  }
-}
-
-@keyframes morph-items {
-  50% {
-    @apply decoration-transparent;
-  }
-  100% {
-    @apply decoration-transparent text-base no-underline;
-  }
-}
 @keyframes scroll-in-out {
   0% {
     transform: translateY(100%);
