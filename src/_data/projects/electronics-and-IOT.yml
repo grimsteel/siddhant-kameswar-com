@@ -59,6 +59,7 @@
   - https://github.com/grimsteel/weather-dash
 - name: The Pixel Clock
   date: 2024-01
+  image: /assets/screenshots/pixel-clock.webp
   description: "A holiday-themed side project: A clock shaped PCB with numerous neopixels. Parts of the firmware are written in native 8086 assembly."
   links:
   - https://github.com/grimsteel/pixel-clock
