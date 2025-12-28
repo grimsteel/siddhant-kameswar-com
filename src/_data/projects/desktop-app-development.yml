@@ -146,7 +146,7 @@
   date: 2024-07
   description: >-
     org.freedesktop.secrets is the standard way (DBus API) to store encrypted "secrets" in Linux, like passwords or tokens.
-    This is a D-Bus service that implements org.freedesktop.secrets that uses pass (GPG encrypted secrets) as a backend.
+    This is a D-Bus service that implements org.freedesktop.secrets that uses pass (GPG encrypted secrets) as a backend. It's one of my most successful open-source projects with over 30 stars.
   tools:
   - D-Bus
   - pass
@@ -169,6 +169,7 @@
 - name: Solitaire ASM
   cat: command line
   date: 2025-01
+  image: /assets/screenshots/solitaire.webp
   description: "One of my craziest side projects: A LAN multiplayer solitaire TUI written entirely in <3kb of x86_64 assembly"
   langs:
   - asm
@@ -180,3 +181,28 @@
   - TCP Sockets
   skills:
   - Assembly optimization
+- name: MQTT Sentinel
+  cat: service
+  date: 2025-11
+  description: A lightweight tool to control Windows computers through MQTT. Supports login state and media session control.
+  links:
+  - https://github.com/grimsteel/sentinel
+  tools:
+  - Windows API
+  - MQTT
+  - Home Assistant
+  langs:
+  - rust
+- name: LC3 Compiler
+  cat: command line
+  date: 2025-12
+  description: "A full-featured compiler for a higher level language for the Little Computer 3. Includes a visualization for all three steps of the compilation process: lexing, parsing, and codegen."
+  langs:
+  - java
+  - asm
+  skills:
+  - parsing
+  - codegen
+  links:
+  - https://stuff.kameswar.com/ezcode-lc3
+  

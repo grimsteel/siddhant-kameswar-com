@@ -17,6 +17,7 @@
   description: Most of this website is generated automatically from data files describing my projects and skills. This makes it very easy to maintain and edit. The website is powered by 11ty, making it very fast with minimal client side JavaScript. It uses Tailwind CSS for styling and Liquid for the frontend templates.
 - name: Pollerr
   date: 2024-04
+  image: /assets/screenshots/pollerr.webp
   links:
   - https://pollerr.pages.dev
   langs:
@@ -217,9 +218,9 @@
   - Structuring large websites
   - Managing geospatial data
 - name: Send to Computer v2
-  cat: web
   date: 2024-07
   description: A rewrite of this simple messaging application in Rust and Typescript. I packaged it up into a Docker container for easy use.
+  image: /assets/screenshots/stc.webp
   langs:
   - html
   - css
@@ -235,3 +236,47 @@
   - databases
   - hosting
   - containerization
+- name: RRISD GPA Calculator
+  date: 2024-09
+  image: /assets/screenshots/gpa.webp
+  description: I created this easy-to-use GPA calculator for my school district with one of my friends, Ruhan Gupta. It has become the de facto tool used by RRISD students.
+  langs:
+  - html
+  - css
+  - js
+  - node
+  tools:
+  - Vue
+  links:
+  - https://github.com/IMGROOT2/gpa
+  - https://gpa.ruhangupta.com/
+- name: Club Hub
+  date: 2025-04
+  image: /assets/screenshots/club-hub.webp
+  description: A full-featured club management platform for schools which incorporates attendance, member discovery and more. Reduces the overhead of managing clubs and improves the club experience for everyone.
+  langs:
+  - html
+  - css
+  - ts
+  links:
+  - https://club-hub.org
+  - https://github.com/ww-club-hub/club-hub-web
+  tools:
+  - Firebase
+  - Vue
+  - Tailwind CSS
+- name: BudgetEd
+  date: 2025-06
+  description: An AI-powered tool to intelligently create, manage, and optimize school district budgets. I created this with one of my friends, Ruhan Gupta, in a weekend for the Live AI Lone Star hackathon. We won 2nd place as well as best demo.
+  image: /assets/screenshots/budgeted.webp
+  langs:
+  - html
+  - css
+  - js
+  links:
+  - https://github.com/imgroot2/budgeted
+  - https://budgeted.ruhangupta.com/
+  tools:
+  - Vue
+  - Google GenAI
+  - Google Cloud Functions

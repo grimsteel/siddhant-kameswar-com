@@ -16,5 +16,6 @@
   "rust": "Rust",
   "liquid": "Liquid",
   "asm": "Assembly",
-  "lisp": "Lisp"
+  "lisp": "Lisp",
+  "java": "Java"
 }

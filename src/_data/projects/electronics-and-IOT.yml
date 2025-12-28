@@ -94,3 +94,33 @@
   - ESP-NOW
   skills:
   - radiotap
+- name: Astra
+  date: 2025-07
+  image: /assets/screenshots/astra.webp
+  description: An open source, low cost, extensible brushed drone. We designed the flight controller PCB and ground station entirely from scratch, using an STM32.
+  links:
+  - https://github.com/thescientist101/astra
+  langs:
+  - cpp
+  - c
+  tools:
+  - KiCAD
+  - Onshape
+  - OpenSCAD
+  - Betaflight
+- name: RF Bridge CC1101
+  links:
+  - https://github.com/grimsteel/rf-bridge-cc1101
+  date: 2025-11
+  description: Low-level firmware for my Home Assistant RF Bridge for the CC1101. I wrote custom RMT code for the ESP32 to encode/decode the protocol used by the 315 MHz lights in my house. I used a Flipper Zero to decode the protocol and test my implementation on the ESP32.
+  tools:
+  - ESP-IDF
+  - Home Assistant
+  - MQTT
+  - Flipper Zero
+  image: /assets/screenshots/cc1101.webp
+  langs:
+  - c
+  skills:
+  - RF
+  - Protocol Decoding

@@ -85,3 +85,14 @@
   - https://securly-plus.kameswar.com/
   description: When my school switched to Securly Flex from Edficiency, I made this extension to improve the general Securly Flex user experience. It adds a dark theme to the website as well as numerous customization options.
   date: 2024-09
+- name: Auto-LaTeX Equations
+  date: 2025-07
+  langs:
+  - ts
+  - js
+  - html
+  links:
+  - https://www.autolatex.com/
+  - https://github.com/divide-by-0/autolatex
+  description: I became one of the core maintainers of this popular LaTeX add-on for Google Workspace. It has millions of users. The bug fixes, improvements, and new features I have added to Auto-LaTeX makes one of my most major contributions to the open source community.
+  

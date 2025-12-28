@@ -48,3 +48,34 @@
   skills:
   - containerization
   - acme
+- name: Proxmox NAS
+  date: 2025-07
+  description: I migrated all of my existing services and media to a new NAS and home server running Proxmox, with a Fedora Server VM. I set up a ZFS and a BRTFS RAID as well as PCI passthrough.
+  tools:
+  - Proxmox
+  - ZFS
+  - Fedora
+  skills:
+  - virtualization
+  - storage
+- name: Ollama
+  date: 2025-08
+  description: I set up Ollama and OpenWebUI with a GPU for fully-local LLM usage of llama and deepseek, within the Fedora VM. Although getting hardware acceleration and the GPU to be used was difficult, I was able to adjust the driver settings and PCI passthrough settings to get it to work.
+  tools:
+  - Ollama
+  - OpenWebUI
+  - Traefik
+  - llama
+  - deepseek
+  skills:
+  - virtualization
+  - containerization
+- name: Frigate
+  date: 2025-11
+  description: I set up Frigate, a local NVR with AI detection. I made sure to VLAN off all of the cameras to ensure that all footage stays local.
+  tools:
+  - Frigate
+  - pfSense
+  skills:
+  - vlans
+  - GPU wrangling
